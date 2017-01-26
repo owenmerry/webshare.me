@@ -1,0 +1,883 @@
+/* variables */
+/* mixins */
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px; }
+
+.col-xs-5ths {
+  width: 20%;
+  float: left; }
+
+@media (min-width: 768px) {
+  .col-sm-5ths {
+    width: 20%;
+    float: left; } }
+
+@media (min-width: 992px) {
+  .col-md-5ths {
+    width: 20%;
+    float: left; } }
+
+@media (min-width: 1200px) {
+  .col-lg-5ths {
+    width: 20%;
+    float: left; } }
+
+/*------------------------- STRUCTURE --------------------------------*/
+body {
+  font-family: 'Lato', sans-serif; }
+
+h1, h2, h3, .browse_page .categories_all .linkbox .desc .title h4, .browse_page .grid_all .linkbox .desc .title h4, .search_page .grid_all .linkbox .desc .title h4, .librarylinks_page .links_all .linkbox .desc .title h4, .librarycollections_page .collections_all .list .box .name, .librarycollections_page .links_all .linkbox .desc .title h4, .profilelist_page .grid_all .linkbox .desc .title h4, .profiledetails_page .tabholder .links_all .linkbox .desc .title h4, .profiledetails_page .tabholder .collections_all .list .box .name, .profiledetails_page .tabholder .following_all .linkbox .desc .title h4 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  color: black; }
+
+.animate_all, .browse_page .categories_all .linkbox .image .controls, .browse_page .categories_all .linkbox .image .content, .browse_page .grid_all .linkbox .image .overlay, .browse_page .grid_all .linkbox .image .controls, .browse_page .grid_all .linkbox .image .controlaction, .search_page .grid_all .linkbox .image .overlay, .search_page .grid_all .linkbox .image .controls, .search_page .grid_all .linkbox .image .controlaction, .librarylinks_page .links_all .linkbox .image .controls, .librarylinks_page .links_all .linkbox .image .controlaction, .librarycollections_page .links_all .linkbox .image .controls, .librarycollections_page .links_all .linkbox .image .controlaction, .profilelist_page .grid_all .linkbox .image .controlaction, .profiledetails_page .tabholder .links_all .linkbox .image .controls, .profiledetails_page .tabholder .links_all .linkbox .image .controlaction, .profiledetails_page .tabholder .following_all .linkbox .image .controlaction {
+  -webkit-transition: all .2s ease-out 0s;
+  transition: all .2s ease-out 0s; }
+
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0px; }
+  h1.light, h2.light, h3.light, h4.light, h5.light, h6.light, h7.light {
+    color: white; }
+
+h1, h2, h3 {
+  margin-bottom: 20px; }
+
+h1:after, h2:after {
+  content: ' ';
+  display: block;
+  margin: 30px auto;
+  border-bottom: 3px solid #e6e6e6;
+  width: 50px; }
+
+h1.light:after, h2.light:after {
+  border-color: white; }
+
+h2 {
+  font-size: 35px; }
+
+a, a:hover {
+  color: #167cc4; }
+
+.btn, .btn:hover {
+  border: 0px;
+  font-size: 12px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  background-color: #167cc4;
+  text-transform: uppercase;
+  font-weight: 600; }
+  @media (max-width: 768px) {
+    .btn, .btn:hover {
+      padding: 10px 20px; } }
+
+.btn-lg, .btn-lg:hover {
+  padding: 20px 40px;
+  font-size: 20px; }
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em; }
+
+::-webkit-scrollbar-thumb {
+  background: #162538; }
+
+::-webkit-scrollbar-track {
+  background: white; }
+
+body {
+  scrollbar-face-color: #162538;
+  scrollbar-track-color: white; }
+
+.nav_all .navbar {
+  margin: 0px;
+  background-color: white; }
+
+.nav_all .navbar-nav {
+  margin: 0px;
+  float: none; }
+  .nav_all .navbar-nav .dropdown-menu {
+    -webkit-transform: translateX(25%);
+    transform: translateX(25%); }
+
+.section {
+  background-color: white;
+  width: 100%;
+  min-height: 800px; }
+  .section .inner {
+    padding: 50px; }
+
+.wrap {
+  margin: 0px 10px; }
+
+.page {
+  width: 100%;
+  height: 100%; }
+
+.loading {
+  background-image: url(../../images/app/ring.gif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 50px; }
+
+/*------------------------- APP --------------------------------*/
+/* browse */
+.app_all {
+  width: 100%;
+  height: 100%; }
+  .app_all .leftcol_all {
+    color: white;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    background-color: #0f1926; }
+    .app_all .leftcol_all a, .app_all .leftcol_all a:link, .app_all .leftcol_all a:hover, .app_all .leftcol_all a:focus {
+      color: white; }
+    .app_all .leftcol_all .logo {
+      padding: 30px 15px; }
+    .app_all .leftcol_all .nav li a {
+      padding: 5px 30px; }
+      .app_all .leftcol_all .nav li a:hover, .app_all .leftcol_all .nav li a:focus {
+        background-color: #162538; }
+    .app_all .leftcol_all .nav li.active a {
+      border-left: solid 3px #167cc4;
+      background-color: #162538; }
+  .app_all .leftsubcol_all {
+    color: white;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    background-color: #1d314b;
+    z-index: 90; }
+    .app_all .leftsubcol_all a, .app_all .leftsubcol_all a:link, .app_all .leftsubcol_all a:hover {
+      color: white; }
+    .app_all .leftsubcol_all .nav li a {
+      padding: 5px 30px; }
+      .app_all .leftsubcol_all .nav li a:hover, .app_all .leftsubcol_all .nav li a:active, .app_all .leftsubcol_all .nav li a:focus {
+        background-color: #253d5d; }
+    .app_all .leftsubcol_all .nav li.active a {
+      border-left: solid 3px #167cc4;
+      background-color: #253d5d; }
+  .app_all .contentcol_all {
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    right: 250px;
+    height: 100%;
+    overflow: hidden;
+    background-color: white; }
+    .app_all .contentcol_all .contentcol_content {
+      height: 100%;
+      overflow-y: scroll; }
+  .app_all .rightcol_all {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 250px;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #eef3f8; }
+    .app_all .rightcol_all .login_all {
+      padding-top: 30px;
+      text-align: center; }
+    .app_all .rightcol_all .addlink_all {
+      padding: 10px; }
+
+/*------------------------- PAGES --------------------------------*/
+/* home */
+.portal_all {
+  position: relative;
+  background-color: #0f1926; }
+  .portal_all .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 20px; }
+
+.article_all {
+  position: relative; }
+  .article_all .content {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 500px;
+    padding: 20px; }
+    .article_all .content.right {
+      left: inherit;
+      right: 20px; }
+  .article_all.article_01 {
+    background-color: white; }
+  .article_all.article_02 {
+    background-color: #cad8ea; }
+  .article_all.article_03 {
+    background-color: white; }
+  .article_all.article_04 {
+    background-color: white; }
+  .article_all.article_05 {
+    background-color: white; }
+
+/* Browse */
+.browse_page .portal_all {
+  height: 600px;
+  background-color: #cad8ea;
+  background-image: url(../../images/headers/browse.jpg);
+  background-size: cover;
+  position: relative; }
+  .browse_page .portal_all .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #0f1926;
+    opacity: .8; }
+
+.browse_page .categories_all .title a {
+  color: black; }
+
+.browse_page .categories_all .title h3 {
+  margin-top: 40px; }
+
+.browse_page .categories_all .row {
+  margin-bottom: 15px; }
+
+.browse_page .categories_all .linkbox .image {
+  cursor: pointer;
+  background-color: #cad8ea;
+  height: 150px;
+  margin-bottom: 10px;
+  position: relative;
+  background-image: url(../../images/headers/browse.jpg);
+  background-size: cover; }
+  .browse_page .categories_all .linkbox .image .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #0f1926;
+    opacity: .9; }
+  .browse_page .categories_all .linkbox .image .controls {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    right: 3px;
+    color: white;
+    margin-left: 5px; }
+  .browse_page .categories_all .linkbox .image .content {
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 2px rgba(255, 255, 255, 0);
+    font-size: 16px;
+    color: white; }
+    .browse_page .categories_all .linkbox .image .content i {
+      font-size: 40px; }
+
+.browse_page .categories_all .linkbox .desc .title a {
+  color: black; }
+
+.browse_page .categories_all .linkbox .desc .title h4 {
+  font-size: 20px;
+  height: 45px;
+  margin-bottom: 10px; }
+
+.browse_page .categories_all .linkbox .desc .site a {
+  color: #167cc4; }
+
+.browse_page .categories_all .linkbox .desc .stats {
+  color: gray;
+  font-size: 11px;
+  font-style: italic; }
+  .browse_page .categories_all .linkbox .desc .stats span {
+    margin-right: 5px; }
+
+.browse_page .grid_all .title a {
+  color: black; }
+
+.browse_page .grid_all .title h3 {
+  margin-top: 40px; }
+
+.browse_page .grid_all .row {
+  margin-bottom: 15px; }
+
+.browse_page .grid_all .linkbox:hover .image .controls {
+  opacity: 1; }
+
+.browse_page .grid_all .linkbox:hover .image .controlaction {
+  opacity: 1; }
+
+.browse_page .grid_all .linkbox:hover .image .overlay {
+  opacity: .4; }
+
+.browse_page .grid_all .linkbox .image {
+  cursor: pointer;
+  background-color: #cad8ea;
+  height: 150px;
+  margin-bottom: 10px;
+  position: relative;
+  background-image: url(../../images/headers/browse.jpg);
+  background-size: cover; }
+  .browse_page .grid_all .linkbox .image .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #0f1926;
+    opacity: 0; }
+  .browse_page .grid_all .linkbox .image .controls {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    right: 3px; }
+    .browse_page .grid_all .linkbox .image .controls a {
+      color: white;
+      margin-left: 5px; }
+  .browse_page .grid_all .linkbox .image .controlaction {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 2px rgba(255, 255, 255, 0);
+    font-size: 16px; }
+    .browse_page .grid_all .linkbox .image .controlaction a {
+      color: white; }
+
+.browse_page .grid_all .linkbox .desc .title a {
+  color: black; }
+
+.browse_page .grid_all .linkbox .desc .title h4 {
+  font-size: 16px;
+  height: 45px;
+  margin-bottom: 10px; }
+
+.browse_page .grid_all .linkbox .desc .site a {
+  color: #167cc4; }
+
+.browse_page .grid_all .linkbox .desc .stats {
+  color: gray;
+  font-size: 11px;
+  font-style: italic; }
+  .browse_page .grid_all .linkbox .desc .stats span {
+    margin-right: 5px; }
+
+/* Search */
+.search_page .grid_all .title a {
+  color: black; }
+
+.search_page .grid_all .title h3 {
+  margin-top: 40px; }
+
+.search_page .grid_all .row {
+  margin-bottom: 15px; }
+
+.search_page .grid_all .linkbox:hover .image .controls {
+  opacity: 1; }
+
+.search_page .grid_all .linkbox:hover .image .controlaction {
+  opacity: 1; }
+
+.search_page .grid_all .linkbox:hover .image .overlay {
+  opacity: .4; }
+
+.search_page .grid_all .linkbox .image {
+  cursor: pointer;
+  background-color: #cad8ea;
+  height: 150px;
+  margin-bottom: 10px;
+  position: relative;
+  background-image: url(../../images/headers/browse.jpg);
+  background-size: cover; }
+  .search_page .grid_all .linkbox .image .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #0f1926;
+    opacity: 0; }
+  .search_page .grid_all .linkbox .image .controls {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    right: 3px; }
+    .search_page .grid_all .linkbox .image .controls a {
+      color: white;
+      margin-left: 5px; }
+  .search_page .grid_all .linkbox .image .controlaction {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 2px rgba(255, 255, 255, 0);
+    font-size: 16px; }
+    .search_page .grid_all .linkbox .image .controlaction a {
+      color: white; }
+
+.search_page .grid_all .linkbox .desc .title a {
+  color: black; }
+
+.search_page .grid_all .linkbox .desc .title h4 {
+  font-size: 16px;
+  height: 45px;
+  margin-bottom: 10px; }
+
+.search_page .grid_all .linkbox .desc .site a {
+  color: #167cc4; }
+
+.search_page .grid_all .linkbox .desc .stats {
+  color: gray;
+  font-size: 11px;
+  font-style: italic; }
+  .search_page .grid_all .linkbox .desc .stats span {
+    margin-right: 5px; }
+
+/* Library Links page */
+.librarylinks_page .links_all .title h3 {
+  margin-top: 40px;
+  color: black; }
+
+.librarylinks_page .links_all .row {
+  margin-bottom: 15px; }
+
+.librarylinks_page .links_all .linkbox:hover .image .controls {
+  opacity: 1; }
+
+.librarylinks_page .links_all .linkbox:hover .image .controlaction {
+  opacity: 1; }
+
+.librarylinks_page .links_all .linkbox .image {
+  cursor: pointer;
+  background-color: #cad8ea;
+  height: 150px;
+  margin-bottom: 10px;
+  position: relative;
+  background-image: url(../../images/headers/browse.jpg);
+  background-size: cover; }
+  .librarylinks_page .links_all .linkbox .image .controls {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    right: 3px; }
+    .librarylinks_page .links_all .linkbox .image .controls a {
+      color: white;
+      margin-left: 5px; }
+  .librarylinks_page .links_all .linkbox .image .controlaction {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 2px rgba(255, 255, 255, 0);
+    font-size: 16px; }
+    .librarylinks_page .links_all .linkbox .image .controlaction a {
+      color: white; }
+
+.librarylinks_page .links_all .linkbox .desc .title a {
+  color: black; }
+
+.librarylinks_page .links_all .linkbox .desc .title h4 {
+  font-size: 14px;
+  height: 45px;
+  margin-bottom: 10px; }
+
+.librarylinks_page .links_all .linkbox .desc .site a {
+  color: #167cc4; }
+
+.librarylinks_page .links_all .linkbox .desc .stats {
+  color: gray;
+  font-size: 11px;
+  font-style: italic; }
+  .librarylinks_page .links_all .linkbox .desc .stats span {
+    margin-right: 5px; }
+
+/* Library Links page */
+.librarycollections_page .collections_all .title a {
+  color: black; }
+
+.librarycollections_page .collections_all .title h3 {
+  margin-top: 40px; }
+
+.librarycollections_page .collections_all .list .box {
+  background-color: #cad8ea;
+  padding: 30px 0px;
+  text-align: center; }
+  .librarycollections_page .collections_all .list .box .name {
+    font-size: 13px;
+    line-height: 25px; }
+
+.librarycollections_page .links_all .title h3 {
+  margin-top: 40px;
+  color: black; }
+
+.librarycollections_page .links_all .row {
+  margin-bottom: 15px; }
+
+.librarycollections_page .links_all .linkbox:hover .image .controls {
+  opacity: 1; }
+
+.librarycollections_page .links_all .linkbox:hover .image .controlaction {
+  opacity: 1; }
+
+.librarycollections_page .links_all .linkbox .image {
+  cursor: pointer;
+  background-color: #cad8ea;
+  height: 150px;
+  margin-bottom: 10px;
+  position: relative;
+  background-image: url(../../images/headers/browse.jpg);
+  background-size: cover; }
+  .librarycollections_page .links_all .linkbox .image .controls {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    right: 3px; }
+    .librarycollections_page .links_all .linkbox .image .controls a {
+      color: white;
+      margin-left: 5px; }
+  .librarycollections_page .links_all .linkbox .image .controlaction {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 2px rgba(255, 255, 255, 0);
+    font-size: 16px; }
+    .librarycollections_page .links_all .linkbox .image .controlaction a {
+      color: white; }
+
+.librarycollections_page .links_all .linkbox .desc .title a {
+  color: black; }
+
+.librarycollections_page .links_all .linkbox .desc .title h4 {
+  font-size: 14px;
+  height: 45px;
+  margin-bottom: 10px; }
+
+.librarycollections_page .links_all .linkbox .desc .site a {
+  color: #167cc4; }
+
+.librarycollections_page .links_all .linkbox .desc .stats {
+  color: gray;
+  font-size: 11px;
+  font-style: italic; }
+  .librarycollections_page .links_all .linkbox .desc .stats span {
+    margin-right: 5px; }
+
+/* Profile List page */
+.profilelist_page .grid_all .title a {
+  color: black; }
+
+.profilelist_page .grid_all .title h3 {
+  margin-top: 40px; }
+
+.profilelist_page .grid_all .row {
+  margin-bottom: 15px; }
+
+.profilelist_page .grid_all .linkbox {
+  text-align: center; }
+  .profilelist_page .grid_all .linkbox:hover .image .controls {
+    opacity: 1; }
+  .profilelist_page .grid_all .linkbox:hover .image .controlaction {
+    opacity: 1; }
+  .profilelist_page .grid_all .linkbox .image {
+    cursor: pointer;
+    background-color: #cad8ea;
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    margin-bottom: 10px;
+    display: inline-block;
+    position: relative;
+    background-image: url(../../images/headers/browse.jpg);
+    background-size: cover; }
+    .profilelist_page .grid_all .linkbox .image .controlaction {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 50px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.1);
+      border: solid 2px rgba(255, 255, 255, 0);
+      font-size: 16px; }
+      .profilelist_page .grid_all .linkbox .image .controlaction a {
+        color: white; }
+  .profilelist_page .grid_all .linkbox .desc .title a {
+    color: black; }
+  .profilelist_page .grid_all .linkbox .desc .title h4 {
+    font-size: 20px;
+    margin-bottom: 10px; }
+  .profilelist_page .grid_all .linkbox .desc .site a {
+    color: #167cc4; }
+  .profilelist_page .grid_all .linkbox .desc .stats {
+    color: gray;
+    font-size: 11px;
+    font-style: italic; }
+    .profilelist_page .grid_all .linkbox .desc .stats span {
+      margin-right: 5px; }
+
+/* Profile Details pages */
+.profiledetails_page .portal_all {
+  text-align: center;
+  height: 600px;
+  background-color: #cad8ea; }
+  .profiledetails_page .portal_all .profileimage {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    background-color: white;
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+    background-image: url(../../images/headers/browse.jpg);
+    background-size: cover; }
+
+.profiledetails_page .tabholder {
+  min-height: 700px; }
+  .profiledetails_page .tabholder .links_all .title h3 {
+    margin-top: 40px;
+    color: black; }
+  .profiledetails_page .tabholder .links_all .row {
+    margin-bottom: 15px; }
+  .profiledetails_page .tabholder .links_all .linkbox:hover .image .controls {
+    opacity: 1; }
+  .profiledetails_page .tabholder .links_all .linkbox:hover .image .controlaction {
+    opacity: 1; }
+  .profiledetails_page .tabholder .links_all .linkbox .image {
+    cursor: pointer;
+    background-color: #cad8ea;
+    height: 150px;
+    margin-bottom: 10px;
+    position: relative;
+    background-image: url(../../images/headers/browse.jpg);
+    background-size: cover; }
+    .profiledetails_page .tabholder .links_all .linkbox .image .controls {
+      opacity: 0;
+      position: absolute;
+      top: 0px;
+      right: 3px; }
+      .profiledetails_page .tabholder .links_all .linkbox .image .controls a {
+        color: white;
+        margin-left: 5px; }
+    .profiledetails_page .tabholder .links_all .linkbox .image .controlaction {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 50px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.1);
+      border: solid 2px rgba(255, 255, 255, 0);
+      font-size: 16px; }
+      .profiledetails_page .tabholder .links_all .linkbox .image .controlaction a {
+        color: white; }
+  .profiledetails_page .tabholder .links_all .linkbox .desc .title a {
+    color: black; }
+  .profiledetails_page .tabholder .links_all .linkbox .desc .title h4 {
+    font-size: 14px;
+    height: 45px;
+    margin-bottom: 10px; }
+  .profiledetails_page .tabholder .links_all .linkbox .desc .site a {
+    color: #167cc4; }
+  .profiledetails_page .tabholder .links_all .linkbox .desc .stats {
+    color: gray;
+    font-size: 11px;
+    font-style: italic; }
+    .profiledetails_page .tabholder .links_all .linkbox .desc .stats span {
+      margin-right: 5px; }
+  .profiledetails_page .tabholder .collections_all .title a {
+    color: black; }
+  .profiledetails_page .tabholder .collections_all .title h3 {
+    margin-top: 40px; }
+  .profiledetails_page .tabholder .collections_all .list .box {
+    background-color: #cad8ea;
+    padding: 30px 0px;
+    text-align: center; }
+    .profiledetails_page .tabholder .collections_all .list .box .name {
+      font-size: 13px;
+      line-height: 25px; }
+  .profiledetails_page .tabholder .following_all .title a {
+    color: black; }
+  .profiledetails_page .tabholder .following_all .title h3 {
+    margin-top: 40px; }
+  .profiledetails_page .tabholder .following_all .row {
+    margin-bottom: 15px; }
+  .profiledetails_page .tabholder .following_all .linkbox {
+    text-align: center; }
+    .profiledetails_page .tabholder .following_all .linkbox:hover .image .controls {
+      opacity: 1; }
+    .profiledetails_page .tabholder .following_all .linkbox:hover .image .controlaction {
+      opacity: 1; }
+    .profiledetails_page .tabholder .following_all .linkbox .image {
+      cursor: pointer;
+      background-color: #cad8ea;
+      height: 150px;
+      width: 150px;
+      border-radius: 150px;
+      margin-bottom: 10px;
+      display: inline-block;
+      position: relative; }
+      .profiledetails_page .tabholder .following_all .linkbox .image .controlaction {
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: solid 2px rgba(255, 255, 255, 0);
+        font-size: 16px; }
+        .profiledetails_page .tabholder .following_all .linkbox .image .controlaction a {
+          color: white; }
+    .profiledetails_page .tabholder .following_all .linkbox .desc .title a {
+      color: black; }
+    .profiledetails_page .tabholder .following_all .linkbox .desc .title h4 {
+      font-size: 20px;
+      margin-bottom: 10px; }
+    .profiledetails_page .tabholder .following_all .linkbox .desc .site a {
+      color: #167cc4; }
+    .profiledetails_page .tabholder .following_all .linkbox .desc .stats {
+      color: gray;
+      font-size: 11px;
+      font-style: italic; }
+      .profiledetails_page .tabholder .following_all .linkbox .desc .stats span {
+        margin-right: 5px; }
+
+/* login */
+.login_page {
+  background-color: #f2f2f2;
+  position: relative; }
+  .login_page .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 30px;
+    background-color: white;
+    border-radius: 100px;
+    color: black; }
+  .login_page .login_all {
+    padding: 60px 60px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+    .login_page .login_all .content h2 {
+      text-align: center; }
+    .login_page .login_all .content .form-group {
+      margin-bottom: 30px; }
+
+/* signup */
+.signup_page {
+  background-color: #f2f2f2;
+  position: relative; }
+  .signup_page .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 30px;
+    background-color: white;
+    border-radius: 100px;
+    color: black; }
+  .signup_page .login_all {
+    padding: 60px 60px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+    .signup_page .login_all .content h2 {
+      text-align: center; }
+    .signup_page .login_all .content .form-group {
+      margin-bottom: 30px; }
+
+/*# sourceMappingURL=app.css.map */
