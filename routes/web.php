@@ -16,7 +16,7 @@
 ## Pages
 
 Route::get('/', function () {
-    return view('app.template');
+    return view('app.singleapp');
 });
 
 

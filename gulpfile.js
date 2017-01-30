@@ -20,9 +20,9 @@ elixir((mix) => {
     
         .styles([
         'frameworks/bootstrap/css/bootstrap.min.css',
-        'frameworks/bootswatch_paper/bootswatch_paper.min.css',
+        'frameworks/bootswatch_flat/bootswatch_flat.min.css',
         'frameworks/fontawesome/css/font-awesome.min.css',
-        './public/css/app.css'
+        './public/css/app.css' 
         
     ])
     
