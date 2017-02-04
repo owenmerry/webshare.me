@@ -46,7 +46,7 @@ body {
   color: black;
   background-color: #8f08fd; }
 
-.animate_all, .btn, .menu_all, .popupmenu_all .button, .addlink_all .form-control, .link_all .image {
+.animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .addlink_all .form-control, .link_all, .link_all .image, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s; }
 
@@ -142,22 +142,35 @@ body {
   background-image: radial-gradient(farthest-corner at -60% 10%, #00cca3 5%, #8f08fd 100%);
   position: relative; }
 
+.gradient_all {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  z-index: 4;
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), transparent);
+  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent); }
+
 .logo_all {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
-  width: 200px; }
+  width: 200px;
+  z-index: 5; }
 
 .menu_all {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   -webkit-transform: scale(1);
-  transform: scale(1); }
+  transform: scale(1);
+  z-index: 5; }
   .menu_all:hover {
     -webkit-transform: scale(1.2);
     transform: scale(1.2); }
   .menu_all .button {
+    cursor: pointer;
     position: relative;
     height: 60px;
     width: 60px;
@@ -171,12 +184,70 @@ body {
       -webkit-transform: translate(50%, -50%);
       transform: translate(50%, -50%); }
 
+.loginbtn_all {
+  position: fixed;
+  top: 20px;
+  right: 90px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  z-index: 5; }
+  .loginbtn_all:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+  .loginbtn_all .button {
+    cursor: pointer;
+    position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    font-size: 23px;
+    background-color: #b3b3b3; }
+    .loginbtn_all .button i {
+      color: white;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      -webkit-transform: translate(50%, -50%);
+      transform: translate(50%, -50%); }
+
+.menuaddlink_all {
+  position: fixed;
+  top: 20px;
+  color: white;
+  right: 160px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  z-index: 5; }
+  .menuaddlink_all:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+  .menuaddlink_all .button {
+    cursor: pointer;
+    position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    font-size: 23px;
+    background-color: #167cc4; }
+    .menuaddlink_all .button i {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      -webkit-transform: translate(50%, -50%);
+      transform: translate(50%, -50%); }
+
 .popupmenu_all {
   position: fixed;
   top: 0opx;
   width: 100%;
   z-index: 100;
   background-color: #167cc4; }
+  .popupmenu_all.ng-hide {
+    -webkit-animation: 0.8s slideOutUp ease;
+    animation: 0.8s slideOutUp ease; }
+  .popupmenu_all.ng-hide-remove {
+    -webkit-animation: 0.8s slideInDown ease;
+    animation: 0.8s slideInDown ease; }
   .popupmenu_all .button {
     cursor: pointer;
     text-align: center;
@@ -188,7 +259,50 @@ body {
     .popupmenu_all .button:hover {
       background-color: rgba(255, 255, 255, 0.2); }
 
-/*------------------------- TOOLS --------------------------------*/
+.login_all {
+  background-color: #167cc4;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10; }
+  .login_all.ng-hide {
+    -webkit-animation: 0.8s slideOutDown ease;
+    animation: 0.8s slideOutDown ease; }
+  .login_all.ng-hide-remove {
+    -webkit-animation: 0.8s slideInUp ease;
+    animation: 0.8s slideInUp ease; }
+  .login_all .step {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px; }
+    .login_all .step.ng-hide {
+      -webkit-animation: 0.8s slideOutLeft ease;
+      animation: 0.8s slideOutLeft ease; }
+    .login_all .step.ng-hide-remove {
+      -webkit-animation: 0.8s slideInRight ease;
+      animation: 0.8s slideInRight ease; }
+    .login_all .step h2 {
+      color: white;
+      font-weight: 300; }
+    .login_all .step .form-control {
+      padding: 40px 30px; }
+      .login_all .step .form-control:focus {
+        border-color: #00cca3;
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05); }
+    .login_all .step .textbox_holder {
+      margin-bottom: 20px; }
+    .login_all .step .center {
+      position: absolute;
+      width: 500px;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+
+/*------------------------- PAGES --------------------------------*/
 .addlink_all {
   position: absolute;
   width: 500px;
@@ -207,6 +321,9 @@ body {
     font-weight: 300; }
   .addlink_all .textbox_holder {
     margin-bottom: 20px; }
+  .addlink_all.ng-hide-remove {
+    -webkit-animation: 0.8s fadeIn ease;
+    animation: 0.8s fadeIn ease; }
 
 .link_page {
   padding-top: 150px; }
@@ -216,29 +333,60 @@ body {
     .link_page .title h2 {
       color: white;
       font-weight: 300; }
+  .link_page.ng-hide-remove {
+    -webkit-animation: 0.8s fadeIn ease;
+    animation: 0.8s fadeIn ease; }
 
 .link_all {
   border-radius: 4px;
   background-color: white;
   overflow: hidden;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  -webkit-transform: scale(1);
+  transform: scale(1); }
+  .link_all:hover {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02); }
   .link_all .image {
+    background-color: black;
     cursor: pointer;
     height: 210px;
-    background-image: url(https://onepagelove-wpengine.netdna-ssl.com/wp-content/uploads/2017/01/opl-small-22.jpg);
     background-size: cover;
     opacity: 1; }
-    .link_all .image:hover {
-      opacity: .8; }
   .link_all .text {
     padding: 12px 15px; }
   .link_all h2 {
     font-size: 18px;
     margin-bottom: 6px;
-    color: #333333; }
+    color: #333333;
+    height: 18px;
+    overflow: hidden; }
   .link_all h3 {
     font-size: 12px;
     margin-bottom: 0px;
-    color: #cccccc; }
+    color: #cccccc;
+    float: left; }
+    .link_all h3.views {
+      float: right; }
+
+.search_page .searchbox {
+  padding-top: 300px;
+  width: 500px;
+  margin: 0px auto; }
+  .search_page .searchbox .form-control {
+    padding: 40px 30px; }
+    .search_page .searchbox .form-control:focus {
+      border-color: #00cca3; }
+  .search_page .searchbox h2 {
+    color: white;
+    font-weight: 300; }
+  .search_page .searchbox .textbox_holder {
+    margin-bottom: 20px; }
+  .search_page .searchbox.top {
+    padding-top: 150px; }
+
+.search_page.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease; }
 
 /*# sourceMappingURL=app.css.map */

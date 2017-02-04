@@ -28,6 +28,7 @@ require('./frameworks/angular-route/angular-route.min.js');
 //my scripts
 require('./angular/controller.js'); 
 require('./angular/route.js'); 
+require('./myscript.js'); 
 
 
 

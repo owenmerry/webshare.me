@@ -22,6 +22,7 @@ elixir((mix) => {
         'frameworks/bootstrap/css/bootstrap.min.css',
         'frameworks/bootswatch_flat/bootswatch_flat.min.css',
         'frameworks/fontawesome/css/font-awesome.min.css',
+        'frameworks/animate.css/animate.css',
         './public/css/app.css' 
         
     ])
@@ -31,6 +32,7 @@ elixir((mix) => {
         
         'frameworks/angular/angular.min.js',
         'frameworks/angular-route/angular-route.min.js',
+        'frameworks/angular-animate/angular-animate.min.js',
         '../../../node_modules/moment/min/moment.min.js',
         '../../../node_modules/angular-moment/angular-moment.min.js', 
         'angular/controller.js',
