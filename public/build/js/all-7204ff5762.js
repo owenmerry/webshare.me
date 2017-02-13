@@ -942,6 +942,11 @@ app.controller('appController', function($scope, $http) {
             $scope.loading = false;
     });
     
+    $http.get("/api/collection/all").then(function (response) {
+            $scope.allcollections = response.data;
+            $scope.loading = false;
+    });
+    
     
     
     //menu functions
@@ -1001,6 +1006,10 @@ app.controller('appController', function($scope, $http) {
     $scope.loginbtnClick = function(){
         $scope.loginstep='email';
         $scope.loginshow=true;
+    }
+    $scope.loginbtnCloseClick = function(){
+        $scope.loginstep='email';
+        $scope.loginshow=false;
     }
     $scope.loginEmailClick = function(){
         $scope.loginstep='password';

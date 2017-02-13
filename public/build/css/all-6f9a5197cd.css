@@ -3409,7 +3409,7 @@ body {
   color: black;
   background-color: #8f08fd; }
 
-.animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .addlink_all .form-control, .link_all, .link_all .image, .search_page .searchbox, .search_page .searchbox .form-control {
+.animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .addlink_all .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s; }
 
@@ -3635,6 +3635,13 @@ body {
   .login_all.ng-hide-remove {
     -webkit-animation: 0.8s slideInUp ease;
     animation: 0.8s slideInUp ease; }
+  .login_all .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10; }
+    .login_all .close img {
+      width: 40px; }
   .login_all .step {
     width: 100%;
     height: 100%;
@@ -3731,6 +3738,50 @@ body {
     float: left; }
     .link_all h3.views {
       float: right; }
+
+.collection_all {
+  border-radius: 4px;
+  background-color: white;
+  overflow: hidden;
+  margin-bottom: 20px;
+  -webkit-transform: scale(1);
+  transform: scale(1); }
+  .collection_all:hover {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02); }
+  .collection_all .image {
+    background-color: black;
+    cursor: pointer;
+    height: 210px;
+    background-size: cover;
+    opacity: 1; }
+  .collection_all .text {
+    padding: 12px 15px; }
+  .collection_all h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: #333333;
+    height: 18px;
+    overflow: hidden; }
+  .collection_all h3 {
+    font-size: 12px;
+    margin-bottom: 0px;
+    color: #cccccc;
+    float: left; }
+    .collection_all h3.views {
+      float: right; }
+
+.collection_page {
+  padding-top: 150px; }
+  .collection_page .title {
+    text-align: center;
+    margin-bottom: 100px; }
+    .collection_page .title h2 {
+      color: white;
+      font-weight: 300; }
+  .collection_page.ng-hide-remove {
+    -webkit-animation: 0.8s fadeIn ease;
+    animation: 0.8s fadeIn ease; }
 
 .search_page .searchbox {
   padding-top: 300px;

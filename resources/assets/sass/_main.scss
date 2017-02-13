@@ -210,6 +210,7 @@ min-height:800px;
     &.ng-hide         { animation:0.8s slideOutDown ease; }
     &.ng-hide-remove  { animation:0.8s slideInUp ease; }
     
+    .close{position: absolute;top:20px;right:20px;z-index:10;img{width:40px;}}
     .step{
         width:100%;height:100%;position: absolute;top:0px;
         &.ng-hide         { animation:0.8s slideOutLeft ease; }
@@ -278,6 +279,34 @@ min-height:800px;
     
 }
 
+
+.collection_all{
+    @extend .animate_all;
+    border-radius:4px;
+    background-color:white;
+    overflow:hidden;
+    margin-bottom:20px;
+    transform:scale(1);
+    &:hover{transform:scale(1.02);}
+    //box-shadow: 0px 0px 6px rgba(black,.8);
+    .image{
+        @extend .animate_all;
+        background-color:black;
+        cursor:pointer;height:210px;background-size: cover;opacity:1;
+        //&:hover{opacity:.9;}
+    }
+    .text{padding:12px 15px;}
+    h2{font-size:18px;margin-bottom:6px;color:lighten(black,20%);height:18px;overflow:hidden;}
+    h3{font-size:12px;margin-bottom:0px;color:darken(white,20%);float:left;&.views{float:right;}} 
+    
+}
+
+
+.collection_page{
+    padding-top:150px;
+    .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
+    &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+}
 
 
 .search_page{

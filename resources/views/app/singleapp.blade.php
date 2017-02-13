@@ -28,12 +28,6 @@
         </div>
     </div>
     
-    <div class="menuaddlink_all" ng-click="menulinkaddClick()">
-        <div class="button">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-        </div>
-    </div>
-    
     
     <div class="popupmenu_all" ng-show="popupmenu">
         <div class="container-fluid">
@@ -57,6 +51,8 @@
     
     
     <div class="login_all" ng-show="loginshow==true">
+        
+        <div class="close" ng-click="loginbtnCloseClick()"><img src="/images/icons/close.svg" /></div>
         
         <div class="step" ng-show="loginstep=='email'">
             <div class="center">
@@ -130,6 +126,37 @@
                 <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
                 <h3>@{{link.site.name | strLimit: 20}}</h3>
                 <h3 class="views">@{{link.visits}} views</h3>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+                </div>
+
+
+
+            </div>
+        </div>
+   
+        
+    </div>
+    
+    
+        
+    
+    <div class="collection_page"  ng-show="pageactive=='collections'">
+    
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="title"><h2>Collections</h2></div>
+                
+                
+
+                <div class="col-md-4" ng-repeat="collection in allcollections.collections">
+            <div class="collection_all">
+                <div class="image" ></div>
+                <div class="text">
+                <h2 >@{{collection.name | strLimit: 37}}</h2>
                     <div class="clearfix"></div>
                 </div>
             </div>
