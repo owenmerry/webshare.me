@@ -3407,9 +3407,9 @@ html {
 body {
   height: 100%;
   color: black;
-  background-color: #8f08fd; }
+  background-color: #167cc4; }
 
-.animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .addlink_all .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .search_page .searchbox, .search_page .searchbox .form-control {
+.animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .addlink_all .form-control.textbox, .link_all, .link_all .image, .collection_all, .collection_all .image, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s; }
 
@@ -3501,8 +3501,6 @@ body {
 .app_all {
   width: 100%;
   height: 100%;
-  background-image: -webkit-radial-gradient(-60% 10% farthest-corner, #00cca3 5%, #8f08fd 100%);
-  background-image: radial-gradient(farthest-corner at -60% 10%, #00cca3 5%, #8f08fd 100%);
   position: relative; }
 
 .gradient_all {
@@ -3514,6 +3512,16 @@ body {
   z-index: 4;
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), transparent);
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent); }
+
+.topbanner_all {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 320px;
+  z-index: 0;
+  background-image: -webkit-radial-gradient(-60% 10% farthest-corner, #00cca3 5%, #8f08fd 100%);
+  background-image: radial-gradient(farthest-corner at -60% 10%, #00cca3 5%, #8f08fd 100%); }
 
 .logo_all {
   position: fixed;
@@ -3680,9 +3688,9 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
-  .addlink_all .form-control {
+  .addlink_all .form-control.textbox {
     padding: 40px 30px; }
-    .addlink_all .form-control:focus {
+    .addlink_all .form-control.textbox:focus {
       border-color: #00cca3;
       -webkit-transform: scale(1.05);
       transform: scale(1.05); }

@@ -27,7 +27,7 @@ $col-lg:1930px;
 
 //main
 html{height:100%;}
-body{height:100%;color:black;@extend %font;background-color:#8f08fd;}
+body{height:100%;color:black;@extend %font;background-color:$color-primary;}
 
 //animate
 .animate_all{
@@ -116,7 +116,6 @@ min-height:800px;
 .app_all{
     width:100%;
     height:100%;
-   background-image: radial-gradient(farthest-corner at -60% 10%,#00cca3 5%,#8f08fd 100%);
     position: relative;
    
 }
@@ -129,6 +128,16 @@ min-height:800px;
     height:100px;
     z-index:4;
     background: linear-gradient(rgba(black,.4), rgba(black,0));
+}
+
+.topbanner_all{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:320px;
+    z-index:0;
+     background-image: radial-gradient(farthest-corner at -60% 10%,#00cca3 5%,#8f08fd 100%);
 }
 
 .logo_all{
@@ -242,7 +251,7 @@ min-height:800px;
     position: absolute;
     width:500px;
     top:50%;left:50%;transform: translate(-50%,-50%);
-    .form-control{@extend .animate_all;padding: 40px 30px;&:focus{border-color: #00cca3;transform:scale(1.05);}}
+    .form-control{&.textbox{@extend .animate_all;padding: 40px 30px;&:focus{border-color: #00cca3;transform:scale(1.05);}}}
     h2{color:white;font-weight:300;}
     .textbox_holder{margin-bottom:20px;}
     .buttons{}

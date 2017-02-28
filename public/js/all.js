@@ -934,6 +934,7 @@ app.controller('appController', function($scope, $http) {
     $scope.searching = false;
     $scope.loginshow=false;
     $scope.loginstep='email';
+    $scope.addlinkcollection=false;
     
     
     //startup
@@ -945,6 +946,11 @@ app.controller('appController', function($scope, $http) {
     $http.get("/api/collection/all").then(function (response) {
             $scope.allcollections = response.data;
             $scope.loading = false;
+    });
+    $http.get("/api/user/loggedin").then(function (response) {
+            $scope.loggedin = response.data.loggedin;
+            $scope.loading = false;
+            $scope.start = true;
     });
     
     
@@ -963,6 +969,29 @@ app.controller('appController', function($scope, $http) {
         $scope.popupmenu = false; 
         $scope.pageactive = "addlink";
     }
+    //collection page functions
+    //default
+    $scope.collectionmode="collection";
+    
+    $scope.getcollectionlinks = function(varcollectionid){
+            $scope.collectionid = varcollectionid;
+            
+            $scope.collectionmode="link";
+        
+            $http.get("/api/link/collection/"+ varcollectionid ).then(function (response) {
+            $scope.allcollectionlinks = response.data;
+            $scope.loading = false;
+            
+            });
+        
+    };
+    $scope.collectionback = function(){
+        
+        $scope.collectionmode="collection";
+        
+        
+    };
+    
     
     //links page functions
     $scope.openlink = function(linkid,linkurl){
@@ -987,6 +1016,13 @@ app.controller('appController', function($scope, $http) {
         });  
         
     };
+    $scope.addlinkcollectionshow = function(){
+        $scope.addlinkcollection=true;
+    };
+    $scope.addlinkcollectionhide = function(){
+        $scope.addlinkcollection=false;
+    };
+    
     
     //search functions
     $scope.searchlinks = function(){

@@ -13,7 +13,8 @@
     <div class="logo"><img src="/images/app/webshare-logo.svg" /></div>
     </div>
     
-    <div class="gradient_all"></div>
+   
+   
     
     
      <div class="menu_all" ng-click="menuClick()">
@@ -22,11 +23,18 @@
         </div>
     </div>
     
-    <div class="loginbtn_all" ng-click="loginbtnClick()">
+    <div class="loginbtn_all" ng-show="!loggedin" ng-click="loginbtnClick()">
         <div class="button">
             <i class="fa fa-user" aria-hidden="true"></i>
         </div>
     </div>
+    
+    <div class="loginbtn_all" ng-show="loggedin" ng-click="loginbtnClick()">
+        <div class="button">
+           O
+        </div>
+    </div>
+    
     
     
     <div class="popupmenu_all" ng-show="popupmenu">
@@ -95,9 +103,16 @@
         <div class="textbox_holder">
             <input type="text" class="form-control textbox" ng-model="website" placeholder="Paste website link here" />
         </div>
+        <div class="collections" ng-show="addlinkcollection">
+            <select class="form-control">
+                <option value="">Select Collection</option>
+                <option  ng-repeat="collection in allcollections.collections" value="@{{collection.id}}">@{{collection.name | strLimit: 37}}</option>
+            </select>
+        </div> 
         <div class="buttons">
             <a class="btn btn-primary" ng-click="addlink()">Add Link</a>
-            <a class="btn btn-primary">Add to Collection</a>
+            <a class="btn btn-primary" ng-show="!addlinkcollection" ng-click="addlinkcollectionshow()">Add to Collection</a>
+            <a class="btn btn-primary" ng-show="addlinkcollection" ng-click="addlinkcollectionhide()">Hide Collections</a>
         </div>
         
     </div>
@@ -151,15 +166,30 @@
                 <div class="title"><h2>Collections</h2></div>
                 
                 
-
-                <div class="col-md-4" ng-repeat="collection in allcollections.collections">
-            <div class="collection_all">
+                
+            <div class="col-md-4" ng-show="collectionmode=='collection'" ng-repeat="collection in allcollections.collections">
+            <div class="collection_all" ng-click="getcollectionlinks(collection.id)">
                 <div class="image" ></div>
                 <div class="text">
                 <h2 >@{{collection.name | strLimit: 37}}</h2>
                     <div class="clearfix"></div>
                 </div>
             </div>
+                </div>
+               
+             <div ng-show="collectionmode=='link'"> 
+                 <div class="back" ng-click="collectionback()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></div>
+                <div class="col-md-4"  ng-repeat="link in allcollectionlinks.links">
+            <div class="link_all">
+               <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});"></div>
+                <div class="text">
+                <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
+                <h3>@{{link.site.name | strLimit: 20}}</h3>
+                <h3 class="views">@{{link.visits}} views</h3>
+                    <div class="clearfix"></div>
+                </div>
+            </div>        
+                </div>
                 </div>
 
 
