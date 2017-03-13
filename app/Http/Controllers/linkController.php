@@ -114,6 +114,89 @@ class linkController extends Controller
     
     
     
+    //Create link for many
+    public function createmany(Request $request)
+    {
+        
+        ini_set('max_execution_time', 900);
+        
+        
+        // seperate list
+        $linklist_data  = $request['website'];
+        $linklist_ary = explode(",", $linklist_data);
+        
+        
+        
+        //get users account        
+        $this->vars['users'] = User::where("id",1)->first(); 
+        
+        
+        //run through list
+        foreach ($linklist_ary as &$linklist_url) {   
+      
+        
+        //variables
+        $url=$linklist_url;
+        $user_id=Auth::user()->id;
+        $title="";
+        $description="";
+        $image="";
+        
+        
+        //get website data
+        $getwebdata = Website::getWebsiteData($url); 
+        
+        //set variables
+        $title=substr($getwebdata['title'], 0, 250);
+        $description=substr($getwebdata['description'], 0, 250);
+        $image=$getwebdata['image'];
+        $domain=$getwebdata['domain'];
+            
+        //add site
+        $site = Site::firstOrCreate(array('name' => $domain));
+        
+        //add link
+        $input = 
+        [
+            'url' => $url,
+            'site_id' => $site->id,
+            'user_id' => $user_id,
+            'title' => $title,
+            'description' => $description,
+            'image' => $image,
+        ];
+        
+        //create
+        $link_create = Link::firstOrCreate($input); 
+        $link_info='Link added';
+        
+        
+        //add to collection
+        if($request['collection_id']){
+        $collection = Collection::find($request['collection_id']);
+        $collection->link()->attach($link_create->id);
+        }
+            
+            
+            
+        };
+
+        
+     
+            
+            
+        
+        
+        return "added";
+                
+        
+    }
+    
+    
+    
+    
+    
+    
     
     
     

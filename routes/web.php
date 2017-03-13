@@ -16,7 +16,7 @@
 ## Pages
 
 Route::get('/', function () {
-    return view('app.singleapp');
+    return view('app.template2');
 });
 
 
@@ -39,13 +39,30 @@ Route::get('/signup', function () {
 
 
 ## angular views 
-Route::get('/browse', function () {
-    return view('search.browse');
+Route::get('/home', function () {
+    return view('search.home');
 });
 
 Route::get('/search', function () {
     return view('search.search');
 });
+
+Route::get('/link/all', function () {
+    return view('link.all');
+});
+
+Route::get('/collection/all', function () {
+    return view('collection.all');
+});
+
+Route::get('/collection/single', function () {
+    return view('collection.single');
+});
+
+
+
+
+
 
 Route::get('/user', function () {
     return view('user.profile'); 
@@ -69,10 +86,13 @@ Route::get('/library/collections', function () {
 
 
 
+
+
 ## api calls
 //link
 Route::get('/api/link/add', ['as' => 'api.link.addlink', 'uses' => 'linkController@create']);
 Route::post('/api/link/add', ['as' => 'api.link.add', 'uses' => 'linkController@create']);
+Route::post('/api/link/addmany', ['as' => 'api.link.addmany', 'uses' => 'linkController@createmany']);
 Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
 Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection', 'uses' => 'linkController@collection']); 
 Route::get('/api/link/visit/{link_id}', ['as' => 'api.link.visit', 'uses' => 'linkController@visit']); 

@@ -16,6 +16,20 @@ class userController extends Controller
     
     
     
+    //test
+    public function test(Request $request)
+    {
+        
+              
+        $website_domain = parse_url("http://www.ign.com", PHP_URL_HOST);
+        preg_replace('/^www./', '', $website_domain);      
+   
+        return "this->". $website_domain;
+    
+    }   
+    
+    
+    
     //Login
     public function login(Request $request)
     {

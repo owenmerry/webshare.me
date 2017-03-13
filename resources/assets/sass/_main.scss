@@ -156,7 +156,7 @@ min-height:800px;
     right:20px;
     transform:scale(1);
     z-index:5;
-    &:hover{transform:scale(1.2);}
+    //&:hover{transform:scale(1.2);}
     .button{
         cursor:pointer;position:relative;height:60px;width:60px;border-radius:50%;font-size:23px;background-color:white;
         i{position:absolute;top:50%;right:50%;transform: translate(50%,-50%);}

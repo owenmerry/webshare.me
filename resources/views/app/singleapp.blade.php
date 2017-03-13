@@ -66,7 +66,7 @@
             <div class="center">
             <h2>Enter Your Email</h2>
             <div class="textbox_holder">
-                <input type="text" class="form-control textbox" ng-model="email" placeholder="Email" />
+                <input type="text" class="form-control textbox email-input" ng-model="email" placeholder="Email" />
             </div>
             <div class="buttons">
                 <a class="btn btn-primary" ng-click="loginEmailClick()">Next</a>
@@ -93,11 +93,38 @@
     
     
     
-  <!-- Pages - start -->  
+  <!-- Pages - start -->      
     
     <div class="add_page">
     
     <div class="addlink_all" ng-show="pageactive=='addlink'">
+        <h2>Add Website</h2>
+    
+        <div class="textbox_holder">
+            <input type="text" class="form-control textbox" ng-model="website" placeholder="Paste website link here" />
+        </div>
+        <div class="collections" ng-show="addlinkcollection">
+            <select class="form-control">
+                <option value="">Select Collection</option>
+                <option  ng-repeat="collection in allcollections.collections" value="@{{collection.id}}">@{{collection.name | strLimit: 37}}</option>
+            </select>
+        </div> 
+        <div class="buttons">
+            <a class="btn btn-primary" ng-click="addlink()">Add Link</a>
+            <a class="btn btn-primary" ng-show="!addlinkcollection" ng-click="addlinkcollectionshow()">Add to Collection</a>
+            <a class="btn btn-primary" ng-show="addlinkcollection" ng-click="addlinkcollectionhide()">Hide Collections</a>
+        </div>
+        
+    </div>
+        
+    </div>
+    
+    
+    
+    
+    <div class="addone_page">
+    
+    <div class="addlink_all" ng-show="pageactive=='addlinkone'">
         <h2>Add Website</h2>
     
         <div class="textbox_holder">
@@ -203,32 +230,7 @@
     
     
     
-    
-    <div class="search_page" ng-show="pageactive=='search'">
 
-        <div class="searchbox" ng-class="{'top':searching==true}" >
-            <h2>Search</h2>
-        
-            <div class="textbox_holder">
-                <input type="text" class="form-control textbox" ng-model="search" ng-change="searchlinks()" placeholder="Search Link, Collections or Profiles" />
-            </div>
-        </div>
-        
-        <div class="container" ng-show="searching">
-        <div class="col-md-4" ng-repeat="link in searchlink.links">
-            <div class="link_all">
-                <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});"></div>
-                <div class="text">
-                <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
-                <h3>@{{link.site.name | strLimit: 20}}</h3>
-                <h3 class="views">@{{link.visits}} views</h3>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-                </div>
-        </div>
-        
-    </div>
     
     
     

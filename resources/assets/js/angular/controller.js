@@ -83,25 +83,7 @@ app.controller('appController', function($scope, $http) {
             });
         });
     };
-    $scope.addlink = function(){
-        
-        $scope.loading = true;
-        
-        $http.post("/api/link/add",{website:$scope.website}).then(function (response) {
-            $scope.link = response.data;
-            $scope.website="";
-            $scope.preview = "";
-            $scope.previewlink = true;
-            $scope.loading = false;
-        });  
-        
-    };
-    $scope.addlinkcollectionshow = function(){
-        $scope.addlinkcollection=true;
-    };
-    $scope.addlinkcollectionhide = function(){
-        $scope.addlinkcollection=false;
-    };
+   
     
     
     //search functions
@@ -120,8 +102,11 @@ app.controller('appController', function($scope, $http) {
     
     //login functions
     $scope.loginbtnClick = function(){
-        $scope.loginstep='email';
-        $scope.loginshow=true;
+            $scope.loginstep='email';
+            $scope.loginshow=true;
+            // $scope.email.focus();
+            //$('.email-input').focus();
+            //alert("focus");
     }
     $scope.loginbtnCloseClick = function(){
         $scope.loginstep='email';
@@ -151,6 +136,153 @@ app.controller('appController', function($scope, $http) {
     };
     
 });
+
+
+
+
+
+// home page
+app.controller('homeController', function($scope, $http) {
+
+    //variables    
+    $scope.addlinkcollection=false;
+    
+    //get data
+    $http.get("/api/collection/all").then(function (response) {
+        $scope.allcollections = response.data;
+        $scope.loading = false;
+    }); 
+
+    //functions
+ $scope.addlink = function(){
+        
+        $scope.loading = true;
+        
+        $http.post("/api/link/addmany",{website:$scope.website,collection_id:$scope.collectionid}).then(function (response) {
+            $scope.link = response.data;
+            $scope.website="";
+            $scope.preview = "";
+            $scope.previewlink = true; 
+            $scope.loading = false;
+        });
+        
+        
+       /* $http.post("/api/link/add",{website:$scope.website}).then(function (response) {
+            $scope.link = response.data;
+            $scope.website="";
+            $scope.preview = "";
+            $scope.previewlink = true;
+            $scope.loading = false;
+        }); */ 
+        
+    };
+    $scope.addlinkcollectionshow = function(){
+        $scope.addlinkcollection=true;
+    };
+    $scope.addlinkcollectionhide = function(){ 
+        $scope.addlinkcollection=false;
+    };   
+    
+    
+    
+});
+
+
+
+
+// Link All page
+app.controller('linkallController', function($scope, $http) {
+    
+
+    $http.get("/api/link/all").then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+    });    
+    
+    
+    
+});
+
+// Collection All page
+app.controller('collectionallController', function($scope, $http) {
+    
+    //variables
+    $scope.collectionmode="collection";
+    
+    //get data
+    $http.get("/api/collection/all").then(function (response) {
+            $scope.allcollections = response.data;
+            $scope.loading = false;
+    });
+    
+    //functions
+    $scope.getcollectionlinks = function(varcollectionid){
+            $scope.collectionid = varcollectionid;
+            
+            $scope.collectionmode="link";
+        
+            $http.get("/api/link/collection/"+ varcollectionid ).then(function (response) {
+            $scope.allcollectionlinks = response.data;
+            $scope.loading = false;
+            
+            });
+        
+    };
+    $scope.collectionback = function(){
+        
+        $scope.collectionmode="collection";
+        
+        
+    };   
+    
+    
+    
+});
+
+
+// Collection Single page
+app.controller('collectionsingleController', function($scope, $http, $routeParams) {
+    
+    //variables
+    $collectionid = $routeParams.ID;
+    $scope.myid = $routeParams.ID; 
+    
+    //get data
+    $http.get("/api/link/collection/"+ $collectionid ).then(function (response) {
+            $scope.allcollectionlinks = response.data;
+            $scope.loading = false;
+            
+    });    
+    
+    
+    
+});
+
+
+
+// search page
+app.controller('searchController', function($scope, $http) {
+    
+
+    $scope.searchlinks = function(){
+            if(!$scope.search==""){
+                $scope.searching=true;
+            $http.post("/api/link/search",{search:$scope.search}).then(function (response) {
+                $scope.searchlink = response.data;
+                $scope.loading = false;
+            });
+            }else{
+                $scope.searching=false;   
+            };
+        };    
+    
+    
+    
+});
+
+
+
+
 
 
 

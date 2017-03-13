@@ -4,6 +4,7 @@
         "C:/xampp/htdocs/laravel/webshare/gulpfile.js",
         "C:/xampp/htdocs/laravel/webshare/resources/assets/js/app.js",
         "C:/xampp/htdocs/laravel/webshare/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js/respond.min.js",
-        "C:/xampp/htdocs/laravel/webshare/resources/assets/js/angular/controller.js"
+        "C:/xampp/htdocs/laravel/webshare/resources/assets/js/angular/controller.js",
+        "C:/xampp/htdocs/laravel/webshare/vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/js/nv.d3.min.js"
     ]
 }

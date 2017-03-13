@@ -23,7 +23,9 @@
 //angular
 require('./frameworks/angular/angular.min.js'); 
 require('./frameworks/angular-route/angular-route.min.js'); 
- 
+
+//jquery
+require('./frameworks/jquery/jquery-3.1.1.min.js'); 
 
 //my scripts
 require('./angular/controller.js'); 

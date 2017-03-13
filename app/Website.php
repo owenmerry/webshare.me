@@ -44,7 +44,7 @@ $images='';
     
 // get website 
 $website_domain = parse_url($url, PHP_URL_HOST);
-preg_replace('/^www./', '', $website_domain);    
+preg_replace('/^www./', '', $website_domain);      
     
     
 // get title 

@@ -29,7 +29,7 @@ elixir((mix) => {
     
     
         .scripts([
-        
+        'frameworks/jquery/jquery-3.1.1.min.js',
         'frameworks/angular/angular.min.js',
         'frameworks/angular-route/angular-route.min.js',
         'frameworks/angular-animate/angular-animate.min.js',

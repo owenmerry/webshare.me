@@ -10,16 +10,28 @@
 
             // route for the home page
             .when('/', {
-                templateUrl : 'browse',
-                controller  : 'browseController'
+                templateUrl : 'home',
+                controller  : 'homeController'
             })
-            .when('/browse', {
-                templateUrl : 'browse',
-                controller  : 'browseController'
+            .when('/home', {
+                templateUrl : 'home',
+                controller  : 'homeController'
             })
             .when('/search', {
                 templateUrl : 'search',
                 controller  : 'searchController'
+            })
+            .when('/link/all', {
+                templateUrl : 'link/all',
+                controller  : 'linkallController'
+            })
+            .when('/collection/all', {
+                templateUrl : 'collection/all',
+                controller  : 'collectionallController'
+            })
+            .when('/collection/single/:ID', {
+                templateUrl : 'collection/single',
+                controller  : 'collectionsingleController'
             })
             .when('/library/links', {
                 templateUrl : 'library/links',
@@ -41,6 +53,11 @@
                 templateUrl : 'user',
                 controller  : 'userController'
             })
+        
+        
+        
+                
+        
         
     });
     
