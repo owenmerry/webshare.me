@@ -13,7 +13,7 @@
                 
                
              <div> 
-                 <div><a class="back" href="#collection/all">Back</a></div>
+                 <div class="controls"><a class="back" href="#collection/all">Back</a></div>
                 <div class="col-md-4"  ng-repeat="link in allcollectionlinks.links">
             <div class="link_all">
                <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});"></div>

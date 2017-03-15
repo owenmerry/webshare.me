@@ -154,9 +154,23 @@ min-height:800px;
     position:fixed;
     top:20px;
     right:20px;
+    //width:50%;
     transform:scale(1);
     z-index:5;
     //&:hover{transform:scale(1.2);}
+    li{
+        a{
+            color:white;
+            @extend %font-bold;
+            &.background{
+                background-color:white;color:$color-primary;
+                &:hover,&:active,&:focus{background-color:white;}
+            }
+            &:hover,&:active,&:focus{background-color:transparent;}
+        }
+    }
+    
+    
     .button{
         cursor:pointer;position:relative;height:60px;width:60px;border-radius:50%;font-size:23px;background-color:white;
         i{position:absolute;top:50%;right:50%;transform: translate(50%,-50%);}
@@ -313,6 +327,7 @@ min-height:800px;
 
 .collection_page{
     padding-top:150px;
+    .controls{a{color:white;}margin-bottom:20px;}
     .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
     &.ng-hide-remove  { animation:0.8s fadeIn ease; }
 }

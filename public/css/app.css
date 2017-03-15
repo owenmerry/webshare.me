@@ -34,7 +34,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-weight: 100; }
 
-h1, h2, h3 {
+h1, h2, h3, .menu_all li a {
   font-family: 'Lato', sans-serif;
   font-weight: 700; }
 
@@ -174,6 +174,15 @@ body {
   -webkit-transform: scale(1);
   transform: scale(1);
   z-index: 5; }
+  .menu_all li a {
+    color: white; }
+    .menu_all li a.background {
+      background-color: white;
+      color: #167cc4; }
+      .menu_all li a.background:hover, .menu_all li a.background:active, .menu_all li a.background:focus {
+        background-color: white; }
+    .menu_all li a:hover, .menu_all li a:active, .menu_all li a:focus {
+      background-color: transparent; }
   .menu_all .button {
     cursor: pointer;
     position: relative;
@@ -415,6 +424,10 @@ body {
 
 .collection_page {
   padding-top: 150px; }
+  .collection_page .controls {
+    margin-bottom: 20px; }
+    .collection_page .controls a {
+      color: white; }
   .collection_page .title {
     text-align: center;
     margin-bottom: 100px; }

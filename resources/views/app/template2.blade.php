@@ -17,31 +17,22 @@
    
     
     
-    <div class="loginbtn_all" ng-show="!loggedin" ng-click="loginbtnClick()">
-        <div class="button">
-            <i class="fa fa-user" aria-hidden="true"></i>
-        </div>
-    </div>
-    
-    <div class="loginbtn_all" ng-show="loggedin">
-        <div class="button">
-           O
-        </div>
-    </div>    
+   
     
      <div class="menu_all">
-        <div class="button">
-            <a href="#home">Home</a>
-        </div>
-         <div class="button">
-             <a href="#link/all">Link</a>
-        </div>
-        <div class="button">
-            <a href="#collection/all">Collections</a>
-        </div>
-        <div class="button">
-            <a href="#search">Search</a>
-        </div> 
+         <ul class="nav nav-pills">
+             <li><a href="#home">Home</a></li>
+             <li><a href="#link/all">Link</a></li>
+             <li><a href="#collection/all">Collections</a></li>
+             <li><a href="#search">Search</a></li>
+             <li><a class="background" ng-show="!loggedin" ng-click="loginbtnClick()">Login</a></li>
+             <li><a class="background" ng-show="loggedin" ng-click="loginbtnClick()">Owen Merry</a></li>
+             <li><a class="background" href="#search">Sign Up</a></li>
+         </ul>
+         
+         
+
+         
     </div>  
     
     
