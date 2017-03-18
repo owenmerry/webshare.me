@@ -40,7 +40,11 @@ Route::get('/signup', function () {
 
 ## angular views 
 Route::get('/home', function () {
-    return view('search.home');
+    return view('info.home');
+});
+
+Route::get('/addlink', function () {
+    return view('link.addlink');
 });
 
 Route::get('/search', function () {
@@ -94,6 +98,7 @@ Route::get('/api/link/add', ['as' => 'api.link.addlink', 'uses' => 'linkControll
 Route::post('/api/link/add', ['as' => 'api.link.add', 'uses' => 'linkController@create']);
 Route::post('/api/link/addmany', ['as' => 'api.link.addmany', 'uses' => 'linkController@createmany']);
 Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
+Route::get('/api/link/mylinks', ['as' => 'api.link.mylinks', 'uses' => 'linkController@mylinks']);
 Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection', 'uses' => 'linkController@collection']); 
 Route::get('/api/link/visit/{link_id}', ['as' => 'api.link.visit', 'uses' => 'linkController@visit']); 
 Route::get('/api/link/user/{user_id}', ['as' => 'api.link.user', 'uses' => 'linkController@user']); 
@@ -101,6 +106,7 @@ Route::post('/api/link/search', ['as' => 'api.link.search', 'uses' => 'linkContr
 //collection
 Route::post('/api/collection/add', ['as' => 'api.collection.add', 'uses' => 'collectionController@create']);
 Route::get('/api/collection/all', ['as' => 'api.collection.all', 'uses' => 'collectionController@all']);
+Route::get('/api/collection/mycollections', ['as' => 'api.collection.mycollections', 'uses' => 'collectionController@mycollections']);
 Route::get('/api/collection/user/{user_id}', ['as' => 'api.collection.user', 'uses' => 'collectionController@user']);
 //user
 Route::get('/api/user/show/{user_id}', ['as' => 'api.user.show', 'uses' => 'userController@show']);

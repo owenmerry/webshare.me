@@ -50,7 +50,7 @@ class collectionController extends Controller
     {
         
     //get all users        
-    $this->vars['collections'] = Collection::all();    
+    $this->vars['collections'] = Collection::orderBy('id','DESC')->get();    
 
    
         
@@ -60,6 +60,25 @@ class collectionController extends Controller
         
         
         
+        
+    }    
+    
+    
+    
+    //View My Collections
+    public function mycollections(Request $request)
+    {
+    
+    //variables
+    $user_id=Auth::user()->id;    
+        
+    //get users collections     
+    $this->vars['collections'] = User::find($user_id)->collection()->orderBy('id','DESC')->get();
+   
+        
+    //return back()
+    return $this->vars;
+
         
     }
     

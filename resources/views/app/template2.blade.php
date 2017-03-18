@@ -10,7 +10,7 @@
     
   
     <div class="logo_all">
-    <div class="logo"><img src="/images/app/webshare-logo.svg" /></div>
+        <div class="logo"><a href="#home"><img src="/images/app/webshare-logo.svg" /></a></div>
     </div>
     
    
@@ -21,14 +21,15 @@
     
      <div class="menu_all">
          <ul class="nav nav-pills">
-             <li><a href="#home">Home</a></li>
-             <li><a href="#link/all">Link</a></li>
-             <li><a href="#collection/all">Collections</a></li>
-             <li><a href="#search">Search</a></li>
-             <li><a class="background" ng-show="!loggedin" ng-click="loginbtnClick()">Login</a></li>
-             <li><a class="background" ng-show="loggedin" ng-click="loginbtnClick()">Owen Merry</a></li>
-             <li><a class="background" href="#search">Sign Up</a></li>
-         </ul>
+             <li><a href="#addlink" ng-cloak ng-show="loggedin">Create Link</a></li>
+             <li><a href="#link/all" ng-cloak ng-show="loggedin">My Links</a></li>
+             <li><a href="#collection/all" ng-cloak ng-show="loggedin">My Collections</a></li>
+             <li><a href="#search" ng-cloak ng-show="loggedin">Search</a></li>
+             <li><a class="background" ng-show="!loggedin"ng-cloak ng-show="loggedin" ng-click="loginbtnClick()">Login</a></li>
+             <li><a class="background" ng-cloak ng-show="loggedin" >Owen Merry</a></li>
+             <li><a class="background" ng-hide="loggedin" ng-click="signupbtnClick()">Sign Up</a></li>
+             <li><a class="background" ng-hide="!loggedin" ng-click="logoutbtnClick()">Logout</a></li>
+        </ul>
          
          
 
@@ -37,7 +38,7 @@
     
     
     
-    <div class="login_all" ng-show="loginshow==true">
+    <div class="login_all" ng-cloak ng-show="loginshow==true">
         
         <div class="close" ng-click="loginbtnCloseClick()"><img src="/images/icons/close.svg" /></div>
         
@@ -71,11 +72,40 @@
     
     
     
+    <div class="signup_all" ng-cloak ng-show="signupshow==true">
+        
+        <div class="close" ng-click="signupbtnCloseClick()"><img src="/images/icons/close.svg" /></div>
+        
+        <div class="step" ng-show="signupstep=='create'">
+            <div class="center">
+            <h2>Full Name</h2>
+            <div class="textbox_holder">
+                <input type="text" class="form-control textbox email-input" ng-model="name_signup" placeholder="Full Name" />
+            </div>
+            <h2>Enter Your Email</h2>
+            <div class="textbox_holder">
+                <input type="text" class="form-control textbox email-input" ng-model="email_signup" placeholder="Email" />
+            </div>
+            <h2>Enter Your Password</h2>
+            <div class="textbox_holder">
+                <input type="password" class="form-control textbox email-input" ng-model="password_signup" placeholder="Password" />
+            </div>    
+            <div class="buttons">
+                <a class="btn btn-primary" ng-click="signupCreateClick()">Create Account</a>
+            </div>
+            <input type="hidden" ng-model="csrf_signup" ng-init="csrf='{{ csrf_token() }}'" class="form-control" >
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    
     
   <!-- Pages - start -->      
     
 
-    <div ng-view autoscroll="true"></div>
+    <div ng-view class="page_all" autoscroll="true"></div>
     
     
     

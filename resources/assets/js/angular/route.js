@@ -17,6 +17,10 @@
                 templateUrl : 'home',
                 controller  : 'homeController'
             })
+            .when('/addlink', {
+                templateUrl : 'addlink',
+                controller  : 'addlinkController'
+            })
             .when('/search', {
                 templateUrl : 'search',
                 controller  : 'searchController'

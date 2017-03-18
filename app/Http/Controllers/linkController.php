@@ -21,13 +21,7 @@ class linkController extends Controller
     //Create link
     public function create(Request $request)
     {
-        
-    //get all users        
-    $this->vars['users'] = User::where("id",1)->first();    
-
-    //results   
-    //return $this->vars;
-    //return "worked". $request['website'] ;  
+    
       
         
         //variables
@@ -259,6 +253,27 @@ class linkController extends Controller
         
     //get user links
     $links = Link::where('user_id',$userid)->get();
+    $this->vars['links'] = $links;   
+        
+        
+    //return
+    return $this->vars;
+        
+        
+    }
+    
+    
+    
+    
+    //Links for logged in user
+    public function mylinks(Request $request)
+    {
+        
+    //variables
+     $user_id=Auth::user()->id;
+        
+    //get user links
+    $links = Link::where('user_id',$user_id)->orderBy('id','DESC')->get();
     $this->vars['links'] = $links;   
         
         

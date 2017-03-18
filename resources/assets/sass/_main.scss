@@ -1,7 +1,7 @@
 
 
 /* variables */
-$color-primary:#167cc4;
+$color-primary:#3498db;
 $color-secondary:#167cc4;
 $color-greytxt:lighten(black,50%);
 
@@ -27,7 +27,8 @@ $col-lg:1930px;
 
 //main
 html{height:100%;}
-body{height:100%;color:black;@extend %font;background-color:$color-primary;}
+body{height:100%;color:black;@extend %font;background-color:$color-primary;
+}
 
 //animate
 .animate_all{
@@ -90,6 +91,13 @@ a,a:hover{color:$color-secondary;}
      
 } 
 
+//cloak angular
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+//ngscope angular
+.ng-scope{height:100%;}
 
 //reusable 
 .section{
@@ -101,7 +109,7 @@ min-height:800px;
 } 
 .wrap{margin:0px 10px;}
 .page{width:100%;height:100%;} 
-.loading{
+.loadingicon{
         
                 background-image:url(../../images/app/ring.gif);
                 background-position: center center;
@@ -162,6 +170,7 @@ min-height:800px;
         a{
             color:white;
             @extend %font-bold;
+            cursor:pointer;
             &.background{
                 background-color:white;color:$color-primary;
                 &:hover,&:active,&:focus{background-color:white;}
@@ -233,7 +242,7 @@ min-height:800px;
     &.ng-hide         { animation:0.8s slideOutDown ease; }
     &.ng-hide-remove  { animation:0.8s slideInUp ease; }
     
-    .close{position: absolute;top:20px;right:20px;z-index:10;img{width:40px;}}
+    .close{position: absolute;top:20px;right:20px;z-index:10;img{width:20px;}}
     .step{
         width:100%;height:100%;position: absolute;top:0px;
         &.ng-hide         { animation:0.8s slideOutLeft ease; }
@@ -255,29 +264,51 @@ min-height:800px;
 
 
 
-
-
-/*------------------------- PAGES --------------------------------*/
-
-
-
-.addlink_all{
-    position: absolute;
-    width:500px;
-    top:50%;left:50%;transform: translate(-50%,-50%);
-    .form-control{&.textbox{@extend .animate_all;padding: 40px 30px;&:focus{border-color: #00cca3;transform:scale(1.05);}}}
-    h2{color:white;font-weight:300;}
-    .textbox_holder{margin-bottom:20px;}
-    .buttons{}
-    &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+.signup_all{
+    background-color:$color-primary;
+    position: fixed;
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index:10;
+    &.ng-hide         { animation:0.8s slideOutDown ease; }
+    &.ng-hide-remove  { animation:0.8s slideInUp ease; }
+    
+    .close{position: absolute;top:20px;right:20px;z-index:10;img{width:20px;}}
+    .step{
+        width:100%;height:100%;position: absolute;top:0px;
+        &.ng-hide         { animation:0.8s slideOutLeft ease; }
+        &.ng-hide-remove  { animation:0.8s slideInRight ease; }
+        
+         h2{color:white;font-weight:300;}
+        .form-control{@extend .animate_all;padding: 40px 30px;&:focus{border-color: #00cca3;transform:scale(1.05);}}
+        .textbox_holder{margin-bottom:20px;}
+        .center{
+            position: absolute;
+            width:500px;
+            top:50%;left:50%;transform: translate(-50%,-50%);    
+        }   
+    }
+    
 }
 
 
-.link_page{
-    padding-top:150px;
-    .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
-    &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+
+.page_all{
+    &.ng-enter           { animation:0.8s fadeIn ease; }
+    //&.ng-leave           { animation:0.8s fadeOut ease; }
+    
 }
+
+
+
+
+/*------------------------- REUSE --------------------------------*/
+
+
+
+
+
 
 
 
@@ -292,7 +323,7 @@ min-height:800px;
     //box-shadow: 0px 0px 6px rgba(black,.8);
     .image{
         @extend .animate_all;
-        background-color:black;
+        background-color:darken(white,3%);
         cursor:pointer;height:210px;background-size: cover;opacity:1;
         //&:hover{opacity:.9;}
     }
@@ -301,6 +332,22 @@ min-height:800px;
     h3{font-size:12px;margin-bottom:0px;color:darken(white,20%);float:left;&.views{float:right;}} 
     
 }
+
+
+    .loading{
+        .link_all{
+            background-color:darken(white,0%);
+            &:hover{transform:scale(1);}
+            .image{
+                background-color:darken(white,3%);
+            }
+            .text{}
+            h2{background-color:darken(white,6%);width:40%;}
+            h3{background-color:darken(white,3%);width:100px;&.views{background-color:darken(white,3%);width:100px;}} 
+
+        }
+    }
+
 
 
 .collection_all{
@@ -310,11 +357,12 @@ min-height:800px;
     overflow:hidden;
     margin-bottom:20px;
     transform:scale(1);
+    color:black;
     &:hover{transform:scale(1.02);}
     //box-shadow: 0px 0px 6px rgba(black,.8);
     .image{
         @extend .animate_all;
-        background-color:black;
+        background-color:darken(white,3%);
         cursor:pointer;height:210px;background-size: cover;opacity:1;
         //&:hover{opacity:.9;}
     }
@@ -325,12 +373,131 @@ min-height:800px;
 }
 
 
+
+
+/*------------------------- PAGES --------------------------------*/
+
+
+
+
+.home_page{
+height:100%;
+    
+    .addlink_all{
+        height:100%;
+        background-image: url(../../images/backgrounds/arto-marttinen-133621.jpg);
+        background-size: cover;
+        background-attachment:fixed;
+    
+        .content{
+            position: absolute;
+            width:500px;
+            top:50%;left:50%;transform: translate(-50%,-50%);
+            .form-control{&.textbox{@extend .animate_all;padding: 40px 30px;&:focus{border-color: #00cca3;transform:scale(1.05);}}}
+            h2{color:white;font-weight:300;}
+            .textbox_holder{margin-bottom:20px;}
+            .buttons{}
+            .collections{margin-bottom:20px;}
+            &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+        }
+    
+    }
+    
+    .features_all{
+        height:1500px;
+            background-color:white;
+    }
+    
+}
+
+
+
+.addlink_page{
+height:100%;
+    
+    .addlink_all{
+        height:100%;
+    
+        .content{
+            position: absolute;
+            width:500px;
+            top:50%;left:50%;transform: translate(-50%,-50%);
+            .form-control{&.textbox{@extend .animate_all;padding: 40px 30px;&:focus{border-color: #00cca3;transform:scale(1.05);}}}
+            h2{color:white;font-weight:300;}
+            .textbox_holder{margin-bottom:20px;}
+            .buttons{}
+            .collections{margin-bottom:20px;}
+            &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+        }
+    
+    }
+    
+}
+
+
+
+
+
+.link_page{
+    padding-top:150px;
+    .controls{
+        a{color:white;}margin-bottom:20px;
+        .create-link{
+            text-align:center;
+            .form-control{width:400px;display:inline;margin-right:10px;}
+        }
+    }
+    .loading,.links{
+         &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    }
+    .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
+    &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    .noresults{color:white;text-align:center;padding:20px 0px;}
+}
+
+
+
+
+
+
+
 .collection_page{
     padding-top:150px;
     .controls{a{color:white;}margin-bottom:20px;}
     .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
     &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    .create{}
+    .loading,.links{
+         &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    }
+    .create-text{.form-control{width:200px;display:inline;margin-right:10px;}}
+    .noresults{color:white;text-align:center;padding:20px 0px;}
 }
+
+
+
+.collectionsingle_page{
+    padding-top:150px;
+    .controls{
+        .back{float:left;}
+        a{color:white;}margin-bottom:20px;
+         .create-link{
+            text-align:center;
+            .form-control{width:400px;display:inline;margin-right:10px;}
+        }
+    }
+    .loading,.links{
+         &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    }
+    .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
+    &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    .create{}
+    .create-text{.form-control{width:200px;display:inline;margin-right:10px;}}
+    .noresults{color:white;text-align:center;padding:20px 0px;}
+}
+
+
+
 
 
 .search_page{
@@ -344,6 +511,7 @@ min-height:800px;
         h2{color:white;font-weight:300;}
         .textbox_holder{margin-bottom:20px;}
         &.top{padding-top:150px;} 
+        .noresults{color:white;text-align:center;padding:20px 0px;}
     }
        
         
