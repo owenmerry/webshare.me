@@ -9,6 +9,7 @@
     
     
     <div class="addlink_all">
+        <div class="overlay"></div>
         <div class="content">
         <h2>Add Website</h2>
     

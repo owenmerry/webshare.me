@@ -191,6 +191,67 @@ class linkController extends Controller
     
     
     
+    //get data
+    public function getdata(Request $request)
+    {
+        
+        ini_set('max_execution_time', 900);
+        
+        
+        // seperate list
+        $linklist_data  = "http://flatuicolors.com/";
+        //$linklist_data  = "https://www.templatemonster.com/wordpress-themes.php";
+        $linklist_data  = "https://themeforest.net/tags/monster";
+        $linklist_ary = explode(",", $linklist_data);
+        
+        
+        
+        //get users account        
+        $this->vars['users'] = User::where("id",1)->first(); 
+        
+        
+        //run through list
+        foreach ($linklist_ary as &$linklist_url) {   
+      
+        
+        //variables
+        $url=$linklist_url;
+        //$user_id=Auth::user()->id;
+        $title="";
+        $description="";
+        $image="";
+        
+        
+        //get website data
+        $getwebdata = Website::getWebsiteData($url); 
+        
+        //set variables
+        //$title=substr($getwebdata['title'], 0, 250);
+        $description=substr($getwebdata['description'], 0, 250);
+        $image=$getwebdata['image'];
+        $domain=$getwebdata['domain'];
+        
+            
+        echo "<div>title:". $getwebdata['title'] ."</div>";
+        //echo "<div>". $title ."</div>";
+        echo "<div>". $description ."</div>";
+        echo "<div>". $image ."</div>";
+        echo "<div>". $domain ."</div>";
+        echo "<div><img src='". $image ."' /></div>";
+            
+
+        }
+            
+
+                
+        
+    }
+    
+    
+    
+    
+    
+    
     
     
     

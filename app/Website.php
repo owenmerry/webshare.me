@@ -26,6 +26,7 @@ public static function getWebsiteData($url){
         
 $html = self::file_get_contents_curl($url);
 
+    echo "this". $html;
 //parsing begins here:
 $doc = new \DOMDocument();
 @$doc->loadHTML($html);
@@ -46,20 +47,44 @@ $images='';
 $website_domain = parse_url($url, PHP_URL_HOST);
 preg_replace('/^www./', '', $website_domain);      
     
+   
+    
+    
+    
     
 // get title 
 $nodes = $doc->getElementsByTagName('title');
 if ($nodes->length > 0) {
     $title = $nodes->item(0)->textContent;
 };
+if($title==""){   
+$metas = $doc->getElementsByTagName('meta');     
+for ($i = 0; $i < $metas->length; $i++)
+{
+    $meta = $metas->item($i);
+    //get og:image
+    if($meta->getAttribute('property') == 'og:title')
+        $image = $meta->getAttribute('content');
+}
+}
 if($title==""){
   $nodes = $doc->getElementsByTagName('h1');
     if ($nodes->length > 0) {
         $title = $nodes->item(0)->textContent;
     };  
 }; 
-//$title = $doc;    
-        
+if($title==""){
+  $nodes = $doc->getElementsByTagName('h2');
+    if ($nodes->length > 0) {
+        $title = $nodes->item(0)->textContent;
+    };  
+};
+
+  
+    
+    
+    
+    
     
 // get description & keywords
 $metas = $doc->getElementsByTagName('meta');
@@ -74,6 +99,12 @@ for ($i = 0; $i < $metas->length; $i++)
     if($meta->getAttribute('name') == 'keywords')
         $keywords = $meta->getAttribute('content');
 }
+    
+    
+    
+    
+    
+    
 
 // get image
     //check if has og:image
@@ -85,7 +116,20 @@ for ($i = 0; $i < $metas->length; $i++)
     if($meta->getAttribute('property') == 'og:image')
         $image = $meta->getAttribute('content');
 }
-    //get images
+if($image==""){
+  $nodes = $doc->getElementsByTagName('img');
+    if ($nodes->length > 0) {
+        $title = $nodes->item(0)->getAttribute('src');
+    };  
+};     
+
+    
+    
+    
+    
+    
+    
+ //get images
 if(1==1){
     $image_list = $doc->getElementsByTagName('img');
 for ($i = 0; $i < $image_list->length; $i++)
@@ -97,7 +141,22 @@ for ($i = 0; $i < $image_list->length; $i++)
     //}
 }
 }   
-     
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //$image = $doc->getElementsByTagName('img');
     //$image = $doc->getElementsByTagName('img')->item(0)->getAttribute('src');
     //$image = $image_list->length;

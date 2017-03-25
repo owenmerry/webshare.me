@@ -97,6 +97,7 @@ Route::get('/library/collections', function () {
 Route::get('/api/link/add', ['as' => 'api.link.addlink', 'uses' => 'linkController@create']);
 Route::post('/api/link/add', ['as' => 'api.link.add', 'uses' => 'linkController@create']);
 Route::post('/api/link/addmany', ['as' => 'api.link.addmany', 'uses' => 'linkController@createmany']);
+Route::get('/api/link/getdata', ['as' => 'api.link.getdata', 'uses' => 'linkController@getdata']);
 Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
 Route::get('/api/link/mylinks', ['as' => 'api.link.mylinks', 'uses' => 'linkController@mylinks']);
 Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection', 'uses' => 'linkController@collection']); 
