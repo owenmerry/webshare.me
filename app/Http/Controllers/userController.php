@@ -33,8 +33,11 @@ class userController extends Controller
     //Login
     public function login(Request $request)
     {
+        //varibles
+        $remember = true;
         
-        if(Auth::attempt($request->only(['email','password']))){
+        //check details
+        if(Auth::attempt($request->only(['email','password'],$remember))){
             return "ok";  
         }else{
             return "error";
@@ -49,6 +52,9 @@ class userController extends Controller
     //Signup
     public function signup(Request $request)
     {
+        //varibles
+        $remember = true;
+        
         //Create User
         User::create([
         'name'  => $request['name'],  
@@ -58,7 +64,7 @@ class userController extends Controller
         
         
         //LoginUser
-        if(Auth::attempt($request->only(['email','password']))){
+        if(Auth::attempt($request->only(['email','password'],$remember))){
             return "ok";  
         }else{
             return "error";
