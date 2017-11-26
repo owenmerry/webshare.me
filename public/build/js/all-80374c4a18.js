@@ -1022,9 +1022,7 @@ app.controller('appController', function($scope, $http, $location) {
     $scope.loginbtnClick = function(){
             $scope.loginstep='email';
             $scope.loginshow=true;
-            // $scope.email.focus();
-            //$('.email-input').focus();
-            //alert("focus");
+            setTimeout(function(){ document.getElementById('loginall-email').focus(); }, 300);
     }
     $scope.loginbtnCloseClick = function(){
         $scope.loginstep='email';
@@ -1032,6 +1030,7 @@ app.controller('appController', function($scope, $http, $location) {
     }
     $scope.loginEmailClick = function(){
         $scope.loginstep='password';
+        setTimeout(function(){ document.getElementById('loginall-pass').focus(); }, 300);
     }
     $scope.loginPasswordClick = function(){
         $scope.loading = true;
@@ -1176,7 +1175,7 @@ app.controller('addlinkController', function($scope, $http) {
     //functions
  $scope.addlink = function(){
         
-        $scope.loading = true;
+        //$scope.loading = true;
         
         $http.post("/api/link/addmany",{website:$scope.website,collection_id:$scope.collectionid}).then(function (response) {
             $scope.link = response.data;
@@ -1204,7 +1203,7 @@ app.controller('addlinkController', function($scope, $http) {
 app.controller('linkallController', function($scope, $http) {
     
     //variables
-    $scope.loading = true;
+    //$scope.loading = true;
     
     //get data
     $http.get("/api/link/mylinks").then(function (response) {
@@ -1239,7 +1238,7 @@ app.controller('collectionallController', function($scope, $http) {
     $scope.collectionmode="collection";
     $scope.createshow=false;
     $scope.collectionname="";
-    $scope.loading=true;
+   // $scope.loading=true;
     
     //get data
     $http.get("/api/collection/mycollections").then(function (response) {
@@ -1254,7 +1253,7 @@ app.controller('collectionallController', function($scope, $http) {
     };
      $scope.addcollection = function(){
         
-        $scope.loading = true;
+      //  $scope.loading = true;
         
         $http.post("/api/collection/add",{name:$scope.collectionname}).then(function (response) {
             $scope.collection = response.data;
@@ -1280,7 +1279,7 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
     //variables
     $collectionid = $routeParams.ID;
     $scope.myid = $routeParams.ID; 
-    $scope.loading=true;
+    //$scope.loading=true;
     
     //get data
     $http.get("/api/link/collection/"+ $collectionid ).then(function (response) {
@@ -1292,7 +1291,7 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
     //functions
      $scope.addlink = function(){
         
-        $scope.loading = true;
+       // $scope.loading = true;
         
         $http.post("/api/link/addmany",{website:$scope.website,collection_id:$collectionid}).then(function (response) {
             $scope.link = response.data;
@@ -1326,13 +1325,13 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
 app.controller('searchController', function($scope, $http) {
     
     //varibles
-    $scope.loading = false;
+   // $scope.loading = false;
     
     //functions
     $scope.searchlinks = function(){
             if(!$scope.search==""){
                 $scope.searching=true;
-                $scope.loading = true;
+               // $scope.loading = true;
             $http.post("/api/link/search",{search:$scope.search}).then(function (response) {
                 $scope.searchlink = response.data;
                 $scope.loading = false;
@@ -1369,6 +1368,24 @@ app.filter('strLimit', ['$filter', function($filter) {
       return $filter('limitTo')(input, limit) + '...';
    };
 }]);
+
+
+
+
+//directives
+
+app.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if (event.which === 13) {
+                scope.$apply(function () {
+                    scope.$eval(attrs.ngEnter);
+                });
+                event.preventDefault();
+            }
+        });
+    };
+});
 
 // JavaScript Document
 

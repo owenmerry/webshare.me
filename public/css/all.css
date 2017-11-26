@@ -3371,60 +3371,77 @@
   position: relative;
   min-height: 1px;
   padding-right: 15px;
-  padding-left: 15px; }
+  padding-left: 15px;
+}
 
 .col-xs-5ths {
   width: 20%;
-  float: left; }
+  float: left;
+}
 
 @media (min-width: 768px) {
   .col-sm-5ths {
     width: 20%;
-    float: left; } }
+    float: left;
+  }
+}
 
 @media (min-width: 992px) {
   .col-md-5ths {
     width: 20%;
-    float: left; } }
+    float: left;
+  }
+}
 
 @media (min-width: 1200px) {
   .col-lg-5ths {
     width: 20%;
-    float: left; } }
+    float: left;
+  }
+}
 
 /*------------------------- STRUCTURE --------------------------------*/
 body {
   font-family: 'Lato', sans-serif;
-  font-weight: 100; }
+  font-weight: 100;
+}
 
 h1, h2, h3, .menu_all li a {
   font-family: 'Lato', sans-serif;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 html {
-  height: 100%; }
+  height: 100%;
+}
 
 body {
   height: 100%;
   color: black;
-  background-color: #3498db; }
+  background-color: black;
+}
 
 .animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
-  transition: all .2s ease-out 0s; }
+  transition: all .2s ease-out 0s;
+}
 
 h1, h2, h3, h4, h5, h6, h7 {
   margin: 0px;
-  font-weight: 600; }
+  font-weight: 600;
+}
 
 h1, h2, h3 {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
 h2 {
-  font-size: 35px; }
+  font-size: 35px;
+}
 
 a, a:hover {
-  color: #167cc4; }
+  color: black;
+}
 
 .btn {
   border: solid 2px white;
@@ -3434,47 +3451,63 @@ a, a:hover {
   background-color: transparent;
   text-transform: uppercase;
   font-weight: 600;
-  border-radius: 0px; }
-  .btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: solid 2px white;
-    border-radius: 0px; }
-  @media (max-width: 768px) {
-    .btn {
-      padding: 10px 20px; } }
+  border-radius: 0px;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: solid 2px white;
+  border-radius: 0px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 20px;
+  }
+}
 
 .btn-lg, .btn-lg:hover {
   padding: 20px 40px;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 .row-no-gutter > [class*='col-'] {
   padding-right: 0;
-  padding-left: 0; }
+  padding-left: 0;
+}
 
 ::-webkit-scrollbar {
   width: 0.5em;
-  height: 0.5em; }
+  height: 0.5em;
+}
 
 ::-webkit-scrollbar-thumb {
-  background: #4aa3df; }
+  background: #0d0d0d;
+}
 
 ::-webkit-scrollbar-track {
-  background: white; }
+  background: white;
+}
 
 body {
-  scrollbar-face-color: #4aa3df;
-  scrollbar-track-color: white; }
+  scrollbar-face-color: #0d0d0d;
+  scrollbar-track-color: white;
+}
 
 .nav_all .navbar {
   margin: 0px;
-  background-color: white; }
+  background-color: white;
+}
 
 .nav_all .navbar-nav {
   margin: 0px;
-  float: none; }
-  .nav_all .navbar-nav .dropdown-menu {
-    -webkit-transform: translateX(25%);
-    transform: translateX(25%); }
+  float: none;
+}
+
+.nav_all .navbar-nav .dropdown-menu {
+  -webkit-transform: translateX(25%);
+  transform: translateX(25%);
+}
 
 .overlay {
   width: 100%;
@@ -3482,40 +3515,50 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0px;
-  left: 0px; }
+  left: 0px;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important; }
+  display: none !important;
+}
 
 .ng-scope {
-  height: 100%; }
+  height: 100%;
+}
 
 .section {
   background-color: white;
   width: 100%;
-  min-height: 800px; }
-  .section .inner {
-    padding: 50px; }
+  min-height: 800px;
+}
+
+.section .inner {
+  padding: 50px;
+}
 
 .wrap {
-  margin: 0px 10px; }
+  margin: 0px 10px;
+}
 
 .page {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
 .loadingicon {
   background-image: url(../../images/app/ring.gif);
   background-position: center center;
   background-repeat: no-repeat;
-  height: 50px; }
+  height: 50px;
+}
 
 /*------------------------- APP --------------------------------*/
 /* browse */
 .app_all {
   width: 100%;
   height: 100%;
-  position: relative; }
+  position: relative;
+}
 
 .gradient_all {
   position: fixed;
@@ -3525,7 +3568,8 @@ body {
   height: 100px;
   z-index: 4;
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), transparent);
-  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent); }
+  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
+}
 
 .topbanner_all {
   position: absolute;
@@ -3535,14 +3579,16 @@ body {
   height: 320px;
   z-index: 0;
   background-image: -webkit-radial-gradient(-60% 10% farthest-corner, #00cca3 5%, #8f08fd 100%);
-  background-image: radial-gradient(farthest-corner at -60% 10%, #00cca3 5%, #8f08fd 100%); }
+  background-image: radial-gradient(farthest-corner at -60% 10%, #00cca3 5%, #8f08fd 100%);
+}
 
 .logo_all {
   position: fixed;
   top: 20px;
   left: 20px;
   width: 200px;
-  z-index: 5; }
+  z-index: 5;
+}
 
 .menu_all {
   position: fixed;
@@ -3550,31 +3596,44 @@ body {
   right: 20px;
   -webkit-transform: scale(1);
   transform: scale(1);
-  z-index: 5; }
-  .menu_all li a {
-    color: white;
-    cursor: pointer; }
-    .menu_all li a.background {
-      background-color: white;
-      color: #3498db; }
-      .menu_all li a.background:hover, .menu_all li a.background:active, .menu_all li a.background:focus {
-        background-color: white; }
-    .menu_all li a:hover, .menu_all li a:active, .menu_all li a:focus {
-      background-color: transparent; }
-  .menu_all .button {
-    cursor: pointer;
-    position: relative;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    font-size: 23px;
-    background-color: white; }
-    .menu_all .button i {
-      position: absolute;
-      top: 50%;
-      right: 50%;
-      -webkit-transform: translate(50%, -50%);
-      transform: translate(50%, -50%); }
+  z-index: 5;
+}
+
+.menu_all li a {
+  color: white;
+  cursor: pointer;
+}
+
+.menu_all li a.background {
+  background-color: white;
+  color: black;
+}
+
+.menu_all li a.background:hover, .menu_all li a.background:active, .menu_all li a.background:focus {
+  background-color: white;
+}
+
+.menu_all li a:hover, .menu_all li a:active, .menu_all li a:focus {
+  background-color: transparent;
+}
+
+.menu_all .button {
+  cursor: pointer;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 23px;
+  background-color: white;
+}
+
+.menu_all .button i {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
 
 .loginbtn_all {
   position: fixed;
@@ -3582,25 +3641,32 @@ body {
   right: 90px;
   -webkit-transform: scale(1);
   transform: scale(1);
-  z-index: 5; }
-  .loginbtn_all:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2); }
-  .loginbtn_all .button {
-    cursor: pointer;
-    position: relative;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    font-size: 23px;
-    background-color: #b3b3b3; }
-    .loginbtn_all .button i {
-      color: white;
-      position: absolute;
-      top: 50%;
-      right: 50%;
-      -webkit-transform: translate(50%, -50%);
-      transform: translate(50%, -50%); }
+  z-index: 5;
+}
+
+.loginbtn_all:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.loginbtn_all .button {
+  cursor: pointer;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 23px;
+  background-color: #b3b3b3;
+}
+
+.loginbtn_all .button i {
+  color: white;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
 
 .menuaddlink_all {
   position: fixed;
@@ -3609,151 +3675,218 @@ body {
   right: 160px;
   -webkit-transform: scale(1);
   transform: scale(1);
-  z-index: 5; }
-  .menuaddlink_all:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2); }
-  .menuaddlink_all .button {
-    cursor: pointer;
-    position: relative;
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    font-size: 23px;
-    background-color: #3498db; }
-    .menuaddlink_all .button i {
-      position: absolute;
-      top: 50%;
-      right: 50%;
-      -webkit-transform: translate(50%, -50%);
-      transform: translate(50%, -50%); }
+  z-index: 5;
+}
+
+.menuaddlink_all:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.menuaddlink_all .button {
+  cursor: pointer;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  font-size: 23px;
+  background-color: black;
+}
+
+.menuaddlink_all .button i {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+}
 
 .popupmenu_all {
   position: fixed;
   top: 0opx;
   width: 100%;
   z-index: 100;
-  background-color: #3498db; }
-  .popupmenu_all.ng-hide {
-    -webkit-animation: 0.8s slideOutUp ease;
-    animation: 0.8s slideOutUp ease; }
-  .popupmenu_all.ng-hide-remove {
-    -webkit-animation: 0.8s slideInDown ease;
-    animation: 0.8s slideInDown ease; }
-  .popupmenu_all .button {
-    cursor: pointer;
-    text-align: center;
-    padding: 60px 0px;
-    font-size: 20px;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
-    border-left: solid 1px rgba(255, 255, 255, 0.3); }
-    .popupmenu_all .button:hover {
-      background-color: rgba(255, 255, 255, 0.2); }
+  background-color: black;
+}
+
+.popupmenu_all.ng-hide {
+  -webkit-animation: 0.8s slideOutUp ease;
+  animation: 0.8s slideOutUp ease;
+}
+
+.popupmenu_all.ng-hide-remove {
+  -webkit-animation: 0.8s slideInDown ease;
+  animation: 0.8s slideInDown ease;
+}
+
+.popupmenu_all .button {
+  cursor: pointer;
+  text-align: center;
+  padding: 60px 0px;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  border-left: solid 1px rgba(255, 255, 255, 0.3);
+}
+
+.popupmenu_all .button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
 .login_all {
-  background-color: #3498db;
+  background-color: black;
   position: fixed;
   top: 0px;
   width: 100%;
   height: 100%;
-  z-index: 10; }
-  .login_all.ng-hide {
-    -webkit-animation: 0.8s slideOutDown ease;
-    animation: 0.8s slideOutDown ease; }
-  .login_all.ng-hide-remove {
-    -webkit-animation: 0.8s slideInUp ease;
-    animation: 0.8s slideInUp ease; }
-  .login_all .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10; }
-    .login_all .close img {
-      width: 20px; }
-  .login_all .step {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px; }
-    .login_all .step.ng-hide {
-      -webkit-animation: 0.8s slideOutLeft ease;
-      animation: 0.8s slideOutLeft ease; }
-    .login_all .step.ng-hide-remove {
-      -webkit-animation: 0.8s slideInRight ease;
-      animation: 0.8s slideInRight ease; }
-    .login_all .step h2 {
-      color: white;
-      font-weight: 300; }
-    .login_all .step .form-control {
-      padding: 40px 30px; }
-      .login_all .step .form-control:focus {
-        border-color: #00cca3;
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05); }
-    .login_all .step .textbox_holder {
-      margin-bottom: 20px; }
-    .login_all .step .center {
-      position: absolute;
-      width: 500px;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%); }
+  z-index: 10;
+}
+
+.login_all.ng-hide {
+  -webkit-animation: 0.8s slideOutDown ease;
+  animation: 0.8s slideOutDown ease;
+}
+
+.login_all.ng-hide-remove {
+  -webkit-animation: 0.8s slideInUp ease;
+  animation: 0.8s slideInUp ease;
+}
+
+.login_all .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.login_all .close img {
+  width: 20px;
+}
+
+.login_all .step {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.login_all .step.ng-hide {
+  -webkit-animation: 0.8s slideOutLeft ease;
+  animation: 0.8s slideOutLeft ease;
+}
+
+.login_all .step.ng-hide-remove {
+  -webkit-animation: 0.8s slideInRight ease;
+  animation: 0.8s slideInRight ease;
+}
+
+.login_all .step h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.login_all .step .form-control {
+  padding: 40px 30px;
+}
+
+.login_all .step .form-control:focus {
+  border-color: #00cca3;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.login_all .step .textbox_holder {
+  margin-bottom: 20px;
+}
+
+.login_all .step .center {
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
 .signup_all {
-  background-color: #3498db;
+  background-color: black;
   position: fixed;
   top: 0px;
   width: 100%;
   height: 100%;
-  z-index: 10; }
-  .signup_all.ng-hide {
-    -webkit-animation: 0.8s slideOutDown ease;
-    animation: 0.8s slideOutDown ease; }
-  .signup_all.ng-hide-remove {
-    -webkit-animation: 0.8s slideInUp ease;
-    animation: 0.8s slideInUp ease; }
-  .signup_all .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10; }
-    .signup_all .close img {
-      width: 20px; }
-  .signup_all .step {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0px; }
-    .signup_all .step.ng-hide {
-      -webkit-animation: 0.8s slideOutLeft ease;
-      animation: 0.8s slideOutLeft ease; }
-    .signup_all .step.ng-hide-remove {
-      -webkit-animation: 0.8s slideInRight ease;
-      animation: 0.8s slideInRight ease; }
-    .signup_all .step h2 {
-      color: white;
-      font-weight: 300; }
-    .signup_all .step .form-control {
-      padding: 40px 30px; }
-      .signup_all .step .form-control:focus {
-        border-color: #00cca3;
-        -webkit-transform: scale(1.05);
-        transform: scale(1.05); }
-    .signup_all .step .textbox_holder {
-      margin-bottom: 20px; }
-    .signup_all .step .center {
-      position: absolute;
-      width: 500px;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%); }
+  z-index: 10;
+}
+
+.signup_all.ng-hide {
+  -webkit-animation: 0.8s slideOutDown ease;
+  animation: 0.8s slideOutDown ease;
+}
+
+.signup_all.ng-hide-remove {
+  -webkit-animation: 0.8s slideInUp ease;
+  animation: 0.8s slideInUp ease;
+}
+
+.signup_all .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.signup_all .close img {
+  width: 20px;
+}
+
+.signup_all .step {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.signup_all .step.ng-hide {
+  -webkit-animation: 0.8s slideOutLeft ease;
+  animation: 0.8s slideOutLeft ease;
+}
+
+.signup_all .step.ng-hide-remove {
+  -webkit-animation: 0.8s slideInRight ease;
+  animation: 0.8s slideInRight ease;
+}
+
+.signup_all .step h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.signup_all .step .form-control {
+  padding: 40px 30px;
+}
+
+.signup_all .step .form-control:focus {
+  border-color: #00cca3;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.signup_all .step .textbox_holder {
+  margin-bottom: 20px;
+}
+
+.signup_all .step .center {
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
 .page_all.ng-enter {
   -webkit-animation: 0.8s fadeIn ease;
-  animation: 0.8s fadeIn ease; }
+  animation: 0.8s fadeIn ease;
+}
 
 /*------------------------- REUSE --------------------------------*/
 .link_all {
@@ -3762,48 +3895,72 @@ body {
   overflow: hidden;
   margin-bottom: 20px;
   -webkit-transform: scale(1);
-  transform: scale(1); }
-  .link_all:hover {
-    -webkit-transform: scale(1.02);
-    transform: scale(1.02); }
-  .link_all .image {
-    background-color: #f7f7f7;
-    cursor: pointer;
-    height: 210px;
-    background-size: cover;
-    opacity: 1; }
-  .link_all .text {
-    padding: 12px 15px; }
-  .link_all h2 {
-    font-size: 18px;
-    margin-bottom: 6px;
-    color: #333333;
-    height: 18px;
-    overflow: hidden; }
-  .link_all h3 {
-    font-size: 12px;
-    margin-bottom: 0px;
-    color: #cccccc;
-    float: left; }
-    .link_all h3.views {
-      float: right; }
+  transform: scale(1);
+}
+
+.link_all:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.link_all .image {
+  background-color: #f7f7f7;
+  cursor: pointer;
+  height: 210px;
+  background-size: cover;
+  opacity: 1;
+}
+
+.link_all .text {
+  padding: 12px 15px;
+}
+
+.link_all h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #333333;
+  height: 18px;
+  overflow: hidden;
+}
+
+.link_all h3 {
+  font-size: 12px;
+  margin-bottom: 0px;
+  color: #cccccc;
+  float: left;
+}
+
+.link_all h3.views {
+  float: right;
+}
 
 .loading .link_all {
-  background-color: white; }
-  .loading .link_all:hover {
-    -webkit-transform: scale(1);
-    transform: scale(1); }
-  .loading .link_all .image {
-    background-color: #f7f7f7; }
-  .loading .link_all h2 {
-    background-color: #f0f0f0;
-    width: 40%; }
-  .loading .link_all h3 {
-    background-color: #f7f7f7;
-    width: 100px; }
-    .loading .link_all h3.views {
-      background-color: #f7f7f7;
-      width: 100px; }
+  background-color: white;
+}
+
+.loading .link_all:hover {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.loading .link_all .image {
+  background-color: #f7f7f7;
+}
+
+.loading .link_all h2 {
+  background-color: #f0f0f0;
+  width: 40%;
+}
+
+.loading .link_all h3 {
+  background-color: #f7f7f7;
+  width: 100px;
+}
+
+.loading .link_all h3.views {
+  background-color: #f7f7f7;
+  width: 100px;
+}
 
 .collection_all {
   border-radius: 4px;
@@ -3812,222 +3969,346 @@ body {
   margin-bottom: 20px;
   -webkit-transform: scale(1);
   transform: scale(1);
-  color: black; }
-  .collection_all:hover {
-    -webkit-transform: scale(1.02);
-    transform: scale(1.02); }
-  .collection_all .image {
-    background-color: #f7f7f7;
-    cursor: pointer;
-    height: 210px;
-    background-size: cover;
-    opacity: 1; }
-  .collection_all .text {
-    padding: 12px 15px; }
-  .collection_all h2 {
-    font-size: 18px;
-    margin-bottom: 6px;
-    color: #333333;
-    height: 18px;
-    overflow: hidden; }
-  .collection_all h3 {
-    font-size: 12px;
-    margin-bottom: 0px;
-    color: #cccccc;
-    float: left; }
-    .collection_all h3.views {
-      float: right; }
+  color: black;
+}
+
+.collection_all:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.collection_all .image {
+  background-color: #f7f7f7;
+  cursor: pointer;
+  height: 210px;
+  background-size: cover;
+  opacity: 1;
+}
+
+.collection_all .text {
+  padding: 12px 15px;
+}
+
+.collection_all h2 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #333333;
+  height: 18px;
+  overflow: hidden;
+}
+
+.collection_all h3 {
+  font-size: 12px;
+  margin-bottom: 0px;
+  color: #cccccc;
+  float: left;
+}
+
+.collection_all h3.views {
+  float: right;
+}
 
 /*------------------------- PAGES --------------------------------*/
 .home_page {
-  height: 100%; }
-  .home_page .portal_all {
-    height: 100%;
-    background-image: url(../../images/backgrounds/arto-marttinen-133621.jpg);
-    background-size: cover;
-    position: relative; }
-    .home_page .portal_all .overlay {
-      background-color: rgba(52, 152, 219, 0.9); }
-    .home_page .portal_all .content {
-      position: absolute;
-      width: 600px;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white; }
-      .home_page .portal_all .content h1 {
-        font-size: 50px;
-        margin-bottom: 20px;
-        text-transform: uppercase; }
-      .home_page .portal_all .content p {
-        font-size: 18px;
-        margin-bottom: 30px; }
-      .home_page .portal_all .content a {
-        color: white; }
-  .home_page .features_all {
-    background-color: white; }
-    .home_page .features_all .image {
-      height: 500px;
-      background-color: #f7f7f7; }
-    .home_page .features_all .text {
-      height: 100%;
-      position: relative; }
-      .home_page .features_all .text .content {
-        position: absolute;
-        width: 800px;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center; }
+  height: 100%;
+}
+
+.home_page .portal_all {
+  height: 100%;
+  background-image: url(../../images/backgrounds/arto-marttinen-133621.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+.home_page .portal_all .overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.home_page .portal_all .content {
+  position: absolute;
+  width: 600px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.home_page .portal_all .content h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.home_page .portal_all .content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.home_page .portal_all .content a {
+  color: white;
+}
+
+.home_page .features_all {
+  background-color: white;
+}
+
+.home_page .features_all .image {
+  height: 500px;
+  background-color: #f7f7f7;
+}
+
+.home_page .features_all .text {
+  height: 100%;
+  position: relative;
+}
+
+.home_page .features_all .text .content {
+  position: absolute;
+  width: 800px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 .addlink_page {
-  height: 100%; }
-  .addlink_page .addlink_all {
-    height: 100%;
-    background-image: url(../../images/backgrounds/arto-marttinen-133621.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative; }
-    .addlink_page .addlink_all .overlay {
-      background-color: rgba(52, 152, 219, 0.9); }
-    .addlink_page .addlink_all .content {
-      position: absolute;
-      width: 500px;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%); }
-      .addlink_page .addlink_all .content .form-control.textbox {
-        padding: 40px 30px; }
-        .addlink_page .addlink_all .content .form-control.textbox:focus {
-          border-color: #00cca3;
-          -webkit-transform: scale(1.05);
-          transform: scale(1.05); }
-      .addlink_page .addlink_all .content h2 {
-        color: white;
-        font-weight: 300; }
-      .addlink_page .addlink_all .content .textbox_holder {
-        margin-bottom: 20px; }
-      .addlink_page .addlink_all .content .collections {
-        margin-bottom: 20px; }
+  height: 100%;
+}
+
+.addlink_page .addlink_all {
+  height: 100%;
+  background-image: url(../../images/backgrounds/arto-marttinen-133621.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.addlink_page .addlink_all .overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.addlink_page .addlink_all .content {
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.addlink_page .addlink_all .content .form-control.textbox {
+  padding: 40px 30px;
+}
+
+.addlink_page .addlink_all .content .form-control.textbox:focus {
+  border-color: #00cca3;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.addlink_page .addlink_all .content h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.addlink_page .addlink_all .content .textbox_holder {
+  margin-bottom: 20px;
+}
+
+.addlink_page .addlink_all .content .collections {
+  margin-bottom: 20px;
+}
 
 .link_page {
-  padding-top: 150px; }
-  .link_page .controls {
-    margin-bottom: 20px; }
-    .link_page .controls a {
-      color: white; }
-    .link_page .controls .create-link {
-      text-align: center; }
-      .link_page .controls .create-link .form-control {
-        width: 400px;
-        display: inline;
-        margin-right: 10px; }
-  .link_page .loading.ng-hide-remove, .link_page .links.ng-hide-remove {
-    -webkit-animation: 0.8s fadeIn ease;
-    animation: 0.8s fadeIn ease; }
-  .link_page .title {
-    text-align: center;
-    margin-bottom: 100px; }
-    .link_page .title h2 {
-      color: white;
-      font-weight: 300; }
-  .link_page.ng-hide-remove {
-    -webkit-animation: 0.8s fadeIn ease;
-    animation: 0.8s fadeIn ease; }
-  .link_page .noresults {
-    color: white;
-    text-align: center;
-    padding: 20px 0px; }
+  padding-top: 150px;
+}
+
+.link_page .controls {
+  margin-bottom: 20px;
+}
+
+.link_page .controls a {
+  color: white;
+}
+
+.link_page .controls .create-link {
+  text-align: center;
+}
+
+.link_page .controls .create-link .form-control {
+  width: 400px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.link_page .loading.ng-hide-remove, .link_page .links.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.link_page .title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.link_page .title h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.link_page.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.link_page .noresults {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+}
 
 .collection_page {
-  padding-top: 150px; }
-  .collection_page .controls {
-    margin-bottom: 20px; }
-    .collection_page .controls a {
-      color: white; }
-  .collection_page .title {
-    text-align: center;
-    margin-bottom: 100px; }
-    .collection_page .title h2 {
-      color: white;
-      font-weight: 300; }
-  .collection_page.ng-hide-remove {
-    -webkit-animation: 0.8s fadeIn ease;
-    animation: 0.8s fadeIn ease; }
-  .collection_page .loading.ng-hide-remove, .collection_page .links.ng-hide-remove {
-    -webkit-animation: 0.8s fadeIn ease;
-    animation: 0.8s fadeIn ease; }
-  .collection_page .create-text .form-control {
-    width: 200px;
-    display: inline;
-    margin-right: 10px; }
-  .collection_page .noresults {
-    color: white;
-    text-align: center;
-    padding: 20px 0px; }
+  padding-top: 150px;
+}
+
+.collection_page .controls {
+  margin-bottom: 20px;
+}
+
+.collection_page .controls a {
+  color: white;
+}
+
+.collection_page .title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.collection_page .title h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.collection_page.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.collection_page .loading.ng-hide-remove, .collection_page .links.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.collection_page .create-text .form-control {
+  width: 200px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.collection_page .noresults {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+}
 
 .collectionsingle_page {
-  padding-top: 150px; }
-  .collectionsingle_page .controls {
-    margin-bottom: 20px; }
-    .collectionsingle_page .controls .back {
-      float: left; }
-    .collectionsingle_page .controls a {
-      color: white; }
-    .collectionsingle_page .controls .create-link {
-      text-align: center; }
-      .collectionsingle_page .controls .create-link .form-control {
-        width: 400px;
-        display: inline;
-        margin-right: 10px; }
-  .collectionsingle_page .loading.ng-hide-remove, .collectionsingle_page .links.ng-hide-remove {
-    -webkit-animation: 0.8s fadeIn ease;
-    animation: 0.8s fadeIn ease; }
-  .collectionsingle_page .title {
-    text-align: center;
-    margin-bottom: 100px; }
-    .collectionsingle_page .title h2 {
-      color: white;
-      font-weight: 300; }
-  .collectionsingle_page.ng-hide-remove {
-    -webkit-animation: 0.8s fadeIn ease;
-    animation: 0.8s fadeIn ease; }
-  .collectionsingle_page .create-text .form-control {
-    width: 200px;
-    display: inline;
-    margin-right: 10px; }
-  .collectionsingle_page .noresults {
-    color: white;
-    text-align: center;
-    padding: 20px 0px; }
+  padding-top: 150px;
+}
+
+.collectionsingle_page .controls {
+  margin-bottom: 20px;
+}
+
+.collectionsingle_page .controls .back {
+  float: left;
+}
+
+.collectionsingle_page .controls a {
+  color: white;
+}
+
+.collectionsingle_page .controls .create-link {
+  text-align: center;
+}
+
+.collectionsingle_page .controls .create-link .form-control {
+  width: 400px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.collectionsingle_page .loading.ng-hide-remove, .collectionsingle_page .links.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.collectionsingle_page .title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.collectionsingle_page .title h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.collectionsingle_page.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.collectionsingle_page .create-text .form-control {
+  width: 200px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.collectionsingle_page .noresults {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+}
 
 .search_page .searchbox {
   padding-top: 300px;
   width: 500px;
-  margin: 0px auto; }
-  .search_page .searchbox .form-control {
-    padding: 40px 30px; }
-    .search_page .searchbox .form-control:focus {
-      border-color: #00cca3; }
-  .search_page .searchbox h2 {
-    color: white;
-    font-weight: 300; }
-  .search_page .searchbox .textbox_holder {
-    margin-bottom: 20px; }
-  .search_page .searchbox.top {
-    padding-top: 150px; }
-  .search_page .searchbox .noresults {
-    color: white;
-    text-align: center;
-    padding: 20px 0px; }
+  margin: 0px auto;
+}
+
+.search_page .searchbox .form-control {
+  padding: 40px 30px;
+}
+
+.search_page .searchbox .form-control:focus {
+  border-color: #00cca3;
+}
+
+.search_page .searchbox h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.search_page .searchbox .textbox_holder {
+  margin-bottom: 20px;
+}
+
+.search_page .searchbox.top {
+  padding-top: 150px;
+}
+
+.search_page .searchbox .noresults {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+}
 
 .search_page.ng-hide-remove {
   -webkit-animation: 0.8s fadeIn ease;
-  animation: 0.8s fadeIn ease; }
+  animation: 0.8s fadeIn ease;
+}
 
 /*# sourceMappingURL=app.css.map */
 

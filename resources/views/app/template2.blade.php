@@ -46,7 +46,7 @@
             <div class="center">
             <h2>Enter Your Email</h2>
             <div class="textbox_holder">
-                <input type="text" class="form-control textbox email-input" ng-model="email" placeholder="Email" />
+                <input id="loginall-email" type="text" class="form-control textbox email-input" ng-model="email" placeholder="Email" ng-enter="loginEmailClick()" />
             </div>
             <div class="buttons">
                 <a class="btn btn-primary" ng-click="loginEmailClick()">Next</a>
@@ -57,8 +57,9 @@
         <div class="step"  ng-show="loginstep=='password'">
             <div class="center">
             <h2>Enter Your Password</h2>
+                <div class="info"><p class="bg-danger">@{{loginstatus}}</p></div>
             <div class="textbox_holder">
-                <input type="password" class="form-control textbox" ng-model="password" placeholder="Password" />
+                <input id="loginall-pass" type="password" class="form-control textbox" ng-model="password" placeholder="Password" ng-enter="loginPasswordClick()" />
                 <input type="hidden" ng-model="csrf" ng-init="csrf='{{ csrf_token() }}'" class="form-control" >
             </div>
             <div class="buttons">

@@ -64,12 +64,13 @@
         
         <div class="step" ng-show="loginstep=='email'">
             <div class="center">
-            <h2>Enter Your Email</h2>
+            <h2>Enter Your Email / Username</h2>
             <div class="textbox_holder">
-                <input type="text" class="form-control textbox email-input" ng-model="email" placeholder="Email" />
+                <input id="loginall-email" type="text" class="form-control textbox email-input" ng-model="email" placeholder="Email" />
             </div>
             <div class="buttons">
                 <a class="btn btn-primary" ng-click="loginEmailClick()">Next</a>
+                <a class="btn btn-primary" ng-click="loginFocusClick()">Focus</a>
             </div>
             </div>
         </div>
