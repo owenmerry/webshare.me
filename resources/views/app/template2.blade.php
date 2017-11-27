@@ -13,7 +13,8 @@
         <div class="logo"><a href="#home"><img src="/images/app/webshare-logo.svg" /></a></div>
     </div>
     
-   
+    <div class="gradient_all">
+    </div>
    
     
     
@@ -21,7 +22,6 @@
     
      <div class="menu_all">
          <ul class="nav nav-pills">
-             <li><a href="#addlink" ng-cloak ng-show="loggedin">Create Link</a></li>
              <li><a href="#link/all" ng-cloak ng-show="loggedin">My Links</a></li>
              <li><a href="#collection/all" ng-cloak ng-show="loggedin">My Collections</a></li>
              <li><a href="#search" ng-cloak ng-show="loggedin">Search</a></li>
@@ -29,11 +29,7 @@
              <li><a class="background" ng-cloak ng-show="loggedin" >Owen Merry</a></li>
              <li><a class="background" ng-hide="loggedin" ng-click="signupbtnClick()">Sign Up</a></li>
              <li><a class="background" ng-hide="!loggedin" ng-click="logoutbtnClick()">Logout</a></li>
-        </ul>
-         
-         
-
-         
+        </ul>  
     </div>  
     
     

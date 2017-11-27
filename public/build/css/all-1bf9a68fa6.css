@@ -3413,12 +3413,20 @@ h1, h2, h3, .menu_all li a {
 
 html {
   height: 100%;
+  color: black;
 }
 
 body {
   height: 100%;
   color: black;
-  background-color: black;
+  background-color: #0575E6;
+  background: #00F260;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #0575E6, #00F260);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(top, #0575E6, #00F260);
+  background: linear-gradient(to bottom, #0575E6, #00F260);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
@@ -3440,7 +3448,7 @@ h2 {
 }
 
 a, a:hover {
-  color: black;
+  color: #00F260;
 }
 
 .btn {
@@ -3482,7 +3490,7 @@ a, a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0d0d0d;
+  background: #0b82fa;
 }
 
 ::-webkit-scrollbar-track {
@@ -3490,7 +3498,7 @@ a, a:hover {
 }
 
 body {
-  scrollbar-face-color: #0d0d0d;
+  scrollbar-face-color: #0b82fa;
   scrollbar-track-color: white;
 }
 
@@ -3553,7 +3561,6 @@ body {
 }
 
 /*------------------------- APP --------------------------------*/
-/* browse */
 .app_all {
   width: 100%;
   height: 100%;
@@ -3606,7 +3613,7 @@ body {
 
 .menu_all li a.background {
   background-color: white;
-  color: black;
+  color: #0575E6;
 }
 
 .menu_all li a.background:hover, .menu_all li a.background:active, .menu_all li a.background:focus {
@@ -3690,7 +3697,7 @@ body {
   width: 60px;
   border-radius: 50%;
   font-size: 23px;
-  background-color: black;
+  background-color: #0575E6;
 }
 
 .menuaddlink_all .button i {
@@ -3706,7 +3713,7 @@ body {
   top: 0opx;
   width: 100%;
   z-index: 100;
-  background-color: black;
+  background-color: #0575E6;
 }
 
 .popupmenu_all.ng-hide {
@@ -3734,7 +3741,7 @@ body {
 }
 
 .login_all {
-  background-color: black;
+  background-color: #0575E6;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -3809,7 +3816,7 @@ body {
 }
 
 .signup_all {
-  background-color: black;
+  background-color: #0575E6;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -4021,7 +4028,7 @@ body {
 }
 
 .home_page .portal_all .overlay {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .home_page .portal_all .content {
@@ -4087,7 +4094,7 @@ body {
 }
 
 .addlink_page .addlink_all .overlay {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(5, 117, 230, 0.9);
 }
 
 .addlink_page .addlink_all .content {

@@ -1,10 +1,12 @@
 
 
 /* variables */
-$color-primary:black;
-$color-secondary:black;
+$color-primary:#0575E6;
+$color-secondary:#00F260;
 $color-greytxt:lighten(black,50%);
 
+$color-grad-one:#0575E6;
+$color-grad-two:#00F260;
 
 $col-xs:768px;
 $col-sm:992px;  
@@ -26,8 +28,14 @@ $col-lg:1930px;
 
 
 //main
-html{height:100%;}
+html{height:100%;color:black;}
 body{height:100%;color:black;@extend %font;background-color:$color-primary;
+
+background: $color-grad-two;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, $color-grad-one, $color-grad-two);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, $color-grad-one, $color-grad-two); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
 }
 
 //animate
@@ -123,7 +131,6 @@ min-height:800px;
 /*------------------------- APP --------------------------------*/
 
 
-/* browse */
 .app_all{
     width:100%;
     height:100%;
@@ -393,7 +400,7 @@ height:100%;
         //background-attachment:fixed;
         position:relative;
         
-        .overlay{background-color:rgba($color-primary,.9)}
+        .overlay{background-color:rgba(black,.2)}
 
         
         .content{
