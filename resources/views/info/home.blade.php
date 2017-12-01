@@ -17,7 +17,7 @@
         </div>
     </div>
     
-    
+    <!--
     
     <div class="features_all">
         <div class="image"></div>
@@ -66,7 +66,7 @@
          </div>
     </div>
     
-    
+    -->
     
         
     </div>
