@@ -31,7 +31,7 @@
                 
                 
                 <div class="links" ng-show="!loading" >
-                <div class="col-md-4 col-xs-6" ng-repeat="link in alllinks.links">
+                <div class="col-md-4" ng-repeat="link in alllinks.links">
             <div class="link_all">
                 <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});"></div>
                 <div class="text">
