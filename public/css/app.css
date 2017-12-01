@@ -43,7 +43,7 @@ body {
   font-weight: 100;
 }
 
-h1, h2, h3, .menu_all li a {
+h1, h2, h3, .menu_all li a, .menu_all .mobile li a {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
 }
@@ -56,17 +56,16 @@ html {
 body {
   height: 100%;
   color: black;
-  background-color: #0575E6;
-  background: #00F260;
+  background-color: #552f6d;
+  background: #552f6d;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #0575E6, #00F260);
+  background: -webkit-linear-gradient(left, #2c5e92 0, #552f6d 80%);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(top, #0575E6, #00F260);
-  background: linear-gradient(to bottom, #0575E6, #00F260);
+  background: linear-gradient(left, #2c5e92 0, #552f6d 80%);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.animate_all, .btn, .menu_all, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
+.animate_all, .btn, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s;
 }
@@ -85,7 +84,7 @@ h2 {
 }
 
 a, a:hover {
-  color: #00F260;
+  color: #2c5e92;
 }
 
 .btn {
@@ -127,16 +126,16 @@ a, a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0b82fa;
+  background: #552f6d;
 }
 
 ::-webkit-scrollbar-track {
-  background: white;
+  background: #4f2c66;
 }
 
 body {
-  scrollbar-face-color: #0b82fa;
-  scrollbar-track-color: white;
+  scrollbar-face-color: #552f6d;
+  scrollbar-track-color: #4f2c66;
 }
 
 .nav_all .navbar {
@@ -248,13 +247,14 @@ body {
   cursor: pointer;
 }
 
-.menu_all li a.background {
-  background-color: white;
-  color: #0575E6;
+.menu_all li a.boxed {
+  color: white;
+  border: solid 1px white;
 }
 
-.menu_all li a.background:hover, .menu_all li a.background:active, .menu_all li a.background:focus {
+.menu_all li a.boxed:hover, .menu_all li a.boxed:active, .menu_all li a.boxed:focus {
   background-color: white;
+  color: black;
 }
 
 .menu_all li a:hover, .menu_all li a:active, .menu_all li a:focus {
@@ -277,6 +277,23 @@ body {
   right: 50%;
   -webkit-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
+}
+
+.menu_all .mobile {
+  display: none;
+}
+
+.menu_all .mobile li a {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu_all .desktop {
+    display: none;
+  }
+  .menu_all .mobile {
+    display: block;
+  }
 }
 
 .loginbtn_all {
@@ -334,7 +351,7 @@ body {
   width: 60px;
   border-radius: 50%;
   font-size: 23px;
-  background-color: #0575E6;
+  background-color: #552f6d;
 }
 
 .menuaddlink_all .button i {
@@ -350,7 +367,7 @@ body {
   top: 0opx;
   width: 100%;
   z-index: 100;
-  background-color: #0575E6;
+  background-color: #552f6d;
 }
 
 .popupmenu_all.ng-hide {
@@ -378,7 +395,7 @@ body {
 }
 
 .login_all {
-  background-color: #0575E6;
+  background-color: #552f6d;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -452,8 +469,15 @@ body {
   transform: translate(-50%, -50%);
 }
 
+@media (max-width: 768px) {
+  .login_all .step .center {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
 .signup_all {
-  background-color: #0575E6;
+  background-color: #552f6d;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -659,8 +683,9 @@ body {
 
 .home_page .portal_all {
   height: 100%;
-  background-image: url(../../images/backgrounds/arto-marttinen-133621.jpg);
+  background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
   background-size: cover;
+  background-attachment: fixed;
   position: relative;
 }
 
@@ -694,28 +719,94 @@ body {
   color: white;
 }
 
+@media (max-width: 768px) {
+  .home_page .portal_all .content {
+    width: 100%;
+  }
+  .home_page .portal_all .content h1 {
+    font-size: 37px;
+  }
+  .home_page .portal_all .content p {
+    font-size: 14px;
+  }
+}
+
 .home_page .features_all {
-  background-color: white;
+  display: -webkit-box;
+  display: flex;
 }
 
 .home_page .features_all .image {
-  height: 500px;
-  background-color: #f7f7f7;
+  -webkit-box-flex: 1;
+  flex: 1;
+  background-color: linear-gradient(left bottom, #552f6d 0, #1d1026 80%);
+  background-size: cover;
+  background-position: center center;
 }
 
 .home_page .features_all .text {
-  height: 100%;
-  position: relative;
+  -webkit-box-flex: 1;
+  flex: 1;
+  background-color: white;
 }
 
-.home_page .features_all .text .content {
-  position: absolute;
-  width: 800px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
+.home_page .features_all .content {
+  padding: 200px 140px;
+}
+
+.home_page .features_all .content h2 {
+  font-size: 34px;
+  color: black;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.home_page .features_all .content p {
+  font-size: 19px;
+  line-height: 30px;
+}
+
+.home_page .features_all .content ul {
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.home_page .features_all.right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .home_page .features_all {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+  }
+  .home_page .features_all .image {
+    height: 300px;
+  }
+  .home_page .features_all .content {
+    width: 100%;
+    padding: 30px 30px;
+  }
+  .home_page .features_all .content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .home_page .features_all .content p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .home_page .features_all .content ul {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .home_page .features_all.right {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+  }
 }
 
 .addlink_page {
@@ -731,7 +822,7 @@ body {
 }
 
 .addlink_page .addlink_all .overlay {
-  background-color: rgba(5, 117, 230, 0.9);
+  background-color: rgba(85, 47, 109, 0.9);
 }
 
 .addlink_page .addlink_all .content {
@@ -814,6 +905,22 @@ body {
   padding: 20px 0px;
 }
 
+@media (max-width: 768px) {
+  .link_page .title {
+    margin-bottom: 0px;
+  }
+  .link_page .title h2 {
+    font-size: 24px;
+  }
+  .link_page .controls {
+    padding: 20px;
+  }
+  .link_page .controls .create-link .form-control {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
 .collection_page {
   padding-top: 150px;
 }
@@ -856,6 +963,18 @@ body {
   color: white;
   text-align: center;
   padding: 20px 0px;
+}
+
+@media (max-width: 768px) {
+  .collection_page .title {
+    margin-bottom: 0px;
+  }
+  .collection_page .title h2 {
+    font-size: 24px;
+  }
+  .collection_page .controls {
+    padding: 20px;
+  }
 }
 
 .collectionsingle_page {
@@ -916,6 +1035,25 @@ body {
   padding: 20px 0px;
 }
 
+@media (max-width: 768px) {
+  .collectionsingle_page .title {
+    margin-bottom: 0px;
+  }
+  .collectionsingle_page .title h2 {
+    font-size: 24px;
+  }
+  .collectionsingle_page .controls {
+    padding: 20px;
+  }
+  .collectionsingle_page .controls .back {
+    margin-bottom: 15px;
+  }
+  .collectionsingle_page .controls .create-link .form-control {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
 .search_page .searchbox {
   padding-top: 300px;
   width: 500px;
@@ -952,6 +1090,17 @@ body {
 .search_page.ng-hide-remove {
   -webkit-animation: 0.8s fadeIn ease;
   animation: 0.8s fadeIn ease;
+}
+
+@media (max-width: 768px) {
+  .search_page .searchbox {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .search_page .searchbox h2 {
+    font-size: 28px;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

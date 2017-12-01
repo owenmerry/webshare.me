@@ -1,12 +1,12 @@
 
 
 /* variables */
-$color-primary:#0575E6;
-$color-secondary:#00F260;
+$color-primary:#552f6d;
+$color-secondary:#2c5e92;
 $color-greytxt:lighten(black,50%);
 
-$color-grad-one:#0575E6;
-$color-grad-two:#00F260;
+$color-grad-one:#2c5e92;
+$color-grad-two:#552f6d;
 
 $col-xs:768px;
 $col-sm:992px;  
@@ -32,8 +32,8 @@ html{height:100%;color:black;}
 body{height:100%;color:black;@extend %font;background-color:$color-primary;
 
 background: $color-grad-two;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, $color-grad-one, $color-grad-two);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, $color-grad-one, $color-grad-two); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(left, $color-grad-one 0, $color-grad-two 80%);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(left, $color-grad-one 0, $color-grad-two 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     
 }
@@ -84,7 +84,7 @@ a,a:hover{color:$color-secondary;}
 }
 
 //scrollbars
-@include scrollbars(.5em, lighten($color-primary,5%),lighten($color-primary,100%));
+@include scrollbars(.5em, lighten($color-primary,0%),darken($color-primary,2%));
 
 //navigation
 .nav_all{
@@ -178,12 +178,14 @@ min-height:800px;
     //&:hover{transform:scale(1.2);}
     li{
         a{
+            @extend .animate_all;
             color:white;
             @extend %font-bold;
             cursor:pointer;
-            &.background{
-                background-color:white;color:$color-primary;
-                &:hover,&:active,&:focus{background-color:white;}
+            &.boxed{
+                color:white;
+                border:solid 1px white;
+                &:hover,&:active,&:focus{background-color:white;color:black;}
             }
             &:hover,&:active,&:focus{background-color:transparent;}
         }
@@ -194,6 +196,23 @@ min-height:800px;
         cursor:pointer;position:relative;height:60px;width:60px;border-radius:50%;font-size:23px;background-color:white;
         i{position:absolute;top:50%;right:50%;transform: translate(50%,-50%);}
     }
+    
+    .mobile{
+        display:none;
+        li{
+            a{
+                color:white;
+                @extend %font-bold;
+                }
+        }
+    }
+    
+    //mobile
+    @media(max-width: $col-xs) {
+        .desktop{display:none;}
+        .mobile{display:block;}
+    }
+    
 }
 
 .loginbtn_all{
@@ -266,6 +285,13 @@ min-height:800px;
             width:500px;
             top:50%;left:50%;transform: translate(-50%,-50%);    
         }   
+    }
+    
+    //mobile
+    @media(max-width: $col-xs) {
+        .step{
+            .center{width:100%;padding:20px;}
+        }
     }
     
 }
@@ -395,9 +421,9 @@ height:100%;
     
     .portal_all{
         height:100%;
-        background-image: url(../../images/backgrounds/arto-marttinen-133621.jpg);
+        background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
         background-size: cover;
-        //background-attachment:fixed;
+        background-attachment:fixed;
         position:relative;
         
         .overlay{background-color:rgba(black,.2)}
@@ -414,22 +440,57 @@ height:100%;
             a{color:white;}
             
         }
-    
-    }
-    
-    .features_all{
-        background-color:white;
         
-        .image{height:500px;background-color:darken(white,3%);}
-        .text{height:100%;position: relative;
+        //mobile
+        @media(max-width: $col-xs) {
             .content{
-                position: absolute;
-            width:800px;
-            top:50%;left:50%;transform: translate(-50%,-50%);
-            text-align:center;
+                width:100%;
+                h1{font-size:37px;}
+                p{font-size:14px;}
             }
         }
+        
     }
+    
+    
+    .features_all{
+        display:flex;
+        .image{
+            flex:1;
+            background-color:linear-gradient(left bottom, $color-primary 0, darken($color-primary,20%) 80%);;
+            background-size: cover;
+            background-position: center center;
+        }
+        .text{flex:1;background-color:white;}
+        .content{
+            padding:200px 140px;
+            h2{font-size:34px;color:black;text-align:left;margin-bottom:20px;}
+            p{font-size:19px;line-height:30px;}
+            ul{font-size:17px;line-height:25px;}
+        }
+        &.right{flex-direction: row-reverse;}
+        
+        //mobile
+        @media(max-width: $col-xs) {
+        flex-direction: column;
+            .image{height:300px;}
+        .content{
+            width:100%;
+            padding:30px 30px;
+            h2{font-size:22px;margin-bottom:10px;}
+            p{font-size:13px;line-height:20px;}
+            ul{font-size:13px;line-height:20px;}
+            }
+        &.right{flex-direction: column;}    
+        }
+        
+        
+    }    
+    
+    
+    
+    
+    
     
 }
 
@@ -485,6 +546,19 @@ height:100%;
     .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
     &.ng-hide-remove  { animation:0.8s fadeIn ease; }
     .noresults{color:white;text-align:center;padding:20px 0px;}
+    
+    
+    //mobile
+    @media(max-width: $col-xs) {
+        .title{margin-bottom:0px;h2{font-size:24px;}}
+        .controls{
+            padding:20px;
+            .create-link{
+                .form-control{width:100%;margin-bottom:15px;}
+            }
+        }
+    }
+    
 }
 
 
@@ -504,6 +578,16 @@ height:100%;
     }
     .create-text{.form-control{width:200px;display:inline;margin-right:10px;}}
     .noresults{color:white;text-align:center;padding:20px 0px;}
+    
+    
+    //mobile
+    @media(max-width: $col-xs) {
+        .title{margin-bottom:0px;h2{font-size:24px;}}
+        .controls{
+            padding:20px;
+        }
+    }
+    
 }
 
 
@@ -526,6 +610,19 @@ height:100%;
     .create{}
     .create-text{.form-control{width:200px;display:inline;margin-right:10px;}}
     .noresults{color:white;text-align:center;padding:20px 0px;}
+    
+    //mobile
+    @media(max-width: $col-xs) {
+        .title{margin-bottom:0px;h2{font-size:24px;}}
+        .controls{
+            padding:20px;
+            .back{margin-bottom:15px;}
+            .create-link{
+                .form-control{width:100%;margin-bottom:15px;}
+            }
+        }
+    }
+    
 }
 
 
@@ -546,10 +643,19 @@ height:100%;
         .noresults{color:white;text-align:center;padding:20px 0px;}
     }
        
-        
-  
-    
     &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    
+    
+    //mobile
+    @media(max-width: $col-xs) {
+        .searchbox{
+            width:100%;
+            padding-left:20px;
+            padding-right:20px;
+            h2{font-size:28px;}
+            
+        }
+    }
 }
 
 

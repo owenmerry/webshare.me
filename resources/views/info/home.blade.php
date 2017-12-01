@@ -18,50 +18,52 @@
     </div>
     
     
+    
     <div class="features_all">
-        <div class="container-fluid">
-        <div class="row">
-        <div class="col-md-6 image"></div>
-        <div class="col-md-6 text">
-            <div class="content6">
-                <h2>Make your own link collections</h2>
-                <p>create online collections of all your favourite links and share with your friends or enemies.</p>
+        <div class="image"></div>
+         <div class="text">
+            <div class="content">
+               <h2>Smarter Solar</h2>
+            <p>Our goal is to provide you with a true energy alternative that's yours. Don't limit your solar production because you're not home during the day. Solar is smart. Solar + storage is even smarter.</p>
             </div>
-        </div>
-        </div>
-        </div>
+         </div>
     </div>
     
     
     
-        <div class="features_all">
-        <div class="container-fluid">
-        <div class="row">
-        <div class="col-md-6 text">
-            <div class="content6">
-                <h2>Make your own link collections</h2>
-                <p>create online collections of all your favourite links and share with your friends or enemies.</p>
+    
+    <div class="features_all right">   
+        <div class="image"></div>
+         <div class="text">
+            <div class="content">
+               <h2>Smarter Solar</h2>
+            <p>Our goal is to provide you with a true energy alternative that's yours. Don't limit your solar production because you're not home during the day. Solar is smart. Solar + storage is even smarter.</p>
+            </div>
+         </div>
+    </div>    
+    
+    
+    
+    <div class="features_all">  
+         <div class="image"></div>
+         <div class="text">
+            <div class="content">
+               <h2>Smarter Solar</h2>
+            <p>Our goal is to provide you with a true energy alternative that's yours. Don't limit your solar production because you're not home during the day. Solar is smart. Solar + storage is even smarter.</p>
             </div>
         </div>
-        <div class="col-md-6 image"></div>            
-        </div>
-        </div>
-    </div>
+    </div>    
     
     
     
-        <div class="features_all">
-        <div class="container-fluid">
-        <div class="row">
-        <div class="col-md-6 image"></div>
-        <div class="col-md-6 text">
-            <div class="content6">
-                <h2>Make your own link collections</h2>
-                <p>create online collections of all your favourite links and share with your friends or enemies.</p>
+    <div class="features_all right">  
+         <div class="image"></div>
+         <div class="text">
+            <div class="content">
+               <h2>Smarter Solar</h2>
+            <p>Our goal is to provide you with a true energy alternative that's yours. Don't limit your solar production because you're not home during the day. Solar is smart. Solar + storage is even smarter.</p>
             </div>
-        </div>
-        </div>
-        </div>
+         </div>
     </div>
     
     
