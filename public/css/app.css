@@ -233,6 +233,12 @@ body {
   z-index: 5;
 }
 
+@media (max-width: 768px) {
+  .logo_all {
+    width: 130px;
+  }
+}
+
 .menu_all {
   position: fixed;
   top: 20px;
