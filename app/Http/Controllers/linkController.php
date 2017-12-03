@@ -285,6 +285,10 @@ class linkController extends Controller
     $links = Collection::find($collectionid)->link()->orderBy('id','DESC')->get();
     $this->vars['links'] = $links;
         
+    //get collection data    
+    $collection = Collection::find($collectionid);
+    $this->vars['collection'] = $collection;
+
     //return
     return $this->vars;
         

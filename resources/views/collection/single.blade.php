@@ -8,7 +8,10 @@
         <div class="container">
             <div class="row">
                 
-                <div class="title"><h2>Collections @{{myid}}</h2></div>
+                <div class="title">
+                    <h3>Collection</h3>
+                    <h2>@{{allcollectionlinks.collection.name}}</h2>
+                </div>
                 
                 
                
