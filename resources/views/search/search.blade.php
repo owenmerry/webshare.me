@@ -8,7 +8,7 @@
             <h2>Search</h2>
         
             <div class="textbox_holder">
-                <input type="text" class="form-control textbox" ng-model="search" ng-change="searchlinks()" placeholder="Search Link, Collections or Profiles" />
+                <input type="text" id="searchall-search" class="form-control textbox" ng-model="search" ng-change="searchlinks()" placeholder="Search Link, Collections or Profiles" />
             </div>
         </div>
         

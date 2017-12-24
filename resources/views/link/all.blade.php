@@ -10,7 +10,7 @@
                 <div class="title"><h2>Owen Merry Recent Links</h2></div>
                 
                 <div class="controls">
-                    <div class="create-link"><input type="text" class="form-control" placeholder="Paste website link here" ng-model="website" /><a class="btn" ng-click="addlink()">Add Link</a></div>
+                    <div class="create-link"><input type="text" id="linkall_create" class="form-control" placeholder="Paste website link here" ng-model="website" /><a class="btn" ng-click="addlink()">Add Link</a></div>
                 </div>
                 
             <div class="loading" ng-show="loading">
@@ -33,7 +33,9 @@
                 <div class="links" ng-show="!loading" >
                 <div class="col-md-4" ng-repeat="link in alllinks.links">
             <div class="link_all">
-                <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});"></div>
+                <div ng-click="linkEditBtnClick(link.id)" class="edit">Edit</div>
+                <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});">
+                </div>
                 <div class="text">
                 <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
                 <h3>@{{link.site.name | strLimit: 20}}</h3>

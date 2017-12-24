@@ -276,6 +276,22 @@ class linkController extends Controller
         
     }
     
+    //View Single Link 
+    public function getLink(Request $request, $linkid)
+    {
+        
+    //get all users
+    $links = Link::find($linkid);    
+    $this->vars['link'] = $links;   
+
+   
+        
+    //return
+    return $this->vars;  
+        
+        
+    }
+    
     
     //Collection Links
     public function collection(Request $request, $collectionid)
@@ -291,6 +307,28 @@ class linkController extends Controller
 
     //return
     return $this->vars;
+        
+        
+    }
+    
+    
+    //Link Update
+    public function update(Request $request)
+    {
+    
+    //variables
+    $linkid = $request['linkid'];
+        
+    //get link and update visit
+    $link = Link::find($linkid);
+    $link->title = $request['title'];   
+    $link->description = $request['description'];   
+    $link->url = $request['url'];   
+    $link->save();   
+        
+        
+    //return
+    return "updated";
         
         
     }

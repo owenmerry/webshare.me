@@ -42,6 +42,8 @@ app.controller('appController', function($scope, $http, $location) {
         $scope.popupmenu = false; 
         $scope.pageactive = "addlink";
     }
+    
+    
     //collection page functions
     //default
     $scope.collectionmode="collection";
@@ -97,10 +99,9 @@ app.controller('appController', function($scope, $http, $location) {
     $scope.loginbtnClick = function(){
             $scope.loginstep='email';
             $scope.loginshow=true;
-            setTimeout(function(){ document.getElementById('loginall-email').focus(); }, 300);
     }
     $scope.loginbtnCloseClick = function(){
-        $scope.loginstep='email';
+        setTimeout(function(){ $scope.loginstep='password'; }, 1000); 
         $scope.loginshow=false;
     }
     $scope.loginEmailClick = function(){
@@ -171,7 +172,27 @@ app.controller('appController', function($scope, $http, $location) {
     
     
     
-    
+    //link edit functions
+    $scope.linkEditBtnClick = function(linkid){
+            $scope.linkeditshow=true;
+            $http.get("/api/link/getlink/"+ linkid).then(function (response) {
+                console.log(response.data);
+                    $scope.linkedit = response.data;
+                    $scope.linkedittitle = $scope.linkedit.link.title;
+                    $scope.linkeditdescription = $scope.linkedit.link.description;
+                    $scope.linkediturl = $scope.linkedit.link.url;
+            });
+    }
+    $scope.linkEditBtnCloseClick = function(){
+        $scope.linkeditshow=false;
+    }
+    $scope.linkEditSaveClick = function(){
+        
+        $http.post("/api/link/update",{linkid:$scope.linkedit.link.id,title:$scope.linkedittitle,description:$scope.linkeditdescription,url:$scope.linkediturl}).then(function (response) {
+            $scope.linkeditupdate = response.data;
+            $scope.linkeditshow=false;
+        });    
+    };    
     
 
 
@@ -280,6 +301,9 @@ app.controller('linkallController', function($scope, $http) {
     //variables
     //$scope.loading = true;
     
+    //onload
+    setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
+    
     //get data
     $http.get("/api/link/mylinks").then(function (response) {
             $scope.alllinks = response.data;
@@ -323,7 +347,10 @@ app.controller('collectionallController', function($scope, $http) {
     
     //functions
     $scope.toggleCreate = function(varmode){
-        if(varmode=="show"){$scope.createshow=true;};
+        if(varmode=="show"){
+            $scope.createshow=true;
+            setTimeout(function(){ document.getElementById('collectionall_create').focus(); }, 300);               
+                           };
         if(varmode=="hide"){$scope.createshow=false;};
     };
      $scope.addcollection = function(){
@@ -355,6 +382,9 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
     $collectionid = $routeParams.ID;
     $scope.myid = $routeParams.ID; 
     //$scope.loading=true;
+    
+    //onload
+    setTimeout(function(){ document.getElementById('collectionsingleall_create').focus(); }, 300);
     
     //get data
     $http.get("/api/link/collection/"+ $collectionid ).then(function (response) {
@@ -400,7 +430,10 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
 app.controller('searchController', function($scope, $http) {
     
     //varibles
-   // $scope.loading = false;
+    //$scope.loading = false;
+    
+    //run on open
+    setTimeout(function(){ document.getElementById('searchall-search').focus(); }, 300);
     
     //functions
     $scope.searchlinks = function(){

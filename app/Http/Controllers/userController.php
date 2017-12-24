@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 
 use App\User;
+use App\Website;
 
 class userController extends Controller
 {
@@ -21,11 +22,22 @@ class userController extends Controller
     {
         
               
+        /*
         $website_domain = parse_url("http://www.ign.com", PHP_URL_HOST);
         preg_replace('/^www./', '', $website_domain);      
    
         return "this->". $website_domain;
-    
+        */
+        $url = "http://www.ign.com";
+        $url = "https://www.drupal.org/node/1930488";
+        $url = "https://www.spotify.com/";
+        $getwebdata = Website::getWebsiteData($url); 
+        
+        $title=$getwebdata['title'];
+        
+        //return $getwebdata['title'];
+        //return $title;
+        return $getwebdata;
     }   
     
     

@@ -26,7 +26,7 @@ public static function getWebsiteData($url){
         
 $html = self::file_get_contents_curl($url);
 
-    echo "this". $html;
+    //echo "this". $html;
 //parsing begins here:
 $doc = new \DOMDocument();
 @$doc->loadHTML($html);
@@ -129,18 +129,19 @@ if($image==""){
     
     
     
- //get images
-if(1==1){
-    $image_list = $doc->getElementsByTagName('img');
+//get images
+$image_list = $doc->getElementsByTagName('img');
+$images = array();
+
 for ($i = 0; $i < $image_list->length; $i++)
-{
-    $image_single = $image_list->item($i);
-    //get image src
-    //if($image_single->getAttribute('src')->length > 0){
-        $images[] = $image_single->getAttribute('src');
-    //}
-}
-}   
+    {
+        $image_single = $image_list->item($i);
+    
+        if(!$image_single->getAttribute('src')==''){
+            $images[] = $image_single->getAttribute('src');
+        }
+    }
+
  
     
     

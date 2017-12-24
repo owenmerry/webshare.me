@@ -18,7 +18,7 @@
              <div> 
                  <div class="controls">
                      <a class="back btn" href="#collection/all">Back</a>
-                     <div class="create-link"><input type="text" class="form-control" placeholder="Paste website link here" ng-model="website" /><a class="btn" ng-click="addlink()">Add Link</a></div>
+                     <div class="create-link"><input type="text" id="collectionsingleall_create" class="form-control" placeholder="Paste website link here" ng-model="website" /><a class="btn" ng-click="addlink()">Add Link</a></div>
                  </div>             
                  
                  

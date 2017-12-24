@@ -3472,7 +3472,7 @@ body {
 	}
 }
 */
-.animate_all, .btn, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
+.animate_all, .btn, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .linkedit_all .content .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s;
 }
@@ -3496,6 +3496,7 @@ a, a:hover {
 
 .btn {
   border: solid 2px white;
+  color: white;
   font-size: 12px;
   padding: 10px 20px;
   text-transform: capitalize;
@@ -3503,6 +3504,10 @@ a, a:hover {
   text-transform: uppercase;
   font-weight: 600;
   border-radius: 0px;
+}
+
+.btna {
+  color: white;
 }
 
 .btn:hover {
@@ -3515,6 +3520,11 @@ a, a:hover {
   .btn {
     padding: 10px 20px;
   }
+}
+
+.btn.btn-primary {
+  border-color: #552f6d;
+  color: #552f6d;
 }
 
 .btn-lg, .btn-lg:hover {
@@ -3817,13 +3827,11 @@ body {
 }
 
 .login_all.ng-hide {
-  -webkit-animation: 0.8s slideOutDown ease;
-  animation: 0.8s slideOutDown ease;
+  top: 100%;
 }
 
-.login_all.ng-hide-remove {
-  -webkit-animation: 0.8s slideInUp ease;
-  animation: 0.8s slideInUp ease;
+.login_all.ng-show {
+  top: 0px;
 }
 
 .login_all .close {
@@ -3964,6 +3972,82 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.linkedit_all {
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.linkedit_all.ng-hide {
+  -webkit-animation: 0.8s slideOutDown ease;
+  animation: 0.8s slideOutDown ease;
+}
+
+.linkedit_all.ng-hide-remove {
+  -webkit-animation: 0.8s slideInUp ease;
+  animation: 0.8s slideInUp ease;
+}
+
+.linkedit_all .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.linkedit_all .close img {
+  width: 20px;
+}
+
+.linkedit_all .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.linkedit_all .content h2 {
+  color: #552f6d;
+  font-weight: 300;
+}
+
+.linkedit_all .content .form-control {
+  padding: 40px 30px;
+}
+
+.linkedit_all .content .form-control.textarea {
+  padding: 15px 30px 0px 30px;
+}
+
+.linkedit_all .content .form-control:focus {
+  border-color: #00cca3;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.linkedit_all .content .textbox_holder {
+  margin-bottom: 20px;
+}
+
+.linkedit_all .content .center {
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .linkedit_all .content .center {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
 .page_all.ng-enter {
   -webkit-animation: 0.8s fadeIn ease;
   animation: 0.8s fadeIn ease;
@@ -3977,11 +4061,22 @@ body {
   margin-bottom: 20px;
   -webkit-transform: scale(1);
   transform: scale(1);
+  position: relative;
+  z-index: 1;
 }
 
-.link_all:hover {
-  -webkit-transform: scale(1.02);
-  transform: scale(1.02);
+.link_all .edit {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  padding: 5px 10px;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .link_all .image {
@@ -4013,6 +4108,15 @@ body {
 
 .link_all h3.views {
   float: right;
+}
+
+.link_all:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.link_all:hover .edit {
+  display: block;
 }
 
 .loading .link_all {

@@ -99,6 +99,9 @@ Route::post('/api/link/add', ['as' => 'api.link.add', 'uses' => 'linkController@
 Route::post('/api/link/addmany', ['as' => 'api.link.addmany', 'uses' => 'linkController@createmany']);
 Route::get('/api/link/getdata', ['as' => 'api.link.getdata', 'uses' => 'linkController@getdata']);
 Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
+Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
+Route::get('/api/link/getlink/{link_id}', ['as' => 'api.link.getlink', 'uses' => 'linkController@getlink']);
+Route::post('/api/link/update', ['as' => 'api.link.update', 'uses' => 'linkController@update']);
 Route::get('/api/link/mylinks', ['as' => 'api.link.mylinks', 'uses' => 'linkController@mylinks']);
 Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection', 'uses' => 'linkController@collection']); 
 Route::get('/api/link/visit/{link_id}', ['as' => 'api.link.visit', 'uses' => 'linkController@visit']); 

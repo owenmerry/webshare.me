@@ -39,6 +39,30 @@
     </div>  
     
     
+    <div class="linkedit_all" ng-cloak ng-show="linkeditshow">
+        <div class="content">
+            <div class="close" ng-click="linkEditBtnCloseClick()"><img src="/images/icons/close.svg" /></div>
+        <div class="center">
+            <h2>Edit Details</h2>
+            <div class="textbox_holder">
+                <div><label>Title</label></div>
+                <input type="text" class="form-control textbox" ng-model="linkedittitle" placeholder="Title" />
+            </div>
+            <div class="textbox_holder">
+                <div><label>Description</label></div>
+                <textarea class="form-control textarea" ng-model="linkeditdescription" placeholder="Description of the link"></textarea>
+            </div>
+            <div class="textbox_holder">
+                <div><label>Link</label></div>
+                <textarea class="form-control textarea" ng-model="linkediturl" placeholder="Paste Link Here"></textarea>
+            </div>
+            <div class="buttons">
+                <a class="btn btn-primary" ng-click="linkEditSaveClick()">Save Details</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    
     
     <div class="login_all" ng-cloak ng-show="loginshow==true">
         
@@ -51,7 +75,7 @@
                 <input id="loginall-email" type="text" class="form-control textbox email-input" ng-model="email" placeholder="Email" ng-enter="loginEmailClick()" />
             </div>
             <div class="buttons">
-                <a class="btn btn-primary" ng-click="loginEmailClick()">Next</a>
+                <a class="btn" ng-click="loginEmailClick()">Next</a>
             </div>
             </div>
         </div>
@@ -65,8 +89,8 @@
                 <input type="hidden" ng-model="csrf" ng-init="csrf='{{ csrf_token() }}'" class="form-control" >
             </div>
             <div class="buttons">
-                <a class="btn btn-primary" ng-click="loginPasswordClick()">Login</a>
-                <a class="btn btn-primary">Back</a>
+                <a class="btn" ng-click="loginPasswordClick()">Login</a>
+                <a class="btn" ng-click="loginBackClick()">Back</a>
             </div>
             </div>
         </div>
