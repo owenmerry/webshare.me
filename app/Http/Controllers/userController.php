@@ -49,7 +49,7 @@ class userController extends Controller
         $remember = true;
         
         //check details
-        if(Auth::attempt($request->only(['email','password'],$remember))){
+        if(Auth::attempt($request->only(['email','password']),$remember)){
             return "ok";  
         }else{
             return "error";

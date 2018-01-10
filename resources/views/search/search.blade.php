@@ -30,10 +30,11 @@
                 </div>
                 <?php }; ?>
             </div>    
-            
-            
+        
+        
         <div class="col-md-4" ng-repeat="link in searchlink.links">
             <div class="link_all">
+                <div ng-click="linkEditBtnClick(link.id)" class="edit">Edit</div>
                 <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});"></div>
                 <div class="text">
                 <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
