@@ -498,8 +498,9 @@ min-height:800px;
     .edit{
             display:none;
             position:absolute;top:5px;right:5px;
-            font-size:14px;color:black;background-color:rgba(black,.2);
-            border-radius:15px;padding:5px 10px;
+            font-size:14px;color:white;background-color:rgba(black,.5);
+            @extend %font-bold;
+            border-radius:8px;padding:5px 15px;
             z-index:2;
             cursor:pointer;
         }
@@ -514,6 +515,11 @@ min-height:800px;
     h3{font-size:12px;margin-bottom:0px;color:darken(white,20%);float:left;&.views{float:right;}} 
     &:hover{
         transform:scale(1.02);
+        .edit{display: block;}
+    }
+    
+    //mobile 
+    @media(max-width: $col-sm) {
         .edit{display: block;}
     }
     

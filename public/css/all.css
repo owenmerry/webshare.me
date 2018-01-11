@@ -3406,7 +3406,7 @@ body {
   font-weight: 100;
 }
 
-h1, h2, h3, .menu_all li a, .menu_all .mobile li a {
+h1, h2, h3, .menu_all li a, .menu_all .mobile li a, .link_all .edit {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
 }
@@ -4140,10 +4140,10 @@ body {
   top: 5px;
   right: 5px;
   font-size: 14px;
-  color: black;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-  padding: 5px 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 5px 15px;
   z-index: 2;
   cursor: pointer;
 }
@@ -4186,6 +4186,12 @@ body {
 
 .link_all:hover .edit {
   display: block;
+}
+
+@media (max-width: 992px) {
+  .link_all .edit {
+    display: block;
+  }
 }
 
 .loading .link_all {
