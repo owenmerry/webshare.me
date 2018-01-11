@@ -76,7 +76,7 @@ class userController extends Controller
         
         
         //LoginUser
-        if(Auth::attempt($request->only(['email','password'],$remember))){
+        if(Auth::attempt($request->only(['email','password']),$remember)){
             return "ok";  
         }else{
             return "error";
