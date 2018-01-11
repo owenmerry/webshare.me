@@ -61,7 +61,7 @@
     </div>
     
     
-    <div class="login_all" ng-cloak ng-show="loginshow==true">
+    <div class="login_all" ng-cloak ng-show="loginshow">
         
         <div class="close" ng-click="loginbtnCloseClick()"><img src="/images/icons/close.svg" /></div>
         
@@ -96,7 +96,7 @@
     
     
     
-    <div class="signup_all" ng-cloak ng-show="signupshow==true">
+    <div class="signup_all" ng-cloak ng-show="signupshow">
         
         <div class="close" ng-click="signupbtnCloseClick()"><img src="/images/icons/close.svg" /></div>
         

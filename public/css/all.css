@@ -3826,12 +3826,14 @@ body {
   z-index: 10;
 }
 
-.login_all.ng-hide {
-  top: 100%;
+.login_all.ng-hide-add {
+  -webkit-animation: 0.8s slideOutDown ease;
+  animation: 0.8s slideOutDown ease;
 }
 
-.login_all.ng-show {
-  top: 0px;
+.login_all.ng-hide-remove {
+  -webkit-animation: 0.8s slideInUp ease;
+  animation: 0.8s slideInUp ease;
 }
 
 .login_all .close {
@@ -3852,7 +3854,7 @@ body {
   top: 0px;
 }
 
-.login_all .step.ng-hide {
+.login_all .step.ng-hide-add {
   -webkit-animation: 0.8s slideOutLeft ease;
   animation: 0.8s slideOutLeft ease;
 }
@@ -3906,7 +3908,7 @@ body {
   z-index: 10;
 }
 
-.signup_all.ng-hide {
+.signup_all.ng-hide-add {
   -webkit-animation: 0.8s slideOutDown ease;
   animation: 0.8s slideOutDown ease;
 }
@@ -3934,7 +3936,7 @@ body {
   top: 0px;
 }
 
-.signup_all .step.ng-hide {
+.signup_all .step.ng-hide-add {
   -webkit-animation: 0.8s slideOutLeft ease;
   animation: 0.8s slideOutLeft ease;
 }
@@ -3981,7 +3983,7 @@ body {
   z-index: 10;
 }
 
-.linkedit_all.ng-hide {
+.linkedit_all.ng-hide-add {
   -webkit-animation: 0.8s slideOutDown ease;
   animation: 0.8s slideOutDown ease;
 }
@@ -4057,7 +4059,7 @@ body {
   z-index: 15;
 }
 
-.menumobile_all.ng-hide {
+.menumobile_all.ng-hide-add {
   -webkit-animation: 0.8s slideOutUp ease;
   animation: 0.8s slideOutUp ease;
 }
