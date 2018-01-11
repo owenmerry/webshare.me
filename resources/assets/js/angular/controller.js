@@ -17,6 +17,7 @@ app.controller('appController', function($scope, $http, $location) {
     $scope.signupshow=false;
     $scope.signupstep='create';
     $scope.addlinkcollection=false;
+    $scope.menumobile=false;
     
     
     //startup
@@ -42,6 +43,14 @@ app.controller('appController', function($scope, $http, $location) {
         $scope.popupmenu = false; 
         $scope.pageactive = "addlink";
     }
+    
+    $scope.menuMobileShowClick = function(){
+        $scope.menumobile = true;
+    }
+    $scope.menuMobileHideClick = function(){
+        $scope.menumobile = false;
+    }
+    
     
     
     //collection page functions

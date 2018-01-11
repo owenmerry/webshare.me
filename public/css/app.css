@@ -685,6 +685,75 @@ body {
   }
 }
 
+.menumobile_all {
+  background-color: #552f6d;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+}
+
+.menumobile_all.ng-hide {
+  -webkit-animation: 0.8s slideOutUp ease;
+  animation: 0.8s slideOutUp ease;
+}
+
+.menumobile_all.ng-hide-remove {
+  -webkit-animation: 0.8s slideInDown ease;
+  animation: 0.8s slideInDown ease;
+}
+
+.menumobile_all .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.menumobile_all .close img {
+  width: 20px;
+}
+
+.menumobile_all .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.menumobile_all .content.ng-hide {
+  -webkit-animation: 0.8s slideOutLeft ease;
+  animation: 0.8s slideOutLeft ease;
+}
+
+.menumobile_all .content.ng-hide-remove {
+  -webkit-animation: 0.8s slideInRight ease;
+  animation: 0.8s slideInRight ease;
+}
+
+.menumobile_all .content ul li {
+  text-align: center;
+}
+
+.menumobile_all .content ul li a {
+  cursor: pointer;
+  color: white;
+}
+
+.menumobile_all .content ul li a:hover {
+  background-color: transparent;
+}
+
+.menumobile_all .content .center {
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .page_all.ng-enter {
   -webkit-animation: 0.8s fadeIn ease;
   animation: 0.8s fadeIn ease;

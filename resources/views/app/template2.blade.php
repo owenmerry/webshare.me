@@ -30,12 +30,9 @@
              <li><a class="boxed" ng-hide="loggedin" ng-click="signupbtnClick()">Sign Up</a></li>
              <li><a class="boxed" ng-hide="!loggedin" ng-click="logoutbtnClick()">Logout</a></li>
         </ul> 
-         <ul class="nav nav-pills mobile">
-             <li><a href="#link/all" ng-cloak ng-show="loggedin">Menu</a></li>
-             <li><a class="boxed" ng-show="!loggedin"ng-cloak ng-show="loggedin" ng-click="loginbtnClick()">Login</a></li>
-             <li><a class="boxed" ng-hide="!loggedin" ng-click="logoutbtnClick()">Logout</a></li>
-        </ul> 
-         
+        <ul class="nav nav-pills mobile">
+             <li><a class="boxed" ng-cloak ng-click="menuMobileShowClick()">Menu</a></li>
+        </ul>  
     </div>  
     
     
@@ -124,6 +121,24 @@
             </div>
         </div>
         
+    </div>
+    
+    
+    <div class="menumobile_all" ng-cloak ng-show="menumobile">
+        <div class="close" ng-click="menuMobileHideClick()"><img src="/images/icons/close.svg" /></div>
+        <div class="content">
+        <div class="center">
+            <ul class="nav">
+             <li><a href="#link/all" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">My Links</a></li>
+             <li><a href="#collection/all" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">My Collections</a></li>
+             <li><a href="#search" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">Search</a></li>
+             <li><a class="boxed" ng-show="!loggedin"ng-cloak ng-show="loggedin" ng-click="loginbtnClick();menuMobileHideClick()">Login</a></li>
+             <li><a class="boxed" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">Owen Merry</a></li>
+             <li><a class="boxed" ng-hide="loggedin" ng-click="signupbtnClick();menuMobileHideClick()">Sign Up</a></li>
+             <li><a class="boxed" ng-hide="!loggedin" ng-click="logoutbtnClick();menuMobileHideClick()">Logout</a></li>
+        </ul>
+        </div>
+        </div>
     </div>
     
     
