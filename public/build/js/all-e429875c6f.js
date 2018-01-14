@@ -1316,7 +1316,7 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
             $scope.alllinks = response.data;
             $scope.loading = false;
         });
-        console.log('Link Refresh')
+        //console.log('Link Refresh')
     }
 
     //remote refresh
@@ -1378,7 +1378,7 @@ app.controller('collectionallController', function($scope, $http, $interval) {
             $scope.allcollections = response.data;
             $scope.loading = false;
         });
-        console.log('Collection Refresh')
+        //console.log('Collection Refresh')
     }
 
     //remote refresh
@@ -1448,7 +1448,7 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
             $scope.allcollectionlinks = response.data;
             $scope.loading = false;
         });
-        console.log('Collection Single Refresh')
+        //console.log('Collection Single Refresh')
     }
     
     //remote refresh
@@ -1491,7 +1491,24 @@ app.controller('searchController', function($scope, $http) {
             };
         };    
     
+        //refresh data
+        $scope.refresh = function(){
+            $http.post("/api/link/search",{search:$scope.search}).then(function (response) {
+                $scope.searchlink = response.data;
+                $scope.loading = false;
+            });
+            //console.log('Search Refresh')
+        }
     
+        //remote refresh
+        $scope.$on('SearchRefresh', function(event) {
+            $scope.refresh();
+        });
+    
+        //auto refresh
+        $scope.$on('pageRefresh', function(event) {
+            $scope.refresh();
+        });
     
 });
 
