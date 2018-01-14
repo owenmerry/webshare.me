@@ -43,7 +43,7 @@ body {
   font-weight: 100;
 }
 
-h1, h2, h3, .menu_all li a, .menu_all .mobile li a, .link_all .edit {
+h1, h2, h3, .menu_all li a, .menu_all .mobile li a, .link_all .edit, .collection_all .edit {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
 }
@@ -109,7 +109,7 @@ body {
 	}
 }
 */
-.animate_all, .btn, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .linkedit_all .content .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
+.animate_all, .btn, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .linkedit_all .content .form-control, .collectionedit_all .content .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s;
 }
@@ -641,6 +641,17 @@ body {
   width: 20px;
 }
 
+.linkedit_all .delete {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.linkedit_all .delete img {
+  width: 20px;
+}
+
 .linkedit_all .content {
   width: 100%;
   height: 100%;
@@ -687,6 +698,93 @@ body {
   }
 }
 
+.collectionedit_all {
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.collectionedit_all.ng-hide-add {
+  -webkit-animation: 0.8s slideOutDown ease;
+  animation: 0.8s slideOutDown ease;
+}
+
+.collectionedit_all.ng-hide-remove {
+  -webkit-animation: 0.8s slideInUp ease;
+  animation: 0.8s slideInUp ease;
+}
+
+.collectionedit_all .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.collectionedit_all .close img {
+  width: 20px;
+}
+
+.collectionedit_all .delete {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.collectionedit_all .delete img {
+  width: 20px;
+}
+
+.collectionedit_all .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+}
+
+.collectionedit_all .content h2 {
+  color: #552f6d;
+  font-weight: 300;
+}
+
+.collectionedit_all .content .form-control {
+  padding: 40px 30px;
+}
+
+.collectionedit_all .content .form-control.textarea {
+  padding: 15px 30px 0px 30px;
+}
+
+.collectionedit_all .content .form-control:focus {
+  border-color: #00cca3;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.collectionedit_all .content .textbox_holder {
+  margin-bottom: 20px;
+}
+
+.collectionedit_all .content .center {
+  position: absolute;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .collectionedit_all .content .center {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
 .menumobile_all {
   background-color: #552f6d;
   position: fixed;
@@ -696,7 +794,7 @@ body {
   z-index: 15;
 }
 
-.menumobile_all.ng-hide-add {
+.menumobile_all.ng-hide {
   -webkit-animation: 0.8s slideOutUp ease;
   animation: 0.8s slideOutUp ease;
 }
@@ -869,11 +967,30 @@ body {
   -webkit-transform: scale(1);
   transform: scale(1);
   color: black;
+  position: relative;
 }
 
 .collection_all:hover {
   -webkit-transform: scale(1.02);
   transform: scale(1.02);
+}
+
+.collection_all:hover .edit {
+  display: block;
+}
+
+.collection_all .edit {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 5px 15px;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .collection_all .image {

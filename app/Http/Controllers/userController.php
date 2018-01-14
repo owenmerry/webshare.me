@@ -82,9 +82,6 @@ class userController extends Controller
             return "error";
         }
         
-              
-    
-    
     }   
     
     

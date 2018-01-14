@@ -931,7 +931,7 @@ var app = angular.module('mySite', ['ngRoute','angularMoment','ngAnimate']);
 
 //controllers
 
-app.controller('appController', function($scope, $http, $location) {
+app.controller('appController', function($scope, $http, $location, $rootScope, $interval) {
   
     //variables
     $scope.popupmenu = false; 
@@ -952,7 +952,10 @@ app.controller('appController', function($scope, $http, $location) {
             $scope.start = true;
     });
     
-    
+    //page refresh
+    var pageRefresh = $interval(function(){
+        $rootScope.$broadcast('pageRefresh');
+    },5000);
     
     //menu functions
     $scope.menuClick = function(){
@@ -1125,9 +1128,56 @@ app.controller('appController', function($scope, $http, $location) {
         $http.post("/api/link/update",{linkid:$scope.linkedit.link.id,title:$scope.linkedittitle,description:$scope.linkeditdescription,url:$scope.linkediturl}).then(function (response) {
             $scope.linkeditupdate = response.data;
             $scope.linkeditshow=false;
+
+            //refresh data
+            $rootScope.$broadcast('linkAllRefresh');
         });    
     };    
-    
+    $scope.linkDeleteBtnClick = function(){
+        $http.delete("/api/link/delete/"+ $scope.linkedit.link.id).then(function (response) {
+            console.log(response.data);
+                $scope.linkdelete = response.data;
+                $scope.linkeditshow=false;
+
+                //refresh data
+                $rootScope.$broadcast('linkAllRefresh');
+        });
+    }
+
+
+    //collection edit functions
+    $scope.collectionEditBtnClick = function(collectionid){
+            $scope.collectioneditshow=true;
+            $http.get("/api/collection/getcollection/"+ collectionid).then(function (response) {
+                console.log(response.data);
+                    $scope.collectionedit = response.data;
+                    $scope.collectioneditname = $scope.collectionedit.collection.name;
+            });
+    }
+    $scope.collectionEditBtnCloseClick = function(){
+        $scope.collectioneditshow=false;
+    }
+    $scope.collectionEditSaveClick = function(){
+        
+        $http.post("/api/collection/update",{collectionid:$scope.collectionedit.collection.id,name:$scope.collectionedittitle}).then(function (response) {
+            $scope.collectioneditupdate = response.data;
+            $scope.collectioneditshow=false;
+
+            //refresh data
+            $scope.$emit('collectionAllRefresh');
+
+        });    
+    };    
+    $scope.collectionDeleteBtnClick = function(){
+        $http.delete("/api/collection/delete/"+ $scope.collectionedit.collection.id).then(function (response) {
+            console.log(response.data);
+                $scope.collectiondelete = response.data;
+                $scope.collectioneditshow=false;
+
+                //refresh data
+                $rootScope.$broadcast('collectionAllRefresh'); 
+        });
+    }
 
 
 
@@ -1230,7 +1280,7 @@ app.controller('addlinkController', function($scope, $http) {
 
 
 // Link All page
-app.controller('linkallController', function($scope, $http) {
+app.controller('linkallController', function($scope, $http, $rootScope, $interval) {
     
     //variables
     //$scope.loading = true;
@@ -1259,13 +1309,30 @@ app.controller('linkallController', function($scope, $http) {
         });
         
     };
-    
-    
+
+    //refresh data
+    $scope.refresh = function(){
+        $http.get("/api/link/mylinks").then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+        });
+        console.log('Link Refresh')
+    }
+
+    //remote refresh
+    $scope.$on('linkAllRefresh', function(event) {
+        $scope.refresh();
+    });
+
+    //auto refresh
+    $scope.$on('pageRefresh', function(event) {
+        $scope.refresh();
+    });
     
 });
 
 // Collection All page
-app.controller('collectionallController', function($scope, $http) {
+app.controller('collectionallController', function($scope, $http, $interval) {
     
     //variables
     $scope.collectionmode="collection";
@@ -1304,7 +1371,25 @@ app.controller('collectionallController', function($scope, $http) {
         });
         
     };
+
+    //refresh data
+    $scope.refresh = function(){
+        $http.get("/api/collection/mycollections").then(function (response) {
+            $scope.allcollections = response.data;
+            $scope.loading = false;
+        });
+        console.log('Collection Refresh')
+    }
+
+    //remote refresh
+    $scope.$on('collectionAllRefresh', function(event) {
+        $scope.refresh();
+    });
     
+    //auto refresh
+    $scope.$on('pageRefresh', function(event) {
+        $scope.refresh();
+    });
     
 });
 
@@ -1353,6 +1438,28 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
     $scope.addlinkcollectionhide = function(){ 
         $scope.addlinkcollection=false;
     };
+
+
+
+
+    //refresh data
+    $scope.refresh = function(){
+        $http.get("/api/link/collection/"+ $collectionid ).then(function (response) {
+            $scope.allcollectionlinks = response.data;
+            $scope.loading = false;
+        });
+        console.log('Collection Single Refresh')
+    }
+    
+    //remote refresh
+    $scope.$on('collectionSingleAllRefresh', function(event) {
+        $scope.refresh();
+    });
+        
+    //auto refresh
+    $scope.$on('pageRefresh', function(event) {
+        $scope.refresh();
+    });
     
     
     

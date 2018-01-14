@@ -100,6 +100,65 @@ class collectionController extends Controller
         
         
     }
+
+
+
+
+    //View Single Collection 
+    public function getcollection(Request $request, $collectionid)
+    {
+        
+    //get all
+    $collections = Collection::find($collectionid);    
+    $this->vars['collection'] = $collections;   
+
+   
+        
+    //return
+    return $this->vars;  
+        
+        
+    }
+
+
+
+
+
+    //Collection Update
+    public function update(Request $request)
+    {
+    
+    //variables
+    $collectionid = $request['collectionid'];
+        
+    //get collection and update visit
+    $collection = Collection::find($collectionid);
+    $collection->name = $request['name'];     
+    $collection->save();   
+        
+        
+    //return
+    return "updated";
+        
+        
+    }
+
+
+
+
+       //Link Delete
+       public function delete(Request $request, $collectionid)
+       {
+           
+       //get collection and delete
+       $collection = Collection::find($collectionid); 
+       $collection->delete();   
+           
+       //return
+       return "deleted";
+           
+           
+       }
     
     
     

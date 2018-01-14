@@ -433,6 +433,21 @@ class linkController extends Controller
     }
     
     
+
+
+        //Link Delete
+        public function delete(Request $request, $linkid)
+        {
+            
+        //get link and delete
+        $link = Link::find($linkid); 
+        $link->delete();   
+            
+        //return
+        return "deleted";
+            
+            
+        }
     
     
     

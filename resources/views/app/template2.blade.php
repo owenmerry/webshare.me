@@ -36,9 +36,28 @@
     </div>  
     
     
+    <div class="collectionedit_all" ng-cloak ng-show="collectioneditshow">
+        <div class="content">
+            <div class="close" ng-click="collectionEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
+            <div class="delete"><a class="btn btn-primary" ng-click="collectionDeleteBtnClick()">Delete</div></a>
+        <div class="center">
+            <h2>Edit Details</h2>
+            <div class="textbox_holder">
+                <div><label>Title</label></div>
+                <input type="text" class="form-control textbox" ng-model="collectioneditname" placeholder="Title" />
+            </div>
+            <div class="buttons">
+                <a class="btn btn-primary" ng-click="collectionEditSaveClick()">Save Details</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="linkedit_all" ng-cloak ng-show="linkeditshow">
         <div class="content">
             <div class="close" ng-click="linkEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
+            <div class="delete"><a class="btn btn-primary" ng-click="linkDeleteBtnClick()">Delete</div></a>
         <div class="center">
             <h2>Edit Details</h2>
             <div class="textbox_holder">

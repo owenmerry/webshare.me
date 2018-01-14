@@ -107,11 +107,15 @@ Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection
 Route::get('/api/link/visit/{link_id}', ['as' => 'api.link.visit', 'uses' => 'linkController@visit']); 
 Route::get('/api/link/user/{user_id}', ['as' => 'api.link.user', 'uses' => 'linkController@user']); 
 Route::post('/api/link/search', ['as' => 'api.link.search', 'uses' => 'linkController@search']); 
+Route::delete('/api/link/delete/{link_id}', ['as' => 'api.link.delete', 'uses' => 'linkController@delete']); 
 //collection
 Route::post('/api/collection/add', ['as' => 'api.collection.add', 'uses' => 'collectionController@create']);
 Route::get('/api/collection/all', ['as' => 'api.collection.all', 'uses' => 'collectionController@all']);
 Route::get('/api/collection/mycollections', ['as' => 'api.collection.mycollections', 'uses' => 'collectionController@mycollections']);
 Route::get('/api/collection/user/{user_id}', ['as' => 'api.collection.user', 'uses' => 'collectionController@user']);
+Route::get('/api/collection/getcollection/{collection_id}', ['as' => 'api.collection.getcollection', 'uses' => 'collectionController@getcollection']);
+Route::post('/api/collection/update', ['as' => 'api.collection.update', 'uses' => 'collectionController@update']);
+Route::delete('/api/collection/delete/{collection_id}', ['as' => 'api.collection.delete', 'uses' => 'collectionController@delete']);
 //user
 Route::get('/api/user/show/{user_id}', ['as' => 'api.user.show', 'uses' => 'userController@show']);
 Route::post('/api/user/login', ['as' => 'api.user.login', 'uses' => 'userController@login']);

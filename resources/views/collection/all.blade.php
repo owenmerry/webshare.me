@@ -33,15 +33,16 @@
                 
                 
             <div class="col-md-4" ng-repeat="collection in allcollections.collections">
-            <a href="#/collection/single/@{{collection.id}}">
             <div class="collection_all">
-                <div class="image" ></div>
+            <div ng-click="collectionEditBtnClick(collection.id)" class="edit">Edit</div>
+            <a href="#/collection/single/@{{collection.id}}"><div class="image" ></div></a>
                 <div class="text">
+                <a href="#/collection/single/@{{collection.id}}">
                 <h2 >@{{collection.name | strLimit: 37}}</h2>
+                </a>
                     <div class="clearfix"></div>
                 </div>
             </div>
-                </a>
                 </div>
 
                 <div class="noresults" ng-cloak ng-show="!allcollections.collections.length"> No Collections Found </div>    
