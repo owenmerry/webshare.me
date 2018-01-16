@@ -57,7 +57,10 @@
     <div class="linkedit_all" ng-cloak ng-show="linkeditshow">
         <div class="content">
             <div class="close" ng-click="linkEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
-            <div class="delete"><a class="btn btn-primary" ng-click="linkDeleteBtnClick()">Delete</div></a>
+            <div class="delete">
+                <a ng-show="linkEditCollection" class="btn btn-primary" ng-click="linkCollectionDeleteBtnClick()">Remove</a>
+                <a class="btn btn-primary" ng-click="linkDeleteBtnClick()">Delete</a>
+            </div>
         <div class="center">
             <h2>Edit Details</h2>
             <div class="textbox_holder">

@@ -18,7 +18,16 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
     $scope.signupstep='create';
     $scope.addlinkcollection=false;
     $scope.menumobile=false;
+    $scope.linkEditCollection='';
     
+    //page Global values
+    //collection Global
+    $scope.$on("collectionsingleEnter", function (event, args) {
+        $scope.linkEditCollection = args.collectionid;
+     }); 
+     $scope.$on("collectionsingleLeave", function (event, args) {
+        $scope.linkEditCollection = '';
+     }); 
     
     //startup
     $http.get("/api/user/loggedin").then(function (response) {
@@ -30,7 +39,7 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
     //page refresh
     var pageRefresh = $interval(function(){
         $rootScope.$broadcast('pageRefresh');
-    },5000);
+    },60000);
     
     //menu functions
     $scope.menuClick = function(){
@@ -89,6 +98,10 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
             $scope.alllinks = response.data;
             });
         });
+
+        //refresh
+        $rootScope.$broadcast('pageRefresh');
+        
     };
    
     
@@ -185,7 +198,7 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
     
     
     //link edit functions
-    $scope.linkEditBtnClick = function(linkid){
+    $scope.linkEditBtnClick = function(linkid,collectionid){
             $scope.linkeditshow=true;
             $http.get("/api/link/getlink/"+ linkid).then(function (response) {
                 console.log(response.data);
@@ -205,7 +218,7 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
             $scope.linkeditshow=false;
 
             //refresh data
-            $rootScope.$broadcast('linkAllRefresh');
+            $rootScope.$broadcast('pageRefresh');
         });    
     };    
     $scope.linkDeleteBtnClick = function(){
@@ -215,9 +228,21 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
                 $scope.linkeditshow=false;
 
                 //refresh data
-                $rootScope.$broadcast('linkAllRefresh');
+                $rootScope.$broadcast('pageRefresh');
         });
     }
+    $scope.linkCollectionDeleteBtnClick = function(){
+        $http.delete("/api/collection/delete/"+ $scope.linkEditCollection +"/"+ $scope.linkedit.link.id).then(function (response) {
+            console.log(response.data);
+                $scope.linkdelete = response.data;
+                $scope.linkeditshow=false;
+
+                //refresh data
+                $rootScope.$broadcast('pageRefresh');
+        });
+    }
+
+
 
 
     //collection edit functions
@@ -250,7 +275,7 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
                 $scope.collectioneditshow=false;
 
                 //refresh data
-                $rootScope.$broadcast('collectionAllRefresh'); 
+                $rootScope.$broadcast('pageRefresh'); 
         });
     }
 
@@ -406,6 +431,9 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
     
 });
 
+
+
+
 // Collection All page
 app.controller('collectionallController', function($scope, $http, $interval) {
     
@@ -469,14 +497,20 @@ app.controller('collectionallController', function($scope, $http, $interval) {
 });
 
 
+
+
 // Collection Single page
-app.controller('collectionsingleController', function($scope, $http, $routeParams) {
+app.controller('collectionsingleController', function($scope, $rootScope, $http, $routeParams) {
     
     //variables
     $collectionid = $routeParams.ID;
     $scope.myid = $routeParams.ID; 
     //$scope.loading=true;
     
+    //set up global variables
+    $rootScope.$broadcast('collectionsingleEnter',{collectionid:$collectionid});
+ 
+
     //onload
     setTimeout(function(){ document.getElementById('collectionsingleall_create').focus(); }, 300);
     
@@ -514,7 +548,21 @@ app.controller('collectionsingleController', function($scope, $http, $routeParam
         $scope.addlinkcollection=false;
     };
 
+    $scope.linkSingleEditBtnClick = function(linkid){
+        $scope.linkcollectioneditshow=true;
+        $http.get("/api/link/getlink/"+ linkid).then(function (response) {
+            console.log(response.data);
+                $scope.linkedit = response.data;
+                $scope.linkedittitle = $scope.linkedit.link.title;
+                $scope.linkeditdescription = $scope.linkedit.link.description;
+                $scope.linkediturl = $scope.linkedit.link.url;
+        });
+    }
 
+    //collection leave
+    $scope.$on('$locationChangeStart', function( event ) {
+       $rootScope.$broadcast('collectionsingleLeave');
+    }); 
 
 
     //refresh data

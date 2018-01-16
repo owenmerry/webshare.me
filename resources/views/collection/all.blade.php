@@ -38,7 +38,7 @@
             <a href="#/collection/single/@{{collection.id}}"><div class="image" ></div></a>
                 <div class="text">
                 <a href="#/collection/single/@{{collection.id}}">
-                <h2 >@{{collection.name | strLimit: 37}}</h2>
+                    <h2>@{{collection.name | strLimit: 37}}</h2>
                 </a>
                     <div class="clearfix"></div>
                 </div>
@@ -53,3 +53,7 @@
         
     </div>
 
+
+
+
+    

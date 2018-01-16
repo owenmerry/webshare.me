@@ -146,7 +146,7 @@ class collectionController extends Controller
 
 
 
-       //Link Delete
+       //Colleciton Delete
        public function delete(Request $request, $collectionid)
        {
            
@@ -156,7 +156,22 @@ class collectionController extends Controller
            
        //return
        return "deleted";
+              
+       }
+    
+
+
+
+       //Collection link detach
+       public function deletelinkcollection(Request $request, $collectionid, $linkid)
+       {
            
+       //get collection and delete
+       $collection = Collection::find($collectionid);
+       $collection->link()->detach($linkid);
+    
+       //return
+       return "deleted";    
            
        }
     
