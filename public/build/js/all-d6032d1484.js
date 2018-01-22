@@ -1144,8 +1144,8 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
 
     $scope.upload = function (file) {
         Upload.upload({
-            url: 'api/link/upload',
-            data: {photo: file, 'username': 'owen'}
+            url: '/api/link/upload',
+            data: {photo: file, 'linkid': $scope.linkedit.link.id }
         }).then(function (response) {
             //console.log('Success ' + response.config.data.file.name + 'uploaded. Response: ' + response.data);
             //console.log(response.data);

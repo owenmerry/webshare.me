@@ -55,7 +55,7 @@
 
 
 
-    <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop ngf-select ng-model="files" 
+    <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop ng-model="files" 
     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
     accept="image/*,application/pdf" 
     ngf-pattern="image/*,application/pdf">

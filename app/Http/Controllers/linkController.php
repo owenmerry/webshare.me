@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\User;
 use App\Link;
@@ -457,16 +458,32 @@ class linkController extends Controller
     {
         //return $request->username;
         if ($request->hasFile('photo')) {
-            if ($request->file('photo')->isValid()) {
-                echo "valid";
+            if ($request->file('photo')[0]->isValid()) {
 
-                //$request->file('file')->store('images');
+                $saved = $request->file('photo')[0]->store('images');
+                $url = Storage::url($saved);
+
+
+                //variables
+                $linkid = $request['linkid'];
+                    
+                //get link and update visit
+                $link = Link::find($linkid);
+                $link->image = $url;     
+                $link->save();   
+                    
+                    
+                //return
+                return "updated";
+
+
+
 
 
             }
             
 
-            return "file found and stored";
+            return "file found and stored - " . $url;
         }else{
             return "file not found";
         }
