@@ -450,6 +450,28 @@ class linkController extends Controller
         }
     
     
+
+
+    //Upload Image
+    public function upload(Request $request)
+    {
+        //return $request->username;
+        if ($request->hasFile('photo')) {
+            if ($request->file('photo')->isValid()) {
+                echo "valid";
+
+                //$request->file('file')->store('images');
+
+
+            }
+            
+
+            return "file found and stored";
+        }else{
+            return "file not found";
+        }
+
+    }
     
     
     

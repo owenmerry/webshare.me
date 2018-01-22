@@ -108,6 +108,7 @@ Route::get('/api/link/visit/{link_id}', ['as' => 'api.link.visit', 'uses' => 'li
 Route::get('/api/link/user/{user_id}', ['as' => 'api.link.user', 'uses' => 'linkController@user']); 
 Route::post('/api/link/search', ['as' => 'api.link.search', 'uses' => 'linkController@search']); 
 Route::delete('/api/link/delete/{link_id}', ['as' => 'api.link.delete', 'uses' => 'linkController@delete']); 
+Route::post('/api/link/upload', ['as' => 'api.link.upload', 'uses' => 'linkController@upload']); 
 //collection
 Route::post('/api/collection/add', ['as' => 'api.collection.add', 'uses' => 'collectionController@create']);
 Route::get('/api/collection/all', ['as' => 'api.collection.all', 'uses' => 'collectionController@all']);

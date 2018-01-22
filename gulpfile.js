@@ -34,7 +34,10 @@ elixir((mix) => {
         'frameworks/angular-route/angular-route.min.js',
         'frameworks/angular-animate/angular-animate.min.js',
         '../../../node_modules/moment/min/moment.min.js',
-        '../../../node_modules/angular-moment/angular-moment.min.js', 
+        '../../../node_modules/angular-moment/angular-moment.min.js',
+        '../../../node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js',
+        '../../../node_modules/ng-file-upload/dist/ng-file-upload.min.js', 
+        '../../../node_modules/angular-files-drop/dist/index.js', 
         'angular/controller.js',
         'angular/route.js'
         

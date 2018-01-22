@@ -54,7 +54,11 @@
     </div>
 
 
-    <div class="linkedit_all" ng-cloak ng-show="linkeditshow">
+
+    <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop ngf-select ng-model="files" 
+    ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+    accept="image/*,application/pdf" 
+    ngf-pattern="image/*,application/pdf">
         <div class="content">
             <div class="close" ng-click="linkEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
             <div class="delete">
@@ -75,10 +79,14 @@
                 <div><label>Link</label></div>
                 <textarea class="form-control textarea" ng-model="linkediturl" placeholder="Paste Link Here"></textarea>
             </div>
+            
             <div class="buttons">
                 <a class="btn btn-primary" ng-click="linkEditSaveClick()">Save Details</a>
             </div>
             </div>
+
+            
+
         </div>
     </div>
     

@@ -19,7 +19,9 @@
     "vue-resource": "^1.0.3"
   },
   "dependencies": {
+    "angular-files-drop": "^1.0.0",
     "angular-moment": "^1.0.1",
-    "moment": "^2.17.1"
+    "moment": "^2.17.1",
+    "ng-file-upload": "^12.2.13"
   }
 }

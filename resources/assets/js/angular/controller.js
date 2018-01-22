@@ -1,12 +1,12 @@
 // JavaScript Document
 
-var app = angular.module('mySite', ['ngRoute','angularMoment','ngAnimate']);
+var app = angular.module('mySite', ['ngRoute','angularMoment','ngAnimate','ngFileUpload','angular-files-drop']);
 
 
 
 //controllers
 
-app.controller('appController', function($scope, $http, $location, $rootScope, $interval) {
+app.controller('appController', function($scope, Upload, $http, $location, $rootScope, $interval) {
   
     //variables
     $scope.popupmenu = false; 
@@ -198,6 +198,42 @@ app.controller('appController', function($scope, $http, $location, $rootScope, $
     
     
     //link edit functions
+    $scope.onFilesDropped = function($files, $event) {
+        console.log('$files', $files)
+        console.log('$event', $event)
+     
+        $scope.previews = $files
+    }
+
+    $scope.$watch('files', function () {
+        $scope.upload($scope.files);
+    });
+
+    $scope.upload = function (file) {
+        Upload.upload({
+            url: 'api/link/upload',
+            data: {photo: file, 'username': 'owen'}
+        }).then(function (response) {
+            //console.log('Success ' + response.config.data.file.name + 'uploaded. Response: ' + response.data);
+            //console.log(response.data);
+        }, function (resp) {
+            //console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+    };
+    // for multiple files:
+   /* $scope.uploadFiles = function (files) {
+      if (files && files.length) {
+        for (var i = 0; i < files.length; i++) {
+          Upload.upload({..., data: {file: files[i]}, ...})...;
+        }
+        // or send them all together for HTML5 browsers:
+        Upload.upload({..., data: {file: files}, ...})...;
+      }
+    }*/
+
     $scope.linkEditBtnClick = function(linkid,collectionid){
             $scope.linkeditshow=true;
             $http.get("/api/link/getlink/"+ linkid).then(function (response) {
