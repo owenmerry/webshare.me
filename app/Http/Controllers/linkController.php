@@ -460,9 +460,8 @@ class linkController extends Controller
         if ($request->hasFile('photo')) {
             if ($request->file('photo')[0]->isValid()) {
 
-                $saved = $request->file('photo')[0]->store('images');
+                $saved = $request->file('photo')[0]->store('public/images');
                 $url = Storage::url($saved);
-
 
                 //variables
                 $linkid = $request['linkid'];
