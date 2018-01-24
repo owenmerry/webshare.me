@@ -475,18 +475,12 @@ class linkController extends Controller
                 //return
                 return "updated";
 
-
-
-
-
             }
-            
-
-            return "file found and stored - " . $url;
-        }else{
-            return "file not found";
+            //return
+            return "not valid";
         }
-
+        //return
+        return "none";
     }
     
     

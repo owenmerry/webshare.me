@@ -396,9 +396,14 @@ min-height:800px;
     width:100%;
     height:100%;
     z-index:10;
-    &.ng-hide-add         { animation:0.8s slideOutDown ease; }
+    &.ng-hide-add     { animation:0.8s slideOutDown ease; }
     &.ng-hide-remove  { animation:0.8s slideInUp ease; }
     
+    .drop{
+        display:none;position: fixed;top:0px;width:100vw;height:100vh;left:0px;z-index:20;border:solid 10px $color-secondary;
+        border-right-width:15px;background-color:rgba(white,.6);
+    } 
+    &.dragover{.drop{display:block;}}
     .close{position: absolute;top:20px;right:20px;z-index:10;img{width:20px;}}
     .delete{position: absolute;bottom:20px;right:20px;z-index:10;img{width:20px;}}
     .content{
@@ -536,6 +541,12 @@ min-height:800px;
     transform:scale(1);
     position: relative;z-index:1;
     //box-shadow: 0px 0px 6px rgba(black,.8);
+
+    .drop{
+        display:none;position: absolute;top:0px;width:100vw;height:100vh;left:0px;z-index:20;
+        background-color:rgba(white,.6);
+    } 
+    &.dragover{.drop{display:block;}}
     .edit{
             display:none;
             position:absolute;top:5px;right:5px;

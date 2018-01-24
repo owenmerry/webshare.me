@@ -214,25 +214,9 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
             url: '/api/link/upload',
             data: {photo: file, 'linkid': $scope.linkedit.link.id }
         }).then(function (response) {
-            //console.log('Success ' + response.config.data.file.name + 'uploaded. Response: ' + response.data);
-            //console.log(response.data);
-        }, function (resp) {
-            //console.log('Error status: ' + resp.status);
-        }, function (evt) {
-            //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            //console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
-    // for multiple files:
-   /* $scope.uploadFiles = function (files) {
-      if (files && files.length) {
-        for (var i = 0; i < files.length; i++) {
-          Upload.upload({..., data: {file: files[i]}, ...})...;
-        }
-        // or send them all together for HTML5 browsers:
-        Upload.upload({..., data: {file: files}, ...})...;
-      }
-    }*/
+
 
     $scope.linkEditBtnClick = function(linkid,collectionid){
             $scope.linkeditshow=true;
@@ -416,7 +400,7 @@ app.controller('addlinkController', function($scope, $http) {
 
 
 // Link All page
-app.controller('linkallController', function($scope, $http, $rootScope, $interval) {
+app.controller('linkallController', function($scope, $http, $rootScope, $interval,Upload) {
     
     //variables
     //$scope.loading = true;
@@ -453,6 +437,16 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
             $scope.loading = false;
         });
         //console.log('Link Refresh')
+    }
+
+    //upload
+    $scope.uploadlink = function(file,linkid){
+        Upload.upload({
+            url: '/api/link/upload',
+            data: {photo: file, 'linkid': linkid }
+        }).then(function (response) {
+            $scope.refresh();
+        });   
     }
 
     //remote refresh

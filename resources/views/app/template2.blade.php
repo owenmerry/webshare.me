@@ -55,11 +55,12 @@
 
 
 
-    <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop ng-model="files" 
+    <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop="" ng-model="files" 
     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
     accept="image/*,application/pdf" 
     ngf-pattern="image/*,application/pdf">
         <div class="content">
+            <div class="drop"></div>
             <div class="close" ng-click="linkEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
             <div class="delete">
                 <a ng-show="linkEditCollection" class="btn btn-primary" ng-click="linkCollectionDeleteBtnClick()">Remove</a>

@@ -32,7 +32,11 @@
                 
                 <div class="links" ng-show="!loading" >
                 <div class="col-md-4" ng-repeat="link in alllinks.links">
-            <div class="link_all">
+            <div class="link_all" ngf-drop="uploadlink(filelink,link.id)" ng-model="filelink" 
+    ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+    accept="image/*,application/pdf"
+    ngf-pattern="image/*,application/pdf">
+                <div class="drop"></div>
                 <div ng-click="linkEditBtnClick(link.id)" class="edit">Edit</div>
                 <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});">
                 </div>
