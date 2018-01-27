@@ -3752,6 +3752,13 @@ body {
   transform: translate(50%, -50%);
 }
 
+@media (max-width: 768px) {
+  .loginbtn_all:hover {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
 .menuaddlink_all {
   position: fixed;
   top: 20px;
@@ -3783,6 +3790,13 @@ body {
   right: 50%;
   -webkit-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .menuaddlink_all:hover {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .popupmenu_all {
@@ -3897,6 +3911,10 @@ body {
     width: 100%;
     padding: 20px;
   }
+  .login_all .step .form-control:focus {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .signup_all {
@@ -3972,6 +3990,13 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+  .signup_all .step .form-control:focus {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .linkedit_all {
@@ -4076,6 +4101,10 @@ body {
     width: 100%;
     padding: 20px;
   }
+  .linkedit_all .content .form-control:focus {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .collectionedit_all {
@@ -4163,6 +4192,10 @@ body {
     width: 100%;
     padding: 20px;
   }
+  .collectionedit_all .content .form-control:focus {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .menumobile_all {
@@ -4219,6 +4252,7 @@ body {
 .menumobile_all .content ul li a {
   cursor: pointer;
   color: white;
+  font-size: 20px;
 }
 
 .menumobile_all .content ul li a:hover {
@@ -4286,6 +4320,7 @@ body {
   height: 210px;
   background-size: cover;
   opacity: 1;
+  background-position: center center;
 }
 
 .link_all .text {
@@ -4374,6 +4409,21 @@ body {
   display: block;
 }
 
+.collection_all .drop {
+  display: none;
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.collection_all.dragover .drop {
+  display: block;
+}
+
 .collection_all .edit {
   display: none;
   position: absolute;
@@ -4394,6 +4444,7 @@ body {
   height: 210px;
   background-size: cover;
   opacity: 1;
+  background-position: center center;
 }
 
 .collection_all .text {

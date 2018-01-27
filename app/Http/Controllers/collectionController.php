@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use Auth;
 use App\Collection;
@@ -176,6 +177,35 @@ class collectionController extends Controller
        }
     
     
+
+    //Upload Image
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('photo')) {
+            if ($request->file('photo')[0]->isValid()) {
+
+                $saved = $request->file('photo')[0]->store('public/images');
+                $url = Storage::url($saved);
+
+                //variables
+                $collectionid = $request['collectionid'];
+                    
+                //get link and update visit
+                $link = Collection::find($collectionid);
+                $link->image = $url;     
+                $link->save();   
+                    
+                    
+                //return
+                return "updated";
+
+            }
+            //return
+            return "not valid";
+        }
+        //return
+        return "none";
+    }
     
     
     

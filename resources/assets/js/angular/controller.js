@@ -278,15 +278,15 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
         $scope.collectioneditshow=false;
     }
     $scope.collectionEditSaveClick = function(){
-        
-        $http.post("/api/collection/update",{collectionid:$scope.collectionedit.collection.id,name:$scope.collectionedittitle}).then(function (response) {
+        console.log('run edit save..');
+        $http.post("/api/collection/update",{collectionid:$scope.collectionedit.collection.id,name:$scope.collectioneditname}).then(function (response) {
             $scope.collectioneditupdate = response.data;
             $scope.collectioneditshow=false;
 
             //refresh data
-            $scope.$emit('collectionAllRefresh');
+            $rootScope.$broadcast('pageRefresh'); 
 
-        });    
+        }); 
     };    
     $scope.collectionDeleteBtnClick = function(){
         $http.delete("/api/collection/delete/"+ $scope.collectionedit.collection.id).then(function (response) {
@@ -465,7 +465,7 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
 
 
 // Collection All page
-app.controller('collectionallController', function($scope, $http, $interval) {
+app.controller('collectionallController', function($scope, $http, $interval, Upload) {
     
     //variables
     $scope.collectionmode="collection";
@@ -513,6 +513,17 @@ app.controller('collectionallController', function($scope, $http, $interval) {
         });
         //console.log('Collection Refresh')
     }
+
+    //upload
+    $scope.uploadcollection = function(file,collectionid){
+        Upload.upload({
+            url: '/api/collection/upload',
+            data: {photo: file, 'collectionid': collectionid }
+        }).then(function (response) {
+            $scope.refresh();
+        });   
+    }
+
 
     //remote refresh
     $scope.$on('collectionAllRefresh', function(event) {

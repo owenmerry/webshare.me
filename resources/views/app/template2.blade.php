@@ -36,7 +36,10 @@
     </div>  
     
     
-    <div class="collectionedit_all" ng-cloak ng-show="collectioneditshow">
+    <div class="collectionedit_all" ng-cloak ng-show="collectioneditshow" ngf-drop="" ng-model="filecollection" 
+    ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+    accept="image/*,application/pdf" 
+    ngf-pattern="image/*,application/pdf">
         <div class="content">
             <div class="close" ng-click="collectionEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
             <div class="delete"><a class="btn btn-primary" ng-click="collectionDeleteBtnClick()">Delete</div></a>
@@ -55,7 +58,7 @@
 
 
 
-    <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop="" ng-model="files" 
+    <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop="" ng-model="filelink" 
     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
     accept="image/*,application/pdf" 
     ngf-pattern="image/*,application/pdf">
