@@ -16,7 +16,7 @@
 ## Pages
 
 Route::get('/', function () {
-    return view('app.template2');
+    return view('app.main');
 });
 
 
@@ -49,6 +49,10 @@ Route::get('/addlink', function () {
 
 Route::get('/search', function () {
     return view('search.search');
+});
+
+Route::get('/browse/all', function () {
+    return view('browse.all');
 });
 
 Route::get('/link/all', function () {
@@ -99,7 +103,6 @@ Route::post('/api/link/add', ['as' => 'api.link.add', 'uses' => 'linkController@
 Route::post('/api/link/addmany', ['as' => 'api.link.addmany', 'uses' => 'linkController@createmany']);
 Route::get('/api/link/getdata', ['as' => 'api.link.getdata', 'uses' => 'linkController@getdata']);
 Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
-Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
 Route::get('/api/link/getlink/{link_id}', ['as' => 'api.link.getlink', 'uses' => 'linkController@getlink']);
 Route::post('/api/link/update', ['as' => 'api.link.update', 'uses' => 'linkController@update']);
 Route::get('/api/link/mylinks', ['as' => 'api.link.mylinks', 'uses' => 'linkController@mylinks']);
@@ -122,6 +125,7 @@ Route::post('/api/collection/upload', ['as' => 'api.collection.upload', 'uses' =
 //user
 Route::get('/api/user/show/{user_id}', ['as' => 'api.user.show', 'uses' => 'userController@show']);
 Route::post('/api/user/login', ['as' => 'api.user.login', 'uses' => 'userController@login']);
+Route::post('/api/user/loginupload', ['as' => 'api.user.loginupload', 'uses' => 'userController@loginupload']);
 Route::post('/api/user/signup', ['as' => 'api.user.signup', 'uses' => 'userController@signup']);
 Route::get('/api/user/all', ['as' => 'api.user.all', 'uses' => 'userController@all']);
 Route::get('/api/user/loggedin', ['as' => 'api.user.loggedin', 'uses' => 'userController@loggedin']);

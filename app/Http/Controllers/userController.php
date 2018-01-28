@@ -59,6 +59,30 @@ class userController extends Controller
     
     
     }
+
+
+    //Login Upload
+    public function loginupload(Request $request)
+    {
+        //varibles
+        $remember = true;
+        
+        //get image name
+        if ($request->hasFile('photo')) {
+            if ($request->file('photo')[0]->isValid()) {
+                Auth::loginUsingId(1, true);
+                return "ok";
+        }}
+        return "no file";
+
+        //check users image name
+        
+        
+        //login
+        Auth::loginUsingId(1, true);
+        return "ok";  
+
+    }
     
     
     //Signup
@@ -145,6 +169,7 @@ class userController extends Controller
     if (Auth::check())
     {
     $this->vars['loggedin'] = true;    
+    $this->vars['user']['id'] = Auth::user()->id;    
     }    
         
     //return

@@ -22,18 +22,25 @@
     
      <div class="menu_all">
          <ul class="nav nav-pills desktop">
+             <li><a href="#browse/all" ng-cloak >Browse</a></li>
              <li><a href="#link/all" ng-cloak ng-show="loggedin">My Links</a></li>
-             <li><a href="#collection/all" ng-cloak ng-show="loggedin">My Collections</a></li>
+             <li><a href="#collection/user/@{{userid}}" ng-cloak ng-show="loggedin">My Collections</a></li>
              <li><a href="#search" ng-cloak ng-show="loggedin">Search</a></li>
-             <li><a class="boxed" ng-show="!loggedin"ng-cloak ng-show="loggedin" ng-click="loginbtnClick()">Login</a></li>
+             <li><a class="boxed" 
+                ng-show="!loggedin" ng-cloak ng-show="loggedin" ng-click="loginbtnClick()"
+                ngf-drop="loginUpload(filelogin)" ng-model="filelogin" 
+                ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+                accept="image/*,application/pdf" 
+                ngf-pattern="image/*,application/pdf"
+             >Login</a></li>
              <li><a class="boxed" ng-cloak ng-show="loggedin" >Owen Merry</a></li>
              <li><a class="boxed" ng-hide="loggedin" ng-click="signupbtnClick()">Sign Up</a></li>
              <li><a class="boxed" ng-hide="!loggedin" ng-click="logoutbtnClick()">Logout</a></li>
         </ul> 
         <ul class="nav nav-pills mobile">
              <li><a class="boxed" ng-cloak ng-click="menuMobileShowClick()">Menu</a></li>
-        </ul>  
-    </div>  
+        </ul>
+    </div>
     
     
     <div class="collectionedit_all" ng-cloak ng-show="collectioneditshow" ngf-drop="" ng-model="filecollection" 

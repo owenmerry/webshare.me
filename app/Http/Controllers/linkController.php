@@ -299,12 +299,15 @@ class linkController extends Controller
     {
         
     //get collection links
-    $links = Collection::find($collectionid)->link()->orderBy('id','DESC')->get();
+    $links = Collection::find($collectionid)->link()->with('site')->orderBy('id','DESC')->get();
     $this->vars['links'] = $links;
         
     //get collection data    
     $collection = Collection::find($collectionid);
     $this->vars['collection'] = $collection;
+
+    //get user data    
+    $this->vars['user'] = $collection->user;
 
     //return
     return $this->vars;
@@ -377,7 +380,7 @@ class linkController extends Controller
      $user_id=Auth::user()->id;
         
     //get user links
-    $links = Link::where('user_id',$user_id)->orderBy('id','DESC')->get();
+    $links = Link::where('user_id',$user_id)->with('site')->orderBy('id','DESC')->get();
     $this->vars['links'] = $links;   
         
         

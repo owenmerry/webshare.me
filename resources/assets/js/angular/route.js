@@ -25,11 +25,15 @@
                 templateUrl : 'search',
                 controller  : 'searchController'
             })
+            .when('/browse/all', {
+                templateUrl : 'browse/all',
+                controller  : 'browseallController'
+            })
             .when('/link/all', {
                 templateUrl : 'link/all',
                 controller  : 'linkallController'
             })
-            .when('/collection/all', {
+            .when('/collection/user/:ID', {
                 templateUrl : 'collection/all',
                 controller  : 'collectionallController'
             })

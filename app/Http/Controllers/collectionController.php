@@ -111,7 +111,7 @@ class collectionController extends Controller
         
     //get all
     $collections = Collection::find($collectionid);    
-    $this->vars['collection'] = $collections;   
+    $this->vars['collection'] = $collections;  
 
    
         

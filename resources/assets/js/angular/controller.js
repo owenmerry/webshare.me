@@ -32,6 +32,7 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
     //startup
     $http.get("/api/user/loggedin").then(function (response) {
             $scope.loggedin = response.data.loggedin;
+            $scope.userid = response.data.user.id;
             $scope.loading = false;
             $scope.start = true;
     });
@@ -153,7 +154,27 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
             $scope.loading = false;
         });    
     };
-    
+    $scope.loginUpload = function(file){
+        if(file){
+            Upload.upload({
+                url: '/api/user/loginupload',
+                data: {photo: file }
+            }).then(function (response) {
+                $scope.userlogin = response.data;
+                if($scope.userlogin=="ok"){
+                    $scope.email="";
+                    $scope.password = "";
+                    $scope.loggedin = true;
+                    $scope.loginmode= "";
+                    $scope.loginstatus = "";
+                    $scope.loginshow=false;
+                    $location.path('link/all');
+                }else{
+                    $scope.loginstatus = "No user found";
+                }
+            });
+        }
+    }
 
     //logout button
     $scope.logoutbtnClick = function(){
@@ -210,11 +231,13 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
     });
 
     $scope.upload = function (file) {
-        Upload.upload({
-            url: '/api/link/upload',
-            data: {photo: file, 'linkid': $scope.linkedit.link.id }
-        }).then(function (response) {
-        });
+        if(file){
+            Upload.upload({
+                url: '/api/link/upload',
+                data: {photo: file, 'linkid': $scope.linkedit.link.id }
+            }).then(function (response) {
+            });
+        }
     };
 
 
@@ -398,6 +421,75 @@ app.controller('addlinkController', function($scope, $http) {
 
 
 
+// Browse All page
+app.controller('browseallController', function($scope, $http, $rootScope, $interval,Upload) {
+    
+    //variables
+    //$scope.loading = true;
+    
+    //onload
+    setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
+    
+    //get data
+    $http.get("/api/link/all").then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+    });
+
+    $http.get("/api/collection/all").then(function (response) {
+        $scope.allcollections = response.data;
+        $scope.loading = false;
+});
+    
+    //functions
+     $scope.addlink = function(){
+        
+        $scope.loading = true;
+        
+        $http.post("/api/link/addmany",{website:$scope.website,collection_id:$scope.collectionid}).then(function (response) {
+            $scope.link = response.data;
+            $scope.website="";
+            $http.get("/api/link/mylinks").then(function (response) {
+                $scope.alllinks = response.data;
+                $scope.loading = false;
+            });
+        });
+        
+    };
+
+    //refresh data
+    $scope.refresh = function(){
+        $http.get("/api/link/all").then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+        });
+        //console.log('Link Refresh')
+    }
+
+    //upload
+    $scope.uploadlink = function(file,linkid){
+        Upload.upload({
+            url: '/api/link/upload',
+            data: {photo: file, 'linkid': linkid }
+        }).then(function (response) {
+            $scope.refresh();
+        });   
+    }
+
+    //remote refresh
+    $scope.$on('linkAllRefresh', function(event) {
+        $scope.refresh();
+    });
+
+    //auto refresh
+    $scope.$on('pageRefresh', function(event) {
+        $scope.refresh();
+    });
+    
+});
+
+
+
 
 // Link All page
 app.controller('linkallController', function($scope, $http, $rootScope, $interval,Upload) {
@@ -465,16 +557,17 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
 
 
 // Collection All page
-app.controller('collectionallController', function($scope, $http, $interval, Upload) {
+app.controller('collectionallController', function($scope, $http, $interval, $routeParams, Upload) {
     
     //variables
+    $scope.collectionid = $routeParams.ID;
     $scope.collectionmode="collection";
     $scope.createshow=false;
     $scope.collectionname="";
    // $scope.loading=true;
     
     //get data
-    $http.get("/api/collection/mycollections").then(function (response) {
+    $http.get("/api/collection/user/"+ $scope.collectionid ).then(function (response) {
             $scope.allcollections = response.data;
             $scope.loading = false;
     });
@@ -496,10 +589,7 @@ app.controller('collectionallController', function($scope, $http, $interval, Upl
             $scope.loading = false;
             $scope.collectionname="";
             
-            $http.get("/api/collection/mycollections").then(function (response) {
-            $scope.allcollections = response.data;
-            $scope.loading = false;
-            });
+            $scope.refresh();
             
         });
         
@@ -507,11 +597,10 @@ app.controller('collectionallController', function($scope, $http, $interval, Upl
 
     //refresh data
     $scope.refresh = function(){
-        $http.get("/api/collection/mycollections").then(function (response) {
+        $http.get("/api/collection/user/"+ $scope.collectionid).then(function (response) {
             $scope.allcollections = response.data;
             $scope.loading = false;
         });
-        //console.log('Collection Refresh')
     }
 
     //upload

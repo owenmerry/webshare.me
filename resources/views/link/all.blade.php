@@ -31,7 +31,7 @@
                 
                 
                 <div class="links" ng-show="!loading" >
-                <div class="col-md-4" ng-repeat="link in alllinks.links">
+                <div class="col-md-4 col-sm-6" ng-repeat="link in alllinks.links">
             <div class="link_all" ngf-drop="uploadlink(filelink,link.id)" ng-model="filelink" 
     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
     accept="image/*,application/pdf"

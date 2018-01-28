@@ -1288,6 +1288,70 @@ body {
   margin-bottom: 20px;
 }
 
+.browse_page {
+  padding-top: 150px;
+}
+
+.browse_page .controls {
+  margin-bottom: 20px;
+}
+
+.browse_page .controls a {
+  color: white;
+}
+
+.browse_page .controls .create-link {
+  text-align: center;
+}
+
+.browse_page .controls .create-link .form-control {
+  width: 400px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.browse_page .loading.ng-hide-remove, .browse_page .links.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.browse_page .title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.browse_page .title h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.browse_page.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.browse_page .noresults {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+@media (max-width: 768px) {
+  .browse_page .title {
+    margin-bottom: 0px;
+  }
+  .browse_page .title h2 {
+    font-size: 24px;
+  }
+  .browse_page .controls {
+    padding: 20px;
+  }
+  .browse_page .controls .create-link .form-control {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
 .link_page {
   padding-top: 150px;
 }

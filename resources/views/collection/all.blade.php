@@ -10,7 +10,7 @@
                 
                 <div class="title"><h2>Collections</h2></div>
                 
-                <div class="controls">
+                <div class="controls" ng-hide="!loggedin">
                     <div class="create" ng-show="!createshow"><a class="btn" ng-click="toggleCreate('show')">Create Collection</a></div>
                     <div class="create-text" ng-show="createshow"><input type="text" id="collectionall_create" class="form-control" ng-model="collectionname" /><a class="btn" ng-click="addcollection()">Add</a></div>
                 </div>
@@ -38,7 +38,7 @@
     accept="image/*,application/pdf"
     ngf-pattern="image/*,application/pdf">
             <div class="drop"></div>
-            <div ng-click="collectionEditBtnClick(collection.id)" class="edit">Edit</div>
+            <div ng-click="collectionEditBtnClick(collection.id)" ng-hide="!loggedin" class="edit">Edit</div>
             <a href="#/collection/single/@{{collection.id}}"><div class="image" style="background-image:url(@{{collection.image}});" ></div></a>
                 <div class="text">
                 <a href="#/collection/single/@{{collection.id}}">
