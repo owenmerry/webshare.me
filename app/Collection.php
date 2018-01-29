@@ -18,7 +18,7 @@ class Collection extends Model
     //relationships                                      
     public function link(){return $this->belongsToMany('App\Link');}   
     public function user(){return $this->belongsToMany('App\User');} 
-    //function privacy(){return $this->belongsTo('App\Models\Collection\Privacy','privacy_id');}  
+    function privacy(){return $this->belongsTo('App\Privacy','privacy_id');}  
     
     
 }

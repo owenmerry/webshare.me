@@ -1364,12 +1364,12 @@ app.controller('browseallController', function($scope, $http, $rootScope, $inter
     setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
     
     //get data
-    $http.get("/api/link/all").then(function (response) {
+    $http.get("/api/link/recent").then(function (response) {
             $scope.alllinks = response.data;
             $scope.loading = false;
     });
 
-    $http.get("/api/collection/all").then(function (response) {
+    $http.get("/api/collection/recent").then(function (response) {
         $scope.allcollections = response.data;
         $scope.loading = false;
 });
@@ -1392,8 +1392,12 @@ app.controller('browseallController', function($scope, $http, $rootScope, $inter
 
     //refresh data
     $scope.refresh = function(){
-        $http.get("/api/link/all").then(function (response) {
+        $http.get("/api/link/recent").then(function (response) {
             $scope.alllinks = response.data;
+            $scope.loading = false;
+        });
+        $http.get("/api/collection/recent").then(function (response) {
+            $scope.allcollections = response.data;
             $scope.loading = false;
         });
         //console.log('Link Refresh')

@@ -208,6 +208,32 @@ class collectionController extends Controller
     }
     
     
+
+
+      
+    //Recent Collections
+    public function recent(Request $request)
+    {
+        
+    //get all users        
+    $this->vars['collections'] = Collection::with(['privacy'])
+                                ->whereHas('privacy',function ($query) {
+                                    $query->where('name', '=', 'Public');
+                                })
+                                ->limit(6)
+                                ->orderBy('id','DESC')
+                                ->get();    
+  
+
+        
+    //return back()
+    return $this->vars;
+        
+        
+        
+        
+        
+    } 
     
     
     

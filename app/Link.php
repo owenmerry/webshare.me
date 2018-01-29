@@ -14,8 +14,8 @@ class Link extends Model
     
     //relationships
     public function user(){return $this->belongsTo('App\User','user_id');} 
-    public function site(){return $this->belongsTo('App\Site');}
-    //public function privacy(){return $this->belongsTo('App\Models\Collection\Privacy','privacy_id');} 
+    public function site(){return $this->belongsTo('App\Site');} 
+    public function privacy(){return $this->belongsTo('App\Privacy','privacy_id');} 
     //public function labels(){return $this->belongsToMany('App\Label');} 
     
     

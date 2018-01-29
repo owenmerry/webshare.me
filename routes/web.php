@@ -133,3 +133,7 @@ Route::get('/api/user/logout', ['as' => 'api.user.logout', 'uses' => 'userContro
 Route::post('/api/user/search/', ['as' => 'api.user.search', 'uses' => 'userController@search']);
 //category
 Route::get('/api/category/all/', ['as' => 'api.category.all', 'uses' => 'categoryController@all']);
+
+//browse
+Route::get('/api/link/recent', ['as' => 'api.link.recent', 'uses' => 'linkController@recent']);
+Route::get('/api/collection/recent', ['as' => 'api.collection.recent', 'uses' => 'collectionController@recent']);

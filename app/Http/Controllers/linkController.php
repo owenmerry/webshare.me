@@ -487,6 +487,25 @@ class linkController extends Controller
     }
     
     
+
+
+    //recent links
+    public function recent(Request $request)
+    {
+            
+    //get links
+    $links = Link::with(['site','privacy'])
+                    ->whereHas('privacy',function ($query) {
+                        $query->where('name', '=', 'Public');
+                    })
+                    ->orderby('created_at','desc')
+                    ->limit(6)
+                    ->get();    
+    $this->vars['links'] = $links;   
+            
+    //return
+    return $this->vars;
+    }
     
     
 }
