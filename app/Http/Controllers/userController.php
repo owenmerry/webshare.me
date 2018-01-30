@@ -50,12 +50,14 @@ class userController extends Controller
         
         //check details
         if(Auth::attempt($request->only(['email','password']),$remember)){
-            return "ok";  
+            $this->vars['user']['id'] = Auth::user()->id; 
+            $this->vars['user']['loggedin'] = 'ok'; 
         }else{
-            return "error";
+            $this->vars['user']['loggedin'] = 'error'; 
         }
         
-              
+        //return data
+        return $this->vars;    
     
     
     }
@@ -71,16 +73,15 @@ class userController extends Controller
         if ($request->hasFile('photo')) {
             if ($request->file('photo')[0]->isValid()) {
                 Auth::loginUsingId(1, true);
-                return "ok";
+                $this->vars['user']['id'] = Auth::user()->id; 
+                $this->vars['user']['loggedin'] = 'ok'; 
         }}
-        return "no file";
 
         //check users image name
         
         
-        //login
-        Auth::loginUsingId(1, true);
-        return "ok";  
+        //return data
+        return $this->vars; 
 
     }
     

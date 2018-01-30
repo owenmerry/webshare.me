@@ -140,7 +140,8 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
         
         $http.post("/api/user/login",{email:$scope.email,password:$scope.password,csrf:$scope.csrf}).then(function (response) {
             $scope.userlogin = response.data;
-            if($scope.userlogin=="ok"){
+            if($scope.userlogin.data.user.loggedin=="ok"){
+                $scope.userid = response.data.user.id;
                 $scope.email="";
                 $scope.password = "";    
                 $scope.loggedin = true;
@@ -161,7 +162,8 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
                 data: {photo: file }
             }).then(function (response) {
                 $scope.userlogin = response.data;
-                if($scope.userlogin=="ok"){
+                if($scope.userlogin.data.user.loggedin=="ok"){
+                    $scope.userid = response.data.user.id;
                     $scope.email="";
                     $scope.password = "";
                     $scope.loggedin = true;
@@ -180,6 +182,7 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
     $scope.logoutbtnClick = function(){
        $http.get("/api/user/logout").then(function (response) {
              $scope.loggedin = response.data.loggedin;
+             $scope.userid = "";
              $location.path('home');
         });
         
