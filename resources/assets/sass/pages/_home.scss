@@ -1,0 +1,78 @@
+
+.home_page{
+    height:100%;
+        
+        .portal_all{
+            height:100%;
+            background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
+            background-size: cover;
+            background-attachment:fixed;
+            position:relative;
+            
+            .overlay{background-color:rgba(black,.2)}
+    
+            
+            .content{
+                position: absolute;
+                width:600px;
+                top:50%;left:50%;transform: translate(-50%,-50%);
+                text-align:center;
+                color:white;
+                h1{font-size:50px;margin-bottom:20px;text-transform: uppercase;}
+                p{font-size:18px;margin-bottom:30px;}
+                a{color:white;}
+                
+            }
+            
+            //mobile
+            @media(max-width: $col-xs) {
+                .content{
+                    width:100%;
+                    h1{font-size:37px;}
+                    p{font-size:14px;}
+                }
+            }
+            
+        }
+        
+        
+        .features_all{
+            display:flex;
+            .image{
+                flex:1;
+                background-color:linear-gradient(left bottom, $color-primary 0, darken($color-primary,20%) 80%);;
+                background-size: cover;
+                background-position: center center;
+            }
+            .text{flex:1;background-color:white;}
+            .content{
+                padding:200px 140px;
+                h2{font-size:34px;color:black;text-align:left;margin-bottom:20px;}
+                p{font-size:19px;line-height:30px;}
+                ul{font-size:17px;line-height:25px;}
+            }
+            &.right{flex-direction: row-reverse;}
+            
+            //mobile
+            @media(max-width: $col-xs) {
+            flex-direction: column;
+                .image{height:300px;}
+            .content{
+                width:100%;
+                padding:30px 30px;
+                h2{font-size:22px;margin-bottom:10px;}
+                p{font-size:13px;line-height:20px;}
+                ul{font-size:13px;line-height:20px;}
+                }
+            &.right{flex-direction: column;}    
+            }
+            
+            
+        }    
+        
+        
+        
+        
+        
+        
+    }

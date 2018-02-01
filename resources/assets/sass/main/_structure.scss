@@ -1,0 +1,160 @@
+/*------------------------- STRUCTURE --------------------------------*/
+
+//fonts
+%font{font-family: 'Lato', sans-serif;font-weight:100;}
+%font-bold{font-family: 'Lato', sans-serif;font-weight:700;}
+
+
+//main
+html{height:100%;color:black;}
+body{height:100%;color:black;@extend %font;background-color:$color-primary;
+
+background: $color-grad-two;  /* fallback for old browsers */
+background: -webkit-linear-gradient(left, $color-grad-one 0, $color-grad-two 80%);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(left, $color-grad-one 0, $color-grad-two 80%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    //animated
+    /*
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+    */
+    
+} 
+
+/*
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+*/
+
+
+//animate
+.animate_all{
+-webkit-transition: all .2s ease-out 0s;
+-moz-transition: all .2s ease-out 0s;
+-o-transition: all .2s ease-out 0s;
+transition: all .2s ease-out 0s;
+}
+
+//headings
+h1,h2,h3,h4,h5,h6,h7{margin:0px;font-weight:600;}
+h1,h2,h3{margin-bottom:20px;@extend %font-bold;}
+h1,h2{
+}
+h1{}
+h2{font-size:35px;}
+h3{} 
+h4{}
+h5{}
+
+//btns
+a,a:hover{color:$color-secondary;}
+.btn{
+    @extend .animate_all;
+    border:solid 2px white; 
+    color:white;
+    font-size:12px;
+    padding:10px 20px;
+    text-transform:capitalize;
+    background-color:transparent;
+    text-transform: uppercase;
+    font-weight:600;
+    border-radius:0px;
+    &a{color:white;}
+    &:hover{background-color:rgba(white,.3);border:solid 2px white;border-radius:0px; } 
+    //mobile
+    @media(max-width: $col-xs) {
+        padding:10px 20px;
+    } 
+    &.btn-primary{
+        border-color:$color-primary; 
+        color:$color-primary;
+    }
+}
+.btn-lg,.btn-lg:hover{padding:20px 40px;font-size:20px;}
+
+//no gutter
+.row-no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+//scrollbars
+@include scrollbars(.5em, lighten($color-primary,0%),darken($color-primary,2%));
+
+//navigation
+.nav_all{
+    .navbar{margin:0px;background-color:white;} 
+    .navbar-nav{
+        margin:0px;
+        float:none;
+        .dropdown-menu{
+            transform:translateX(25%);
+        }
+    }
+     
+} 
+//overlay
+.overlay{width:100%;height:100%;background-color:rgba(black,.5);position:absolute;top:0px;left:0px;}
+
+
+//cloak angular
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+//ngscope angular
+.ng-scope{height:100%;}
+
+//reusable 
+.section{
+    background-color:white;
+width:100%;
+min-height:800px;
+.inner{padding:50px;}
+    
+} 
+.wrap{margin:0px 10px;}
+.page{width:100%;height:100%;} 
+.loadingicon{
+        
+                background-image:url(../../images/app/ring.gif);
+                background-position: center center;
+                background-repeat: no-repeat;
+                height:50px;
+        }

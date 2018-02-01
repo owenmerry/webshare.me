@@ -1,0 +1,32 @@
+
+.browse_page{
+    padding-top:150px;
+    .controls{
+        a{color:white;}margin-bottom:20px;
+        .create-link{
+            text-align:center;
+            .form-control{width:400px;display:inline;margin-right:10px;}
+        }
+    }
+    .loading,.links{
+         &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    }
+    .title{text-align:center;margin-bottom:100px;h2{color:white;font-weight:300;}}
+    &.ng-hide-remove  { animation:0.8s fadeIn ease; }
+    .noresults{color:white;text-align:center;padding:20px 0px;}
+    
+    
+    //mobile
+    @media(max-width: $col-xs) {
+        .title{margin-bottom:0px;h2{font-size:24px;}}
+        .controls{
+            padding:20px;
+            .create-link{
+                .form-control{width:100%;margin-bottom:15px;}
+            }
+        }
+    }
+    
+}
+
+
