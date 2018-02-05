@@ -20,19 +20,20 @@ $col-lg:1930px;
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
 
 /* structures */
-@import 'structure/structure';
-@import 'structure/app';
-@import 'structure/popup';
-@import 'structure/reuse';
+@import 'main/structure';
+@import 'main/background';
+@import 'main/app';
+@import 'main/popup';
+@import 'main/reuse';
 
 /* pages */
-@import 'structure/addlink';
-@import 'structure/browse';
-@import 'structure/collection';
-@import 'structure/collectionsingle';
-@import 'structure/home';
-@import 'structure/link';
-@import 'structure/search';
+@import 'pages/addlink';
+@import 'pages/browse';
+@import 'pages/collection';
+@import 'pages/collectionsingle';
+@import 'pages/home';
+@import 'pages/link';
+@import 'pages/search';
 
 
 

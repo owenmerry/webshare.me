@@ -162,7 +162,7 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
                 data: {photo: file }
             }).then(function (response) {
                 $scope.userlogin = response.data;
-                if($scope.userlogin.data.user.loggedin=="ok"){
+                if($scope.userlogin.user.loggedin=="ok"){
                     $scope.userid = response.data.user.id;
                     $scope.email="";
                     $scope.password = "";

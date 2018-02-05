@@ -3400,6 +3400,7 @@
   }
 }
 
+/* structures */
 /*------------------------- STRUCTURE --------------------------------*/
 body {
   font-family: 'Lato', sans-serif;
@@ -3420,58 +3421,8 @@ body {
   height: 100%;
   color: black;
   background-color: #552f6d;
-  background: #552f6d;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(left, #2c5e92 0, #552f6d 80%);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(left, #2c5e92 0, #552f6d 80%);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /*
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
-    */
 }
 
-/*
-@-webkit-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-
-@-moz-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-
-@keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
-}
-*/
 .animate_all, .btn, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .linkedit_all .content .form-control, .collectionedit_all .content .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s;
@@ -3613,6 +3564,55 @@ body {
   height: 50px;
 }
 
+body {
+  background: #23A6D5;
+  /* fallback for old browsers */
+  /* 
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+    */
+}
+
+/*
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+*/
 /*------------------------- APP --------------------------------*/
 .app_all {
   width: 100%;
@@ -3627,8 +3627,8 @@ body {
   width: 100%;
   height: 100px;
   z-index: 4;
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), transparent);
-  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.2), transparent);
+  background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
 }
 
 .topbanner_all {
@@ -3829,6 +3829,11 @@ body {
 
 .popupmenu_all .button:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.page_all.ng-enter {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
 }
 
 .login_all {
@@ -4268,11 +4273,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.page_all.ng-enter {
-  -webkit-animation: 0.8s fadeIn ease;
-  animation: 0.8s fadeIn ease;
-}
-
 /*------------------------- REUSE --------------------------------*/
 .link_all {
   border-radius: 4px;
@@ -4470,139 +4470,7 @@ body {
   float: right;
 }
 
-/*------------------------- PAGES --------------------------------*/
-.home_page {
-  height: 100%;
-}
-
-.home_page .portal_all {
-  height: 100%;
-  background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  position: relative;
-}
-
-.home_page .portal_all .overlay {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.home_page .portal_all .content {
-  position: absolute;
-  width: 600px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-}
-
-.home_page .portal_all .content h1 {
-  font-size: 50px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.home_page .portal_all .content p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.home_page .portal_all .content a {
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .home_page .portal_all .content {
-    width: 100%;
-  }
-  .home_page .portal_all .content h1 {
-    font-size: 37px;
-  }
-  .home_page .portal_all .content p {
-    font-size: 14px;
-  }
-}
-
-.home_page .features_all {
-  display: -webkit-box;
-  display: flex;
-}
-
-.home_page .features_all .image {
-  -webkit-box-flex: 1;
-  flex: 1;
-  background-color: linear-gradient(left bottom, #552f6d 0, #1d1026 80%);
-  background-size: cover;
-  background-position: center center;
-}
-
-.home_page .features_all .text {
-  -webkit-box-flex: 1;
-  flex: 1;
-  background-color: white;
-}
-
-.home_page .features_all .content {
-  padding: 200px 140px;
-}
-
-.home_page .features_all .content h2 {
-  font-size: 34px;
-  color: black;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.home_page .features_all .content p {
-  font-size: 19px;
-  line-height: 30px;
-}
-
-.home_page .features_all .content ul {
-  font-size: 17px;
-  line-height: 25px;
-}
-
-.home_page .features_all.right {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  flex-direction: row-reverse;
-}
-
-@media (max-width: 768px) {
-  .home_page .features_all {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-  }
-  .home_page .features_all .image {
-    height: 300px;
-  }
-  .home_page .features_all .content {
-    width: 100%;
-    padding: 30px 30px;
-  }
-  .home_page .features_all .content h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .home_page .features_all .content p {
-    font-size: 13px;
-    line-height: 20px;
-  }
-  .home_page .features_all .content ul {
-    font-size: 13px;
-    line-height: 20px;
-  }
-  .home_page .features_all.right {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-  }
-}
-
+/* pages */
 .addlink_page {
   height: 100%;
 }
@@ -4710,70 +4578,6 @@ body {
     padding: 20px;
   }
   .browse_page .controls .create-link .form-control {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-}
-
-.link_page {
-  padding-top: 150px;
-}
-
-.link_page .controls {
-  margin-bottom: 20px;
-}
-
-.link_page .controls a {
-  color: white;
-}
-
-.link_page .controls .create-link {
-  text-align: center;
-}
-
-.link_page .controls .create-link .form-control {
-  width: 400px;
-  display: inline;
-  margin-right: 10px;
-}
-
-.link_page .loading.ng-hide-remove, .link_page .links.ng-hide-remove {
-  -webkit-animation: 0.8s fadeIn ease;
-  animation: 0.8s fadeIn ease;
-}
-
-.link_page .title {
-  text-align: center;
-  margin-bottom: 100px;
-}
-
-.link_page .title h2 {
-  color: white;
-  font-weight: 300;
-}
-
-.link_page.ng-hide-remove {
-  -webkit-animation: 0.8s fadeIn ease;
-  animation: 0.8s fadeIn ease;
-}
-
-.link_page .noresults {
-  color: white;
-  text-align: center;
-  padding: 20px 0px;
-}
-
-@media (max-width: 768px) {
-  .link_page .title {
-    margin-bottom: 0px;
-  }
-  .link_page .title h2 {
-    font-size: 24px;
-  }
-  .link_page .controls {
-    padding: 20px;
-  }
-  .link_page .controls .create-link .form-control {
     width: 100%;
     margin-bottom: 15px;
   }
@@ -4914,6 +4718,202 @@ body {
     margin-bottom: 15px;
   }
   .collectionsingle_page .controls .create-link .form-control {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.home_page {
+  height: 100%;
+}
+
+.home_page .portal_all {
+  height: 100%;
+  background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.home_page .portal_all .overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.home_page .portal_all .content {
+  position: absolute;
+  width: 600px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.home_page .portal_all .content h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.home_page .portal_all .content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.home_page .portal_all .content a {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .home_page .portal_all .content {
+    width: 100%;
+  }
+  .home_page .portal_all .content h1 {
+    font-size: 37px;
+  }
+  .home_page .portal_all .content p {
+    font-size: 14px;
+  }
+}
+
+.home_page .features_all {
+  display: -webkit-box;
+  display: flex;
+}
+
+.home_page .features_all .image {
+  -webkit-box-flex: 1;
+  flex: 1;
+  background-color: linear-gradient(left bottom, #552f6d 0, #1d1026 80%);
+  background-size: cover;
+  background-position: center center;
+}
+
+.home_page .features_all .text {
+  -webkit-box-flex: 1;
+  flex: 1;
+  background-color: white;
+}
+
+.home_page .features_all .content {
+  padding: 200px 140px;
+}
+
+.home_page .features_all .content h2 {
+  font-size: 34px;
+  color: black;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.home_page .features_all .content p {
+  font-size: 19px;
+  line-height: 30px;
+}
+
+.home_page .features_all .content ul {
+  font-size: 17px;
+  line-height: 25px;
+}
+
+.home_page .features_all.right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .home_page .features_all {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+  }
+  .home_page .features_all .image {
+    height: 300px;
+  }
+  .home_page .features_all .content {
+    width: 100%;
+    padding: 30px 30px;
+  }
+  .home_page .features_all .content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .home_page .features_all .content p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .home_page .features_all .content ul {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .home_page .features_all.right {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+  }
+}
+
+.link_page {
+  padding-top: 150px;
+}
+
+.link_page .controls {
+  margin-bottom: 20px;
+}
+
+.link_page .controls a {
+  color: white;
+}
+
+.link_page .controls .create-link {
+  text-align: center;
+}
+
+.link_page .controls .create-link .form-control {
+  width: 400px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.link_page .loading.ng-hide-remove, .link_page .links.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.link_page .title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.link_page .title h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.link_page.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.link_page .noresults {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+@media (max-width: 768px) {
+  .link_page .title {
+    margin-bottom: 0px;
+  }
+  .link_page .title h2 {
+    font-size: 24px;
+  }
+  .link_page .controls {
+    padding: 20px;
+  }
+  .link_page .controls .create-link .form-control {
     width: 100%;
     margin-bottom: 15px;
   }
