@@ -263,16 +263,13 @@ class linkController extends Controller
     {
         
     //get all users
-    $links = Link::with('site')->orderby('created_at','desc')->get();    
+    $links = Link::with('site')->with('privacy')->orderby('created_at','desc')->get();    
     $this->vars['links'] = $links;   
 
    
         
         //return
         return $this->vars;
-        
-        
-        
         
         
     }
@@ -282,7 +279,7 @@ class linkController extends Controller
     {
         
     //get all users
-    $links = Link::find($linkid);    
+    $links = Link::with('privacy')->find($linkid);    
     $this->vars['link'] = $links;   
 
    
@@ -328,6 +325,7 @@ class linkController extends Controller
     $link->title = $request['title'];   
     $link->description = $request['description'];   
     $link->url = $request['url'];   
+    $link->privacy_id = $request['privacy'];   
     $link->save();   
         
         
@@ -380,7 +378,7 @@ class linkController extends Controller
      $user_id=Auth::user()->id;
         
     //get user links
-    $links = Link::where('user_id',$user_id)->with('site')->orderBy('id','DESC')->get();
+    $links = Link::where('user_id',$user_id)->with('site')->with('privacy')->orderBy('id','DESC')->get();
     $this->vars['links'] = $links;   
         
         

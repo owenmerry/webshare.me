@@ -90,6 +90,13 @@
                 <div><label>Link</label></div>
                 <textarea class="form-control textarea" ng-model="linkediturl" placeholder="Paste Link Here"></textarea>
             </div>
+            <div class="textbox_holder">
+                <div><label>Link (@{{linkeditprivacy}})</label></div>
+                <select class="form-control" ng-model="linkeditprivacy">
+                    <option value="Public">Public</option>
+                    <option value="Private">Private</option>
+                </select>
+            </div>
             
             <div class="buttons">
                 <a class="btn btn-primary" ng-click="linkEditSaveClick()">Save Details</a>

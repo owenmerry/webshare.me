@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 
-                <div class="title"><h2>Owen Merry Recent Links</h2></div>
+                <div class="title"><h2>Recent Links</h2></div>
                 
                 <div class="controls">
                     <div class="create-link"><input type="text" id="linkall_create" class="form-control" placeholder="Paste website link here" ng-model="website" /><a class="btn" ng-click="addlink()">Add Link</a></div>
@@ -38,6 +38,9 @@
     ngf-pattern="image/*,application/pdf">
                 <div class="drop"></div>
                 <div ng-click="linkEditBtnClick(link.id)" class="edit">Edit</div>
+                <div ng-if="link.privacy.name == 'Private'">
+                    <div class="privacy">@{{link.privacy.name}}</div>
+                </div>
                 <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});">
                 </div>
                 <div class="text">

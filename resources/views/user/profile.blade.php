@@ -27,7 +27,7 @@
                 
 <!-- tabs - start -->                
   <ul class="nav nav-tabs" role="tablist">
-      <li ng-class="{'active':tabactive=='links'}"><a ng-click="tabclick('links')">Recent Links</a></li>
+    <li ng-class="{'active':tabactive=='links'}"><a ng-click="tabclick('links')">Recent Links</a></li>
     <li ng-class="{'active':tabactive=='collections'}"><a ng-click="tabclick('collections')">Collections</a></li>
     <li ng-class="{'active':tabactive=='about'}"><a ng-click="tabclick('about')">About @{{user.user.name}}</a></li>
     <li ng-class="{'active':tabactive=='following'}"><a ng-click="tabclick('following')">Following</a></li>

@@ -1185,6 +1185,7 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
                     $scope.linkedittitle = $scope.linkedit.link.title;
                     $scope.linkeditdescription = $scope.linkedit.link.description;
                     $scope.linkediturl = $scope.linkedit.link.url;
+                    $scope.linkeditprivacy = $scope.linkedit.link.privacy.name;
             });
     }
     $scope.linkEditBtnCloseClick = function(){
@@ -1192,7 +1193,7 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
     }
     $scope.linkEditSaveClick = function(){
         
-        $http.post("/api/link/update",{linkid:$scope.linkedit.link.id,title:$scope.linkedittitle,description:$scope.linkeditdescription,url:$scope.linkediturl}).then(function (response) {
+        $http.post("/api/link/update",{linkid:$scope.linkedit.link.id,title:$scope.linkedittitle,description:$scope.linkeditdescription,url:$scope.linkediturl,privacy:$scope.linkeditprivacy}).then(function (response) {
             $scope.linkeditupdate = response.data;
             $scope.linkeditshow=false;
 
