@@ -1185,7 +1185,7 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
                     $scope.linkedittitle = $scope.linkedit.link.title;
                     $scope.linkeditdescription = $scope.linkedit.link.description;
                     $scope.linkediturl = $scope.linkedit.link.url;
-                    $scope.linkeditprivacy = $scope.linkedit.link.privacy.name;
+                    $scope.linkeditprivacy = $scope.linkedit.link.privacy.id.toString();
             });
     }
     $scope.linkEditBtnCloseClick = function(){

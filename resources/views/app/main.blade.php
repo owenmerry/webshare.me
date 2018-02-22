@@ -91,10 +91,10 @@
                 <textarea class="form-control textarea" ng-model="linkediturl" placeholder="Paste Link Here"></textarea>
             </div>
             <div class="textbox_holder">
-                <div><label>Link (@{{linkeditprivacy}})</label></div>
+                <div><label>Link</label></div>
                 <select class="form-control" ng-model="linkeditprivacy">
-                    <option value="Public">Public</option>
-                    <option value="Private">Private</option>
+                    <option value="1">Public</option>
+                    <option value="2">Private</option>
                 </select>
             </div>
             
