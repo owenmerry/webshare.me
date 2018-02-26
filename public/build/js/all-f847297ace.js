@@ -937,223 +937,255 @@ var app = angular.module('mySite', ['ngRoute','angularMoment','ngAnimate','ngFil
 
 
 
-//controllers
+
+//-------------------- Main Controller --------------------------------
 
 app.controller('appController', function($scope, Upload, $http, $location, $rootScope, $interval) {
   
-    //variables
-    $scope.popupmenu = false; 
-    $scope.pageactive = "addlink"; 
-    $scope.searching = false;
-    $scope.loginshow=false;
-    $scope.loginstep='email';
-    $scope.signupshow=false;
-    $scope.signupstep='create';
-    $scope.addlinkcollection=false;
-    $scope.menumobile=false;
-    $scope.linkEditCollection='';
-    
-    //page Global values
-    //collection Global
-    $scope.$on("collectionsingleEnter", function (event, args) {
-        $scope.linkEditCollection = args.collectionid;
-     }); 
-     $scope.$on("collectionsingleLeave", function (event, args) {
-        $scope.linkEditCollection = '';
-     }); 
-    
-    //startup
-    $http.get("/api/user/loggedin").then(function (response) {
-            $scope.loggedin = response.data.loggedin;
-            $scope.userid = response.data.user.id;
-            $scope.loading = false;
-            $scope.start = true;
-    });
-    
-    //page refresh
-    var pageRefresh = $interval(function(){
-        $rootScope.$broadcast('pageRefresh');
-    },60000);
-    
-    //menu functions
-    $scope.menuClick = function(){
-        $scope.popupmenu = true; 
-    }
-    
-    $scope.menubuttonClick = function(varpage){
-        $scope.popupmenu = false; 
-        $scope.pageactive = varpage;
-    }
-    
-    $scope.menulinkaddClick = function(){
-        $scope.popupmenu = false; 
-        $scope.pageactive = "addlink";
-    }
-    
-    $scope.menuMobileShowClick = function(){
-        $scope.menumobile = true;
-    }
-    $scope.menuMobileHideClick = function(){
-        $scope.menumobile = false;
-    }
-    
-    
-    
-    //collection page functions
-    //default
-    $scope.collectionmode="collection";
-    
-    $scope.getcollectionlinks = function(varcollectionid){
-            $scope.collectionid = varcollectionid;
-            
-            $scope.collectionmode="link";
-        
-            $http.get("/api/link/collection/"+ varcollectionid ).then(function (response) {
-            $scope.allcollectionlinks = response.data;
-            $scope.loading = false;
-            
-            });
-        
-    };
-    $scope.collectionback = function(){
-        
-        $scope.collectionmode="collection";
-        
-        
-    };
-    
-    
-    //links page functions
-    $scope.openlink = function(linkid,linkurl){
-        var myWindow = window.open(linkurl);
-        
-        $http.get("/api/link/visit/"+ linkid).then(function (response) {
-            $http.get("/api/link/all").then(function (response) {
-            $scope.alllinks = response.data;
-            });
-        });
 
-        //refresh
-        $rootScope.$broadcast('pageRefresh');
-        
-    };
-   
-    
-    
-    //search functions
-    $scope.searchlinks = function(){
-        if(!$scope.search==""){
-            $scope.searching=true;
-        $http.post("/api/link/search",{search:$scope.search}).then(function (response) {
-            $scope.searchlink = response.data;
-            $scope.loading = false;
-        });
-        }else{
-            $scope.searching=false;   
-        };
-    };
-    
-    
+//start up
+ //variables
+ $scope.popupmenu = false; 
+ $scope.pageactive = "addlink"; 
+ $scope.searching = false;
+ $scope.loginshow=false;
+ $scope.loginstep='email';
+ $scope.signupshow=false;
+ $scope.signupstep='create';
+ $scope.addlinkcollection=false;
+ $scope.menumobile=false;
+ $scope.linkEditCollection='';
+ 
+ //page Global values
+ //collection Global
+ $scope.$on("collectionsingleEnter", function (event, args) {
+     $scope.linkEditCollection = args.collectionid;
+  }); 
+  $scope.$on("collectionsingleLeave", function (event, args) {
+     $scope.linkEditCollection = '';
+  }); 
+ 
+ //startup
+ $http.get("/api/user/loggedin").then(function (response) {
+         $scope.loggedin = response.data.loggedin;
+         $scope.userid = response.data.user.id;
+         $scope.loading = false;
+         $scope.start = true;
+ });
+ 
+ //page refresh
+ var pageRefresh = $interval(function(){
+     $rootScope.$broadcast('pageRefresh');
+ },60000);
+ 
+ //menu functions
+ $scope.menuClick = function(){
+     $scope.popupmenu = true; 
+ }
+ 
+ $scope.menubuttonClick = function(varpage){
+     $scope.popupmenu = false; 
+     $scope.pageactive = varpage;
+ }
+ 
+ $scope.menulinkaddClick = function(){
+     $scope.popupmenu = false; 
+     $scope.pageactive = "addlink";
+ }
+ 
+ $scope.menuMobileShowClick = function(){
+     $scope.menumobile = true;
+ }
+ $scope.menuMobileHideClick = function(){
+     $scope.menumobile = false;
+ }
+ 
+ 
+ 
+ //collection page functions
+ //default
+ $scope.collectionmode="collection";
+ 
+ $scope.getcollectionlinks = function(varcollectionid){
+         $scope.collectionid = varcollectionid;
+         
+         $scope.collectionmode="link";
+     
+         $http.get("/api/link/collection/"+ varcollectionid ).then(function (response) {
+         $scope.allcollectionlinks = response.data;
+         $scope.loading = false;
+         
+         });
+     
+ };
+ $scope.collectionback = function(){
+     
+     $scope.collectionmode="collection";
+     
+     
+ };
+ 
+ 
+ //links page functions
+ $scope.openlink = function(linkid,linkurl){
+     var myWindow = window.open(linkurl);
+     
+     $http.get("/api/link/visit/"+ linkid).then(function (response) {
+         $http.get("/api/link/all").then(function (response) {
+         $scope.alllinks = response.data;
+         });
+     });
+
+     //refresh
+     $rootScope.$broadcast('pageRefresh');
+     
+ };
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//add global controllers
+ 
     //login functions
     $scope.loginbtnClick = function(){
-            $scope.loginstep='email';
-            $scope.loginshow=true;
-    }
-    $scope.loginbtnCloseClick = function(){
-        setTimeout(function(){ $scope.loginstep='password'; }, 1000); 
-        $scope.loginshow=false;
-    }
-    $scope.loginEmailClick = function(){
-        $scope.loginstep='password';
-        setTimeout(function(){ document.getElementById('loginall-pass').focus(); }, 300);
-    }
-    $scope.loginPasswordClick = function(){
-        $scope.loading = true;
-        $scope.loginstatus = ""; 
-        
-        $http.post("/api/user/login",{email:$scope.email,password:$scope.password,csrf:$scope.csrf}).then(function (response) {
+        $scope.loginstep='email';
+        $scope.loginshow=true;
+}
+$scope.loginbtnCloseClick = function(){
+    setTimeout(function(){ $scope.loginstep='password'; }, 1000); 
+    $scope.loginshow=false;
+}
+$scope.loginEmailClick = function(){
+    $scope.loginstep='password';
+    setTimeout(function(){ document.getElementById('loginall-pass').focus(); }, 300);
+}
+$scope.loginPasswordClick = function(){
+    $scope.loading = true;
+    $scope.loginstatus = ""; 
+    
+    $http.post("/api/user/login",{email:$scope.email,password:$scope.password,csrf:$scope.csrf}).then(function (response) {
+        $scope.userlogin = response.data;
+        if($scope.userlogin.data.user.loggedin=="ok"){
+            $scope.userid = response.data.user.id;
+            $scope.email="";
+            $scope.password = "";    
+            $scope.loggedin = true;
+            $scope.loginmode= "";
+            $scope.loginstatus = "";
+            $scope.loginshow=false;
+            $location.path('link/all');
+        }else{
+            $scope.loginstatus = "No user found"; 
+        }
+        $scope.loading = false;
+    });    
+};
+$scope.loginUpload = function(file){
+    if(file){
+        Upload.upload({
+            url: '/api/user/loginupload',
+            data: {photo: file }
+        }).then(function (response) {
             $scope.userlogin = response.data;
-            if($scope.userlogin.data.user.loggedin=="ok"){
+            if($scope.userlogin.user.loggedin=="ok"){
                 $scope.userid = response.data.user.id;
                 $scope.email="";
-                $scope.password = "";    
+                $scope.password = "";
                 $scope.loggedin = true;
                 $scope.loginmode= "";
                 $scope.loginstatus = "";
                 $scope.loginshow=false;
                 $location.path('link/all');
             }else{
-                $scope.loginstatus = "No user found"; 
+                $scope.loginstatus = "No user found";
             }
-            $scope.loading = false;
-        });    
-    };
-    $scope.loginUpload = function(file){
-        if(file){
-            Upload.upload({
-                url: '/api/user/loginupload',
-                data: {photo: file }
-            }).then(function (response) {
-                $scope.userlogin = response.data;
-                if($scope.userlogin.user.loggedin=="ok"){
-                    $scope.userid = response.data.user.id;
-                    $scope.email="";
-                    $scope.password = "";
-                    $scope.loggedin = true;
-                    $scope.loginmode= "";
-                    $scope.loginstatus = "";
-                    $scope.loginshow=false;
-                    $location.path('link/all');
-                }else{
-                    $scope.loginstatus = "No user found";
-                }
-            });
-        }
-    }
-
-    //logout button
-    $scope.logoutbtnClick = function(){
-       $http.get("/api/user/logout").then(function (response) {
-             $scope.loggedin = response.data.loggedin;
-             $scope.userid = "";
-             $location.path('home');
         });
-        
     }
+}
+
+
+
+
+
+  //logout button
+  $scope.logoutbtnClick = function(){
+    $http.get("/api/user/logout").then(function (response) {
+          $scope.loggedin = response.data.loggedin;
+          $scope.userid = "";
+          $location.path('home');
+     });
+     
+ }
+
+
+
+ 
+
+
+
+
 
 
 
     
     //signup functions
     $scope.signupbtnClick = function(){
-            $scope.signupstep='create';
-            $scope.signupshow=true;
-    }
-    $scope.signupbtnCloseClick = function(){
         $scope.signupstep='create';
-        $scope.signupshow=false;
-    }
-    $scope.signupCreateClick = function(){
-        $scope.loading = true;
-        
-        $http.post("/api/user/signup",{name:$scope.name_signup,email:$scope.email_signup,password:$scope.password_signup,csrf:$scope.csrf_signup}).then(function (response) {
-            $scope.usersignup = response.data;
-            if($scope.usersignup=="ok"){
-                $scope.name_signup="";
-                $scope.email_signup="";
-                $scope.password_signup = "";    
-                $scope.loggedin = true;   
-                $location.path('link/all');
-            }else{
-                $scope.loginstatus = "cant create account"; 
-            }
-            $scope.loading = false;
-        });    
-    };    
+        $scope.signupshow=true;
+}
+$scope.signupbtnCloseClick = function(){
+    $scope.signupstep='create';
+    $scope.signupshow=false;
+}
+$scope.signupCreateClick = function(){
+    $scope.loading = true;
     
-    
-    
-    
+    $http.post("/api/user/signup",{name:$scope.name_signup,email:$scope.email_signup,password:$scope.password_signup,csrf:$scope.csrf_signup}).then(function (response) {
+        $scope.usersignup = response.data;
+        if($scope.usersignup=="ok"){
+            $scope.name_signup="";
+            $scope.email_signup="";
+            $scope.password_signup = "";    
+            $scope.loggedin = true;   
+            $location.path('link/all');
+        }else{
+            $scope.loginstatus = "cant create account"; 
+        }
+        $scope.loading = false;
+    });    
+};    
+
+
+
+
+
+
+
+
+
+
+
+
+
+//edit
+
     //link edit functions
     $scope.onFilesDropped = function($files, $event) {
         console.log('$files', $files)
@@ -1225,40 +1257,56 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     //collection edit functions
     $scope.collectionEditBtnClick = function(collectionid){
-            $scope.collectioneditshow=true;
-            $http.get("/api/collection/getcollection/"+ collectionid).then(function (response) {
-                console.log(response.data);
-                    $scope.collectionedit = response.data;
-                    $scope.collectioneditname = $scope.collectionedit.collection.name;
-            });
-    }
-    $scope.collectionEditBtnCloseClick = function(){
+        $scope.collectioneditshow=true;
+        $http.get("/api/collection/getcollection/"+ collectionid).then(function (response) {
+            console.log(response.data);
+                $scope.collectionedit = response.data;
+                $scope.collectioneditname = $scope.collectionedit.collection.name;
+        });
+}
+$scope.collectionEditBtnCloseClick = function(){
+    $scope.collectioneditshow=false;
+}
+$scope.collectionEditSaveClick = function(){
+    console.log('run edit save..');
+    $http.post("/api/collection/update",{collectionid:$scope.collectionedit.collection.id,name:$scope.collectioneditname}).then(function (response) {
+        $scope.collectioneditupdate = response.data;
         $scope.collectioneditshow=false;
-    }
-    $scope.collectionEditSaveClick = function(){
-        console.log('run edit save..');
-        $http.post("/api/collection/update",{collectionid:$scope.collectionedit.collection.id,name:$scope.collectioneditname}).then(function (response) {
-            $scope.collectioneditupdate = response.data;
+
+        //refresh data
+        $rootScope.$broadcast('pageRefresh'); 
+
+    }); 
+};    
+$scope.collectionDeleteBtnClick = function(){
+    $http.delete("/api/collection/delete/"+ $scope.collectionedit.collection.id).then(function (response) {
+        console.log(response.data);
+            $scope.collectiondelete = response.data;
             $scope.collectioneditshow=false;
 
             //refresh data
             $rootScope.$broadcast('pageRefresh'); 
+    });
+}
 
-        }); 
-    };    
-    $scope.collectionDeleteBtnClick = function(){
-        $http.delete("/api/collection/delete/"+ $scope.collectionedit.collection.id).then(function (response) {
-            console.log(response.data);
-                $scope.collectiondelete = response.data;
-                $scope.collectioneditshow=false;
 
-                //refresh data
-                $rootScope.$broadcast('pageRefresh'); 
-        });
-    }
 
+//global functions
+
+//user
 
 
 
@@ -1272,7 +1320,8 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
 
 
 
-//-------------------- PAGES --------------------------------
+
+//-------------------- Page Controllers --------------------------------
 
 
 
@@ -1281,6 +1330,10 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
 
 
 
+
+
+
+//content
 // home page
 app.controller('homeController', function($scope, $http) {
 
@@ -1313,9 +1366,98 @@ app.controller('homeController', function($scope, $http) {
         $scope.addlinkcollection=false;
     };   
     
+});
+
+
+
+
+
+
+
+
+
+
+//links
+
+
+// Link All page
+app.controller('linkallController', function($scope, $http, $rootScope, $interval,Upload) {
     
+    //variables
+    //$scope.loading = true;
+    
+    //onload
+    setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
+    
+    //get data
+    $http.post("/api/link/mylinks",{search:$scope.search}).then(function (response) {
+        $scope.alllinks = response.data;
+        $scope.loading = false;
+    }); 
+    
+    //functions
+     $scope.addlink = function(){
+        
+        $scope.loading = true;
+        
+        $http.post("/api/link/addmany",{website:$scope.website,collection_id:$scope.collectionid}).then(function (response) {
+            $scope.link = response.data;
+            $scope.website="";
+            $http.get("/api/link/mylinks").then(function (response) {
+                $scope.alllinks = response.data;
+                $scope.loading = false;
+            });
+        });
+        
+    };
+
+    //refresh data
+    $scope.refresh = function(){
+        $http.post("/api/link/mylinks",{search:$scope.search}).then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+        }); 
+    }
+
+    //upload
+    $scope.uploadlink = function(file,linkid){
+        Upload.upload({
+            url: '/api/link/upload',
+            data: {photo: file, 'linkid': linkid }
+        }).then(function (response) {
+            $scope.refresh();
+        });   
+    }
+
+    //search
+    $scope.searchlinks = function(){
+        $http.post("/api/link/mylinks",{search:$scope.search}).then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+        });     
+    }
+
+    //remote refresh
+    $scope.$on('linkAllRefresh', function(event) {
+        $scope.refresh();
+    });
+
+    //auto refresh
+    $scope.$on('pageRefresh', function(event) {
+        $scope.refresh();
+    });
     
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1358,144 +1500,18 @@ app.controller('addlinkController', function($scope, $http) {
 
 
 
-// Browse All page
-app.controller('browseallController', function($scope, $http, $rootScope, $interval,Upload) {
-    
-    //variables
-    //$scope.loading = true;
-    
-    //onload
-    setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
-    
-    //get data
-    $http.get("/api/link/recent").then(function (response) {
-            $scope.alllinks = response.data;
-            $scope.loading = false;
-    });
-
-    $http.get("/api/collection/recent").then(function (response) {
-        $scope.allcollections = response.data;
-        $scope.loading = false;
-});
-    
-    //functions
-     $scope.addlink = function(){
-        
-        $scope.loading = true;
-        
-        $http.post("/api/link/addmany",{website:$scope.website,collection_id:$scope.collectionid}).then(function (response) {
-            $scope.link = response.data;
-            $scope.website="";
-            $http.get("/api/link/mylinks").then(function (response) {
-                $scope.alllinks = response.data;
-                $scope.loading = false;
-            });
-        });
-        
-    };
-
-    //refresh data
-    $scope.refresh = function(){
-        $http.get("/api/link/recent").then(function (response) {
-            $scope.alllinks = response.data;
-            $scope.loading = false;
-        });
-        $http.get("/api/collection/recent").then(function (response) {
-            $scope.allcollections = response.data;
-            $scope.loading = false;
-        });
-        //console.log('Link Refresh')
-    }
-
-    //upload
-    $scope.uploadlink = function(file,linkid){
-        Upload.upload({
-            url: '/api/link/upload',
-            data: {photo: file, 'linkid': linkid }
-        }).then(function (response) {
-            $scope.refresh();
-        });   
-    }
-
-    //remote refresh
-    $scope.$on('linkAllRefresh', function(event) {
-        $scope.refresh();
-    });
-
-    //auto refresh
-    $scope.$on('pageRefresh', function(event) {
-        $scope.refresh();
-    });
-    
-});
 
 
 
 
-// Link All page
-app.controller('linkallController', function($scope, $http, $rootScope, $interval,Upload) {
-    
-    //variables
-    //$scope.loading = true;
-    
-    //onload
-    setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
-    
-    //get data
-    $http.get("/api/link/mylinks").then(function (response) {
-            $scope.alllinks = response.data;
-            $scope.loading = false;
-    });
-    
-    //functions
-     $scope.addlink = function(){
-        
-        $scope.loading = true;
-        
-        $http.post("/api/link/addmany",{website:$scope.website,collection_id:$scope.collectionid}).then(function (response) {
-            $scope.link = response.data;
-            $scope.website="";
-            $http.get("/api/link/mylinks").then(function (response) {
-                $scope.alllinks = response.data;
-                $scope.loading = false;
-            });
-        });
-        
-    };
-
-    //refresh data
-    $scope.refresh = function(){
-        $http.get("/api/link/mylinks").then(function (response) {
-            $scope.alllinks = response.data;
-            $scope.loading = false;
-        });
-        //console.log('Link Refresh')
-    }
-
-    //upload
-    $scope.uploadlink = function(file,linkid){
-        Upload.upload({
-            url: '/api/link/upload',
-            data: {photo: file, 'linkid': linkid }
-        }).then(function (response) {
-            $scope.refresh();
-        });   
-    }
-
-    //remote refresh
-    $scope.$on('linkAllRefresh', function(event) {
-        $scope.refresh();
-    });
-
-    //auto refresh
-    $scope.$on('pageRefresh', function(event) {
-        $scope.refresh();
-    });
-    
-});
 
 
 
+
+
+
+
+//collections
 
 // Collection All page
 app.controller('collectionallController', function($scope, $http, $interval, $routeParams, Upload) {
@@ -1566,6 +1582,9 @@ app.controller('collectionallController', function($scope, $http, $interval, $ro
     });
     
 });
+
+
+
 
 
 
@@ -1661,6 +1680,90 @@ app.controller('collectionsingleController', function($scope, $rootScope, $http,
 
 
 
+
+
+
+
+//search
+
+// Browse All page
+app.controller('browseallController', function($scope, $http, $rootScope, $interval,Upload) {
+    
+    //variables
+    //$scope.loading = true;
+    
+    //onload
+    setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
+    
+    //get data
+    $http.get("/api/link/recent").then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+    });
+
+    $http.get("/api/collection/recent").then(function (response) {
+        $scope.allcollections = response.data;
+        $scope.loading = false;
+});
+    
+    //functions
+     $scope.addlink = function(){
+        
+        $scope.loading = true;
+        
+        $http.post("/api/link/addmany",{website:$scope.website,collection_id:$scope.collectionid}).then(function (response) {
+            $scope.link = response.data;
+            $scope.website="";
+            $http.get("/api/link/mylinks").then(function (response) {
+                $scope.alllinks = response.data;
+                $scope.loading = false;
+            });
+        });
+        
+    };
+
+    //refresh data
+    $scope.refresh = function(){
+        $http.get("/api/link/recent").then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+        });
+        $http.get("/api/collection/recent").then(function (response) {
+            $scope.allcollections = response.data;
+            $scope.loading = false;
+        });
+        //console.log('Link Refresh')
+    }
+
+    //upload
+    $scope.uploadlink = function(file,linkid){
+        Upload.upload({
+            url: '/api/link/upload',
+            data: {photo: file, 'linkid': linkid }
+        }).then(function (response) {
+            $scope.refresh();
+        });   
+    }
+
+    //remote refresh
+    $scope.$on('linkAllRefresh', function(event) {
+        $scope.refresh();
+    });
+
+    //auto refresh
+    $scope.$on('pageRefresh', function(event) {
+        $scope.refresh();
+    });
+    
+});
+
+
+
+
+
+
+
+
 // search page
 app.controller('searchController', function($scope, $http) {
     
@@ -1711,29 +1814,96 @@ app.controller('searchController', function($scope, $http) {
 
 
 
+//user
+
+
+// Link All page
+app.controller('userController', function($scope, $http, $rootScope, $interval,Upload,$routeParams) {
+    
+    //variables
+    //$scope.loading = true;
+    $scope.tabactive = "links";    
+    $scope.userid = $routeParams.ID;  
+    
+    //onload
+    
+    //get data
+    $http.get("/api/link/user/"+ $scope.userid).then(function (response) {
+        $scope.alllinks = response.data;
+        $scope.loading = false;
+    }); 
+    $http.get("/api/collection/user/"+ $scope.userid ).then(function (response) {
+            $scope.allcollections = response.data;
+            $scope.loading = false;
+    });
+    $http.get("/api/user/show/"+ $scope.userid ).then(function (response) {
+        $scope.user = response.data;
+        $scope.loading = false;
+    });
+    
+    //functions
+     $scope.tabclick = function(type){
+        $scope.tabactive = type;
+     }
+
+    //refresh data
+    $scope.refresh = function(){
+        $http.get("/api/link/user/"+ $scope.userid).then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+        }); 
+        $http.get("/api/collection/user/"+ $scope.userid ).then(function (response) {
+            $scope.allcollections = response.data;
+            $scope.loading = false;
+        });
+    }
+
+    //remote refresh
+    $scope.$on('userAllRefresh', function(event) {
+        $scope.refresh();
+    });
+
+    //auto refresh
+    $scope.$on('pageRefresh', function(event) {
+        $scope.refresh();
+    });
+    
+});
 
 
 
+
+
+
+
+
+
+
+
+
+//-------------------- Plugins --------------------------------
 
 
 //filters
-
 app.filter('strLimit', ['$filter', function($filter) {
-   return function(input, limit) {
-      if (! input) return;
-      if (input.length <= limit) {
-          return input;
-      }
+    return function(input, limit) {
+       if (! input) return;
+       if (input.length <= limit) {
+           return input;
+       }
+ 
+       return $filter('limitTo')(input, limit) + '...';
+    };
+ }]);
+ 
 
-      return $filter('limitTo')(input, limit) + '...';
-   };
-}]);
+ 
+
 
 
 
 
 //directives
-
 app.directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
@@ -1746,6 +1916,21 @@ app.directive('ngEnter', function () {
         });
     };
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // JavaScript Document
 

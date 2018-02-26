@@ -54,6 +54,14 @@
         transform:scale(1.02);
         .edit{display: block;}
     }
+
+
+    //types
+    &.link-list{
+
+    }
+
+
     
     //mobile 
     @media(max-width: $col-sm) {
@@ -61,6 +69,10 @@
     }
     
 }
+
+
+
+
 
 
     .loading{

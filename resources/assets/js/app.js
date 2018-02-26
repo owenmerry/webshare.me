@@ -5,8 +5,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-//require('./bootstrap');
-
+require('./bootstrap');
+ 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -18,19 +18,7 @@
 //const app = new Vue({
 //    el: '#app'
 //});
-
-
-//angular
-require('./frameworks/angular/angular.min.js'); 
-require('./frameworks/angular-route/angular-route.min.js'); 
-
-//jquery
-require('./frameworks/jquery/jquery-3.1.1.min.js'); 
-
-//my scripts
-require('./angular/controller.js'); 
-require('./angular/route.js'); 
-require('./myscript.js'); 
+ 
 
 
 

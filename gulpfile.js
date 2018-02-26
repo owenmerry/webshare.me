@@ -39,7 +39,7 @@ elixir((mix) => {
         '../../../node_modules/ng-file-upload/dist/ng-file-upload.min.js', 
         '../../../node_modules/angular-files-drop/dist/index.js', 
         'angular/controller.js',
-        'angular/route.js'
+        'angular/route.js' 
         
     ]) 
     

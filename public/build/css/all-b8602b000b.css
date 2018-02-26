@@ -4873,21 +4873,36 @@ body {
 }
 
 .link_page .controls {
+  display: -webkit-box;
+  display: flex;
   margin-bottom: 20px;
 }
 
 .link_page .controls a {
-  color: white;
+  color: #ffffff;
 }
 
 .link_page .controls .create-link {
-  text-align: center;
+  -webkit-box-flex: 1;
+  flex: 1;
 }
 
 .link_page .controls .create-link .form-control {
   width: 400px;
   display: inline;
   margin-right: 10px;
+}
+
+.link_page .controls .search-link {
+  width: 200px;
+}
+
+.link_page .loading, .link_page .links {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 }
 
 .link_page .loading.ng-hide-remove, .link_page .links.ng-hide-remove {
@@ -4978,6 +4993,85 @@ body {
   }
   .search_page .searchbox h2 {
     font-size: 28px;
+  }
+}
+
+.profile_page {
+  padding-top: 150px;
+}
+
+.profile_page .controls {
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.profile_page .controls a {
+  color: #ffffff;
+}
+
+.profile_page .controls .create-link {
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+.profile_page .controls .create-link .form-control {
+  width: 400px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.profile_page .controls .search-link {
+  width: 200px;
+}
+
+.profile_page .loading, .profile_page .links {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.profile_page .loading.ng-hide-remove, .profile_page .links.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.profile_page .title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.profile_page .title h2 {
+  color: white;
+  font-weight: 300;
+}
+
+.profile_page.ng-hide-remove {
+  -webkit-animation: 0.8s fadeIn ease;
+  animation: 0.8s fadeIn ease;
+}
+
+.profile_page .noresults {
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+@media (max-width: 768px) {
+  .profile_page .title {
+    margin-bottom: 0px;
+  }
+  .profile_page .title h2 {
+    font-size: 24px;
+  }
+  .profile_page .controls {
+    padding: 20px;
+  }
+  .profile_page .controls .create-link .form-control {
+    width: 100%;
+    margin-bottom: 15px;
   }
 }
 

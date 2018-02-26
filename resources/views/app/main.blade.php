@@ -33,7 +33,7 @@
                 accept="image/*,application/pdf" 
                 ngf-pattern="image/*,application/pdf"
              >Login</a></li>
-             <li><a class="boxed" ng-cloak ng-show="loggedin" >Owen Merry</a></li>
+             <li><a href="#user/@{{userid}}" class="boxed" ng-cloak ng-show="loggedin" >Owen Merry</a></li>
              <li><a class="boxed" ng-hide="loggedin" ng-click="signupbtnClick()">Sign Up</a></li>
              <li><a class="boxed" ng-hide="!loggedin" ng-click="logoutbtnClick()">Logout</a></li>
         </ul> 

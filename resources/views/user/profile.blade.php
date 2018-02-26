@@ -1,188 +1,83 @@
 
     
+    <div class="profile_page container" >
     
-    
-    
-    <!-- content - start -->
-    <div class="contentcol_all">
-        <div class="contentcol_content">
-            
-            
-            
-            <!-- page - start -->
-            <div class="profiledetails_page">
-            
-            
-            <!-- portal - start -->
-            <div class="portal_all">
-                <div class="content">
-                    <div class="profileimage"></div>
-                    <h1 class="light">@{{user.user.name}}</h1>
+
+
+    <div class="title"><h2>@{{user.user.name}}</h2></div>
+                
+    <div class="controls">
+        <div ng-class="{'active':tabactive=='links'}"><a ng-click="tabclick('links')">Recent Links</a></div>
+        <div ng-class="{'active':tabactive=='collections'}"><a ng-click="tabclick('collections')">Collections</a></div>
+    </div>  
+
+
+
+
+
+
+<!-- links -->
+<div ng-if="tabactive=='links'">
+
+    <div class="links" ng-show="!loading" >
+        <div class="" ng-repeat="link in alllinks.links">
+            <div class="link_all">
+                <div ngf-drop="uploadlink(filelink,link.id)" ng-model="filelink" 
+                ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+                accept="image/*,application/pdf"
+                ngf-pattern="image/*,application/pdf">
+                <div class="drop"></div>
+                <!--<div ng-click="linkEditBtnClick(link.id)" class="edit">Edit</div>-->
+                <div ng-if="link.privacy.name == 'Private'">
+                    <div class="privacy"><i class="fa fa-lock"></i></div>
                 </div>
-            </div>
-            <!-- portal - end -->
-            
-            
-            
-                
-<!-- tabs - start -->                
-  <ul class="nav nav-tabs" role="tablist">
-    <li ng-class="{'active':tabactive=='links'}"><a ng-click="tabclick('links')">Recent Links</a></li>
-    <li ng-class="{'active':tabactive=='collections'}"><a ng-click="tabclick('collections')">Collections</a></li>
-    <li ng-class="{'active':tabactive=='about'}"><a ng-click="tabclick('about')">About @{{user.user.name}}</a></li>
-    <li ng-class="{'active':tabactive=='following'}"><a ng-click="tabclick('following')">Following</a></li>
-  </ul>
-<!-- tabs - end -->
-                
-  <!-- tab areas - start -->
-  <div class="tabholder">
-      
-      
-      
-      
-    <!-- links - start -->
-    <div role="tabpanel" ng-if="tabactive=='links'">
-            <div class="links_all">
-                <div class="container-fluid">
-                    <div class="title">
-                    <h3>Recent Links</h3>
-                    </div>
-                    <div class="list">
-
-                        <div class="loading" ng-if="loading"></div>
-
-                            <div class="row">
-                                
-                                <div class="col-md-5ths linkbox"  ng-repeat="link in userlinks.links">
-                                    <div >
-                                    <div class="linkbox">
-                                    <div class="image" style="background-image:url(@{{link.image}});">
-                                        <div class="overlay"></div>
-                                        <div class="controls">
-                                            <a href=""><i class="fa fa-share" aria-hidden="true"></i></a>
-                                            <a href=""><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                            <a href=""><i class="fa fa-check" aria-hidden="true"></i></a>
-                                        </div>
-                                        <div class="controlaction"><a href=""><i class="fa fa-link" aria-hidden="true"></i></a></div>
-                                    </div>  
-                                    <div class="desc">
-                                        <div class="title" ng-click="openlink(link.id,link.url)" ><a href=""><h4>@{{link.title}}</h4></a></div>
-                                        <div class="site"><a href="">@{{link.site.name}}</a></div>
-                                        <div class="stats"><span>@{{link.visits}} views</span> <span>3 hours ago</span></div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-
-
-                    </div>
-                 </div>
-            </div>
-    </div>
-    <!-- links - end -->
-      
-      
-      
-    <!-- collections - end -->  
-    <div role="tabpanel" ng-if="tabactive=='collections'">
-        <div class="collections_all">
-            <div class="container-fluid">
-                <div class="title"><h3>Collections</h3></div>
-                <div class="list">
-                    <div class="loading" ng-if="loading"></div>
-                    <div class="row">
-                        <div class="col-md-5ths" ng-repeat="collection in usercollections.collections">
-                            <div class="box">
-                                <div class="name">@{{collection.name}}</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});">
+                </div>
+                <div class="text">
+                <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
+                <h3>@{{link.site.name | strLimit: 20}}</h3>
+                <h3 class="views">@{{link.visits}} views</h3>
+                    <div class="clearfix"></div>
+                </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- collections - end -->  
-      
-      
-      
-      
-    <div role="tabpanel" ng-if="tabactive=='about'">about</div>
-      
-      
-      
-      
-      
-      
-      
-    <!-- following - start -->  
-    <div role="tabpanel" ng-if="tabactive=='following'">
-            <div class="following_all">
-                <div class="container-fluid">
-                    <div class="title">
-                    <h3>Profiles</h3>
-                    </div>
-                    <div class="list">
-                            <div class="loading" ng-if="loading"></div>
-                            <div class="row">
-                                
-                                 
-                                <div class="col-md-5ths linkbox" ng-repeat="user in userfollowing.users">
-                                    <div class="image">
-                                        <div class="controlaction"><a href="#/user"><i class="fa fa-user" aria-hidden="true"></i></a></div>
-                                    </div>
-                                    <div class="desc">
-                                        <div class="title"><a href="#u/ser"><h4>Owen Merry</h4></a></div>
-                                        <div class="site"><a>youtube.com</a></div>
-                                        <div class="stats">3 similar shares</div>
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                            
+    <div class="noresults" ng-cloak ng-show="!alllinks.links.length"> No Links Found </div>   
 
-                    </div>
-                 </div>
-            </div>
-    </div>
-    <!-- following - end -->  
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-  </div>    
-  <!-- tab areas - end -->                
-                
-                
-                
-                
-            
-            
-            
-            
-            </div>
-            <!-- page - end -->
-            
-                
-        </div>
-    </div>
-    <!-- content - end -->
 
+</div>
+
+
+
+<!-- collections -->
+<div ng-if="tabactive=='collections'">
+
+<div class="col-md-4" ng-repeat="collection in allcollections.collections">
+            <div class="collection_all" ngf-drop="uploadcollection(filecollection,collection.id)" ng-model="filecollection" 
+    ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
+    accept="image/*,application/pdf"
+    ngf-pattern="image/*,application/pdf">
+            <div class="drop"></div>
+            <!--<div ng-click="collectionEditBtnClick(collection.id)" ng-hide="!loggedin" class="edit">Edit</div>-->
+            <a href="#/collection/single/@{{collection.id}}"><div class="image" style="background-image:url(@{{collection.image}});" ></div></a>
+                <div class="text">
+                <a href="#/collection/single/@{{collection.id}}">
+                    <h2>@{{collection.name | strLimit: 37}}</h2>
+                </a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+                </div>
+
+                <div class="noresults" ng-cloak ng-show="!allcollections.collections.length"> No Collections Found </div>    
+
+
+</div>
+                
+
+    
+    
+    </div>
+    
+    

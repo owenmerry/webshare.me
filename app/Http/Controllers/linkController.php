@@ -376,15 +376,28 @@ class linkController extends Controller
         
     //variables
      $user_id=Auth::user()->id;
+     $search = $request['search'];
         
     //get user links
-    $links = Link::where('user_id',$user_id)->with('site')->with('privacy')->orderBy('id','DESC')->get();
-    $this->vars['links'] = $links;   
+    $links = Link::where('user_id',$user_id)->with('site')->with('privacy')->orderBy('id','DESC'); 
         
+
+    //filter with search
+    if($search){
+        $search = "%". $request['search'] ."%"; 
+        $links = $links->where('url','LIKE',$search)
+        ->orwhere('title','LIKE',$search)
+        ->orwhere('description','LIKE',$search);
+    }
+
+    //add to vars
+    $this->vars['links'] = $links->get();  
+
         
     //return
     return $this->vars;
-        
+
+
         
     }
     
