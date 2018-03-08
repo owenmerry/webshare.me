@@ -2001,6 +2001,14 @@ app.directive('ngEnter', function () {
                 templateUrl : 'user/settings',
                 controller  : 'settingsController'
             })
+            .when('/user/:ID/links', {
+                templateUrl : 'user/links',
+                controller  : 'userController'
+            })
+            .when('/user/:ID/collections', {
+                templateUrl : 'user/collections',
+                controller  : 'userController'
+            })
             .when('/user/:ID', {
                 templateUrl : 'user',
                 controller  : 'userController'

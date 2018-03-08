@@ -76,6 +76,14 @@ Route::get('/user', function () {
     return view('user.profile'); 
 });
 
+Route::get('/user/links', function () {
+    return view('user.links'); 
+});
+
+Route::get('/user/collections', function () {
+    return view('user.collections'); 
+});
+
 Route::get('/user/settings', function () {
     return view('user.settings'); 
 });
