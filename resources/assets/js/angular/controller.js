@@ -41,10 +41,11 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
  });
  
  //page refresh
- var pageRefresh = $interval(function(){
+ /*var pageRefresh = $interval(function(){
      $rootScope.$broadcast('pageRefresh');
  },60000);
- 
+ */
+
  //menu functions
  $scope.menuClick = function(){
      $scope.popupmenu = true; 
@@ -452,9 +453,10 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
     
     //variables
     //$scope.loading = true;
+    $scope.createshow=false;
     
     //onload
-    setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
+
     
     //get data
     $http.post("/api/link/mylinks",{search:$scope.search}).then(function (response) {
@@ -463,6 +465,14 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
     }); 
     
     //functions
+    $scope.toggleCreate = function(varmode){
+        if(varmode=="show"){
+            $scope.createshow=true;
+            setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);               
+                           };
+        if(varmode=="hide"){$scope.createshow=false;};
+    };
+
      $scope.addlink = function(){
         
         $scope.loading = true;

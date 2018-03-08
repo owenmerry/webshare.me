@@ -22,10 +22,8 @@
     
      <div class="menu_all">
          <ul class="nav nav-pills desktop">
-             <li><a href="#browse/all" ng-cloak >Browse</a></li>
              <li><a href="#link/all" ng-cloak ng-show="loggedin">My Links</a></li>
              <li><a href="#collection/user/@{{userid}}" ng-cloak ng-show="loggedin">My Collections</a></li>
-             <li><a href="#search" ng-cloak ng-show="loggedin">Search</a></li>
              <li><a class="boxed" 
                 ng-show="!loggedin" ng-cloak ng-show="loggedin" ng-click="loginbtnClick()"
                 ngf-drop="loginUpload(filelogin)" ng-model="filelogin" 

@@ -11,8 +11,8 @@
                 <div class="title"><h2>Collections</h2></div>
                 
                 <div class="controls" ng-hide="!loggedin">
-                    <div class="create" ng-show="!createshow"><a class="btn" ng-click="toggleCreate('show')">Create Collection</a></div>
-                    <div class="create-text" ng-show="createshow"><input type="text" id="collectionall_create" class="form-control" ng-model="collectionname" /><a class="btn" ng-click="addcollection()">Add</a></div>
+                    <div class="create" ng-show="!createshow"><a class="btn" ng-click="toggleCreate('show')">Add a collection</a></div>
+                    <div class="create-text" ng-show="createshow"><input type="text" id="collectionall_create" class="form-control" ng-model="collectionname" /><a class="btn" ng-click="addcollection()">Add collection</a></div>
                 </div>
             
                 
