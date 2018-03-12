@@ -13,8 +13,8 @@
         <div class="logo"><a href="#home"><img src="/images/app/webshare-logo.svg" /></a></div>
     </div>
     
-    <div class="gradient_all">
-    </div>
+    <div class="gradient_all"></div>
+    <div class="hero_all"></div>
    
     
     

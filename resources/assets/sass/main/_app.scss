@@ -9,13 +9,26 @@
 }
 
 .gradient_all{
-    position:fixed;
+    position:absolute;
     top:0px;
     left:0px;
     width:100%;
-    height:100px;
-    z-index:4;
-    background: linear-gradient(rgba(black,.2), rgba(black,0));
+    height:500px;
+    z-index:-4;
+    background: linear-gradient(rgba(black,.4), rgba(black,.8));
+}
+
+.hero_all{
+    position:absolute;
+    background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
+            background-size: cover;
+            background-attachment:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:500px;
+    z-index:-5;
+    background-color:darken(white,50%);
 }
 
 .topbanner_all{
@@ -29,7 +42,7 @@
 }
 
 .logo_all{
-    position:fixed;
+    position: absolute;
     top:20px;
     left:20px;
     width:200px;
@@ -45,7 +58,7 @@
 
 .menu_all{
     @extend .animate_all;
-    position:fixed;
+    position: absolute;
     top:20px;
     right:20px;
     //width:50%;

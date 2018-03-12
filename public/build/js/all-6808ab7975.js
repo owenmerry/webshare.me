@@ -1834,18 +1834,32 @@ app.controller('userController', function($scope, $http, $rootScope, $interval,U
     //$scope.loading = true;
     $scope.tabactive = "links";    
     $scope.userid = $routeParams.ID;  
+    $scope.userpage = $routeParams.Type;  
     
     //onload
+
+
+    //logic
+    if($scope.userpage==null){$scope.userpage="links";}
     
+
     //get data
-    $http.get("/api/link/user/"+ $scope.userid).then(function (response) {
-        $scope.alllinks = response.data;
-        $scope.loading = false;
-    }); 
-    $http.get("/api/collection/user/"+ $scope.userid ).then(function (response) {
+    if($scope.userpage=='links'){
+        $scope.tabactive = "links";
+        $http.get("/api/link/user/"+ $scope.userid).then(function (response) {
+            $scope.alllinks = response.data;
+            $scope.loading = false;
+        });
+    } 
+
+    if($scope.userpage=='collections'){
+        $scope.tabactive = "collections";
+        $http.get("/api/collection/user/"+ $scope.userid ).then(function (response) {
             $scope.allcollections = response.data;
             $scope.loading = false;
-    });
+        });
+    }
+
     $http.get("/api/user/show/"+ $scope.userid ).then(function (response) {
         $scope.user = response.data;
         $scope.loading = false;
@@ -2001,15 +2015,11 @@ app.directive('ngEnter', function () {
                 templateUrl : 'user/settings',
                 controller  : 'settingsController'
             })
-            .when('/user/:ID/links', {
-                templateUrl : 'user/links',
+            .when('/user/:ID/:Type', {
+                templateUrl : 'user',
                 controller  : 'userController'
             })
-            .when('/user/:ID/collections', {
-                templateUrl : 'user/collections',
-                controller  : 'userController'
-            })
-            .when('/user/:ID', {
+            .when('/user/:ID/', {
                 templateUrl : 'user',
                 controller  : 'userController'
             })

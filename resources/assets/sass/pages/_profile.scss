@@ -4,12 +4,11 @@
     padding-top:150px;
     .controls{
         display:flex;
-        a{color:#ffffff;}margin-bottom:20px;
-        .create-link{
-            flex:1;
-            .form-control{width:400px;display:inline;margin-right:10px;}
+        a{color:#ffffff;margin-right:10px;border:0px;}
+        margin-bottom:20px;
+        .active{
+            a{background-color:white;color:black;}
         }
-        .search-link{width:200px;}
     }
     .loading,.links{
         display: grid;
@@ -31,6 +30,9 @@
             .create-link{
                 .form-control{width:100%;margin-bottom:15px;}
             }
+        }
+        .loading,.links{
+            grid-template-columns: repeat(1,1fr);
         }
     }
     

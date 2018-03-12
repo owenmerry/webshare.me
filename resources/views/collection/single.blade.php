@@ -17,8 +17,10 @@
                
              <div> 
                  <div class="controls" ng-hide="!loggedin">
+                     <!--
                      <a class="back btn" href="#/collection/user/@{{allcollectionlinks.user[0].id}}">Back</a>
                      <div class="create-link" ng-hide="!loggedin"><input type="text" id="collectionsingleall_create" class="form-control" placeholder="Paste website link here" ng-model="website" /><a class="btn" ng-click="addlink()">Add Link</a></div>
+                    -->
                  </div>             
                  
                  

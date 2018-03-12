@@ -7,8 +7,8 @@
     <div class="title"><h2>@{{user.user.name}}</h2></div>
                 
     <div class="controls">
-        <div ng-class="{'active':tabactive=='links'}"><a ng-click="tabclick('links')">Recent Links</a></div>
-        <div ng-class="{'active':tabactive=='collections'}"><a ng-click="tabclick('collections')">Collections</a></div>
+        <div  ng-class="{'active':tabactive=='links'}"><a class="btn" href="#/user/@{{user.user.id}}/links">Recent Links</a></div>
+        <div  ng-class="{'active':tabactive=='collections'}"><a class="btn" href="#/user/@{{user.user.id}}/collections">Collections</a></div>
     </div>  
 
 

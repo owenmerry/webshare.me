@@ -2,6 +2,7 @@
 
 .link_page{
     padding-top:150px;
+
     .controls{
         display:flex;
         a{color:#ffffff;}margin-bottom:20px;
@@ -9,7 +10,13 @@
             flex:1;
             .form-control{width:400px;display:inline;margin-right:10px;}
         }
-        .search-link{width:200px;}
+        .search-link{
+            input{
+                float:right;
+                @extend .animate_all;
+                &:focus{width:250px;}
+            }
+        }
     }
     .loading,.links{
         display: grid;
@@ -27,10 +34,21 @@
     @media(max-width: $col-xs) {
         .title{margin-bottom:0px;h2{font-size:24px;}}
         .controls{
-            padding:20px;
+            display: block;
+            padding:20px; 
             .create-link{
+                margin-bottom:10px;
                 .form-control{width:100%;margin-bottom:15px;}
             }
+            .search-link{
+                input{
+                    float:none;
+                    &:focus{width:100%;}
+                }
+            }
+        }
+        .loading,.links{
+            grid-template-columns: repeat(1,1fr);
         }
     }
     

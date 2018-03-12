@@ -18,7 +18,6 @@
                 
             <div class="loading" ng-show="loading">
                 <?php for ($x = 1; $x <= 6; $x++) { ?>
-                <div class="col-md-4">
                 <div class="link_all">
                     <div class="image" ></div>
                     <div class="text">
@@ -27,7 +26,6 @@
                     <h3 class="views">&nbsp;</h3>
                         <div class="clearfix"></div>
                     </div>
-                </div>
                 </div>
                 <?php }; ?>
             </div>

@@ -7,8 +7,8 @@
 
 //main
 html{height:100%;color:black;}
-body{height:100%;color:black;@extend %font;background-color:$color-primary;} 
-
+body{height:100%;color:black;@extend %font;} 
+ 
 
 //animate
 .animate_all{
