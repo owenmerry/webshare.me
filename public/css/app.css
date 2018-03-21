@@ -976,7 +976,7 @@ body {
 }
 
 .link_all .image {
-  background-color: #f7f7f7;
+  background-color: #ededed;
   cursor: pointer;
   height: 210px;
   background-size: cover;
@@ -1084,7 +1084,7 @@ body {
 }
 
 .collection_all .image {
-  background-color: #f7f7f7;
+  background-color: #ededed;
   cursor: pointer;
   height: 210px;
   background-size: cover;
