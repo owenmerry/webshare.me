@@ -3422,7 +3422,11 @@ body {
   color: black;
 }
 
-.animate_all, .btn, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .linkedit_all .content .form-control, .collectionedit_all .content .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .link_page .controls .search-link input, .search_page .searchbox, .search_page .searchbox .form-control {
+body.popup {
+  overflow: hidden;
+}
+
+.animate_all, .btn, .gradient_all, .gradient_all.-long, .hero_all, .hero_all.-long, .hero_all.-blue, .hero_all.-bluedark, .hero_all.-green, .hero_all.-red, .hero_all.-orange, .menu_all, .menu_all li a, .loginbtn_all, .menuaddlink_all, .popupmenu_all .button, .login_all .step .form-control, .signup_all .step .form-control, .linkedit_all .content .form-control, .collectionedit_all .content .form-control, .link_all, .link_all .image, .collection_all, .collection_all .image, .addlink_page .addlink_all .content .form-control.textbox, .link_page .controls .search-link input, .search_page .searchbox, .search_page .searchbox .form-control {
   -webkit-transition: all .2s ease-out 0s;
   transition: all .2s ease-out 0s;
 }
@@ -3626,13 +3630,16 @@ body {
   width: 100%;
   height: 500px;
   z-index: -4;
-  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+  background: -webkit-linear-gradient(transparent, transparent);
+  background: linear-gradient(transparent, transparent);
+}
+
+.gradient_all.-long {
+  height: 100%;
 }
 
 .hero_all {
   position: absolute;
-  background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
   background-size: cover;
   background-attachment: fixed;
   top: 0px;
@@ -3641,6 +3648,30 @@ body {
   height: 500px;
   z-index: -5;
   background-color: gray;
+}
+
+.hero_all.-long {
+  height: 100%;
+}
+
+.hero_all.-blue {
+  background-color: #0fbcf9;
+}
+
+.hero_all.-bluedark {
+  background-color: #3c40c6;
+}
+
+.hero_all.-green {
+  background-color: #05c46b;
+}
+
+.hero_all.-red {
+  background-color: #ff5e57;
+}
+
+.hero_all.-orange {
+  background-color: #ffa801;
 }
 
 .topbanner_all {
@@ -3675,6 +3706,24 @@ body {
   -webkit-transform: scale(1);
   transform: scale(1);
   z-index: 5;
+}
+
+.menu_all li.active {
+  border: 0px;
+  border-bottom: solid 2px white;
+}
+
+.menu_all li.active a {
+  background-color: transparent;
+}
+
+.menu_all li.active a:hover, .menu_all li.active a:active, .menu_all li.active a:focus {
+  background-color: transparent;
+}
+
+.menu_all li.active a.boxed {
+  border: solid 1px white;
+  border-bottom: solid 1px white;
 }
 
 .menu_all li a {
@@ -4017,22 +4066,18 @@ body {
 }
 
 .linkedit_all {
-  background-color: white;
   position: fixed;
   top: 0px;
   width: 100%;
   height: 100%;
   z-index: 10;
+  overflow-x: auto;
 }
 
-.linkedit_all.ng-hide-add {
-  -webkit-animation: 0.8s slideOutDown ease;
-  animation: 0.8s slideOutDown ease;
-}
-
-.linkedit_all.ng-hide-remove {
-  -webkit-animation: 0.8s slideInUp ease;
-  animation: 0.8s slideInUp ease;
+.linkedit_all .content-holder {
+  position: relative;
+  min-height: 100%;
+  padding: 40px;
 }
 
 .linkedit_all .drop {
@@ -4075,10 +4120,13 @@ body {
 }
 
 .linkedit_all .content {
-  width: 100%;
+  min-height: 600px;
+  padding: 30px;
+  background-color: white;
+  width: 800px;
   height: 100%;
-  position: absolute;
-  top: 0px;
+  position: relative;
+  margin: 0px auto;
 }
 
 .linkedit_all .content h2 {
@@ -4087,30 +4135,19 @@ body {
 }
 
 .linkedit_all .content .form-control {
-  padding: 40px 30px;
+  padding: 10px;
 }
 
 .linkedit_all .content .form-control.textarea {
-  padding: 15px 30px 0px 30px;
+  padding: 10px;
 }
 
 .linkedit_all .content .form-control:focus {
   border-color: #00cca3;
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
 }
 
 .linkedit_all .content .textbox_holder {
   margin-bottom: 20px;
-}
-
-.linkedit_all .content .center {
-  position: absolute;
-  width: 500px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 768px) {
@@ -4339,7 +4376,7 @@ body {
 }
 
 .link_all .image {
-  background-color: #ededed;
+  background-color: #e6e6e6;
   cursor: pointer;
   height: 210px;
   background-size: cover;
@@ -4447,7 +4484,7 @@ body {
 }
 
 .collection_all .image {
-  background-color: #ededed;
+  background-color: #e6e6e6;
   cursor: pointer;
   height: 210px;
   background-size: cover;
@@ -4740,7 +4777,6 @@ body {
 
 .home_page .portal_all {
   height: 100%;
-  background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
   background-size: cover;
   background-attachment: fixed;
   position: relative;

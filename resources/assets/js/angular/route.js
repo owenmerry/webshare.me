@@ -57,6 +57,10 @@
                 templateUrl : 'user/settings',
                 controller  : 'settingsController'
             })
+            .when('/user/:ID/:Type/:TypeID', {
+                templateUrl : 'user',
+                controller  : 'userController'
+            })
             .when('/user/:ID/:Type', {
                 templateUrl : 'user',
                 controller  : 'userController'

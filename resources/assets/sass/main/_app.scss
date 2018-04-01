@@ -9,26 +9,56 @@
 }
 
 .gradient_all{
+    @extend .animate_all;
     position:absolute;
     top:0px;
     left:0px;
     width:100%;
     height:500px;
     z-index:-4;
-    background: linear-gradient(rgba(black,.4), rgba(black,.8));
+    background: linear-gradient(rgba(black,.0), rgba(black,.0));
+    &.-long{
+        @extend .animate_all;
+        height:100%;
+    }
 }
 
 .hero_all{
+    @extend .animate_all;
     position:absolute;
-    background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
-            background-size: cover;
-            background-attachment:fixed;
+    //background-image: url(../../images/backgrounds/alan-labisch-326579.jpg);
+    background-size: cover;
+    background-attachment:fixed;
     top:0px;
     left:0px;
     width:100%;
     height:500px;
     z-index:-5;
     background-color:darken(white,50%);
+    &.-long{
+        @extend .animate_all;
+        height:100%;
+    }
+    &.-blue{
+        @extend .animate_all;
+        background-color:#0fbcf9;
+    }
+    &.-bluedark{
+        @extend .animate_all;
+        background-color:#3c40c6;
+    }
+    &.-green{
+        @extend .animate_all;
+        background-color:#05c46b;
+    }
+    &.-red{
+        @extend .animate_all;
+        background-color:#ff5e57;
+    }
+    &.-orange{
+        @extend .animate_all;
+        background-color:#ffa801;
+    }
 }
 
 .topbanner_all{
@@ -66,6 +96,17 @@
     z-index:5;
     //&:hover{transform:scale(1.2);}
     li{
+        &.active{
+            border:0px;border-bottom:solid 2px white;
+            a{
+                background-color:transparent;
+                &:hover,&:active,&:focus{background-color:transparent;}
+
+                &.boxed{
+                    border:solid 1px white;border-bottom:solid 1px white;
+                }
+            }
+        }
         a{
             @extend .animate_all;
             color:white;

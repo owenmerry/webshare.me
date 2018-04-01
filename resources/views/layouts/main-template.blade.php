@@ -38,7 +38,7 @@ Made with ♥ by Owen Merry - owenmerry.com
 </head>
 
 
-<body >
+<body class="@{{bodypopup}}">
 <!-- Google Analytics - start --> 
 <!-- Google Analytics - end --> 
     

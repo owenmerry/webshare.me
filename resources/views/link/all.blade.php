@@ -6,7 +6,7 @@
         
 
                 
-                <div class="title"><h2>Recent Links Owen</h2></div>
+                <div class="title"><h2>My Links</h2></div>
                 
                 <div class="controls">
                     <div class="create-link">

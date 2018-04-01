@@ -13,8 +13,8 @@
         <div class="logo"><a href="#home"><img src="/images/app/webshare-logo.svg" /></a></div>
     </div>
     
-    <div class="gradient_all"></div>
-    <div class="hero_all"></div>
+    <div class="gradient_all" ng-class="{'-long':portal=='long'}" ></div>
+    <div class="hero_all @{{portalcolor}}" ng-class="{'-long':portal=='long'}"></div>
    
     
     
@@ -22,15 +22,16 @@
     
      <div class="menu_all">
          <ul class="nav nav-pills desktop">
-             <li><a href="#link/all" ng-cloak ng-show="loggedin">My Links</a></li>
-             <li><a href="#collection/user/@{{userid}}" ng-cloak ng-show="loggedin">My Collections</a></li>
-             <li><a class="boxed" 
+             <li ng-class="{'active':pageopen=='mylinks'}"><a href="#link/all" ng-cloak ng-show="loggedin">My Links</a></li>
+             <li ng-class="{'active':pageopen=='mycollections'}"><a href="#collection/user/@{{userid}}" ng-cloak ng-show="loggedin">My Collections</a></li>
+             <li <a class="boxed" 
                 ng-show="!loggedin" ng-cloak ng-show="loggedin" ng-click="loginbtnClick()"
                 ngf-drop="loginUpload(filelogin)" ng-model="filelogin" 
                 ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
                 accept="image/*,application/pdf" 
                 ngf-pattern="image/*,application/pdf"
-             >Login</a></li>
+             >
+             <a class="boxed">Login</a></li>
              <li><a href="#user/@{{userid}}" class="boxed" ng-cloak ng-show="loggedin" >Owen Merry</a></li>
              <li><a class="boxed" ng-hide="loggedin" ng-click="signupbtnClick()">Sign Up</a></li>
              <li><a class="boxed" ng-hide="!loggedin" ng-click="logoutbtnClick()">Logout</a></li>
@@ -66,7 +67,9 @@
     <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop="" ng-model="filelink" 
     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
     accept="image/*,application/pdf" 
-    ngf-pattern="image/*,application/pdf">
+    ngf-pattern="image/*,application/pdf"
+    ><div class="content-holder">
+        <div class="overlay" ng-click="linkEditBtnCloseClick()"></div>
         <div class="content">
             <div class="drop"></div>
             <div class="close" ng-click="linkEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
@@ -103,6 +106,7 @@
 
             
 
+        </div>
         </div>
     </div>
     
@@ -176,8 +180,7 @@
         <div class="center">
             <ul class="nav">
              <li><a href="#link/all" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">My Links</a></li>
-             <li><a href="#collection/all" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">My Collections</a></li>
-             <li><a href="#search" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">Search</a></li>
+             <li><a href="#collection/user/@{{userid}}" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">My Collections</a></li>
              <li><a class="boxed" ng-show="!loggedin"ng-cloak ng-show="loggedin" ng-click="loginbtnClick();menuMobileHideClick()">Login</a></li>
              <li><a class="boxed" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">Owen Merry</a></li>
              <li><a class="boxed" ng-hide="loggedin" ng-click="signupbtnClick();menuMobileHideClick()">Sign Up</a></li>

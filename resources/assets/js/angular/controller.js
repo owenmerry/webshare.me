@@ -21,7 +21,12 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
  $scope.signupstep='create';
  $scope.addlinkcollection=false;
  $scope.menumobile=false;
- $scope.linkEditCollection='';
+
+ //global variables
+ $rootScope.portal="long";
+ $rootScope.portalcolor="";
+ $rootScope.bodypopup="";
+ $rootScope.pageopen='load';
  
  //page Global values
  //collection Global
@@ -131,10 +136,10 @@ app.controller('appController', function($scope, Upload, $http, $location, $root
 
 //add global controllers
  
-    //login functions
-    $scope.loginbtnClick = function(){
-        $scope.loginstep='email';
-        $scope.loginshow=true;
+//login functions
+$scope.loginbtnClick = function(){
+    $scope.loginstep='email';
+    $scope.loginshow=true;
 }
 $scope.loginbtnCloseClick = function(){
     setTimeout(function(){ $scope.loginstep='password'; }, 1000); 
@@ -278,7 +283,7 @@ $scope.signupCreateClick = function(){
 
 
     $scope.linkEditBtnClick = function(linkid,collectionid){
-            $scope.linkeditshow=true;
+            
             $http.get("/api/link/getlink/"+ linkid).then(function (response) {
                 console.log(response.data);
                     $scope.linkedit = response.data;
@@ -286,10 +291,14 @@ $scope.signupCreateClick = function(){
                     $scope.linkeditdescription = $scope.linkedit.link.description;
                     $scope.linkediturl = $scope.linkedit.link.url;
                     $scope.linkeditprivacy = $scope.linkedit.link.privacy.id.toString();
+                    
+                    $scope.linkeditshow=true;
+                    $rootScope.bodypopup="popup";
             });
     }
     $scope.linkEditBtnCloseClick = function(){
         $scope.linkeditshow=false;
+        $rootScope.bodypopup="";
     }
     $scope.linkEditSaveClick = function(){
         
@@ -403,10 +412,13 @@ $scope.collectionDeleteBtnClick = function(){
 
 //content
 // home page
-app.controller('homeController', function($scope, $http) {
+app.controller('homeController', function($scope, $http, $rootScope) {
 
     //variables    
     $scope.addlinkcollection=false;
+    $rootScope.portal="long";
+    $rootScope.portalcolor="-bluedark";
+    $rootScope.pageopen="home";
     
     //get data
     $http.get("/api/collection/all").then(function (response) {
@@ -454,6 +466,9 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
     //variables
     //$scope.loading = true;
     $scope.createshow=false;
+    $rootScope.portal="small";
+    $rootScope.portalcolor="-blue";
+    $rootScope.pageopen="mylinks";    
     
     //onload
 
@@ -540,10 +555,12 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
 
 
 // add link
-app.controller('addlinkController', function($scope, $http) {
+app.controller('addlinkController', function($scope, $http, $rootScope) {
 
     //variables    
     $scope.addlinkcollection=false;
+    $rootScope.portal="small";
+    $rootScope.pageopen="mylinks";
     
     //get data
     $http.get("/api/collection/all").then(function (response) {
@@ -591,13 +608,16 @@ app.controller('addlinkController', function($scope, $http) {
 //collections
 
 // Collection All page
-app.controller('collectionallController', function($scope, $http, $interval, $routeParams, Upload) {
+app.controller('collectionallController', function($scope, $http, $interval, $routeParams, Upload, $rootScope) {
     
     //variables
     $scope.collectionid = $routeParams.ID;
     $scope.collectionmode="collection";
     $scope.createshow=false;
     $scope.collectionname="";
+    $rootScope.portal="small";
+    $rootScope.portalcolor="-green";
+    $rootScope.pageopen="mycollections";
    // $scope.loading=true;
     
     //get data
@@ -672,6 +692,9 @@ app.controller('collectionsingleController', function($scope, $rootScope, $http,
     //variables
     $collectionid = $routeParams.ID;
     $scope.myid = $routeParams.ID; 
+    $rootScope.portal="small";
+    $rootScope.portalcolor="-red";
+    $rootScope.pageopen="mycollections";
     //$scope.loading=true;
     
     //set up global variables
@@ -768,6 +791,8 @@ app.controller('browseallController', function($scope, $http, $rootScope, $inter
     
     //variables
     //$scope.loading = true;
+    $rootScope.portal="small";
+    $rootScope.pageopen="browse";
     
     //onload
     setTimeout(function(){ document.getElementById('linkall_create').focus(); }, 300);
@@ -842,10 +867,12 @@ app.controller('browseallController', function($scope, $http, $rootScope, $inter
 
 
 // search page
-app.controller('searchController', function($scope, $http) {
+app.controller('searchController', function($scope, $http, $rootScope) {
     
     //varibles
     //$scope.loading = false;
+    $rootScope.portal="small";
+    $rootScope.pageopen="search";
     
     //run on open
     setTimeout(function(){ document.getElementById('searchall-search').focus(); }, 300);
@@ -902,6 +929,9 @@ app.controller('userController', function($scope, $http, $rootScope, $interval,U
     $scope.tabactive = "links";    
     $scope.userid = $routeParams.ID;  
     $scope.userpage = $routeParams.Type;  
+    $rootScope.portal="small";
+    $rootScope.portalcolor="-orange";
+    $rootScope.pageopen="user";
     
     //onload
 
