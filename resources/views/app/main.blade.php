@@ -182,8 +182,8 @@
              <li><a href="#link/all" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">My Links</a></li>
              <li><a href="#collection/user/@{{userid}}" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">My Collections</a></li>
              <li><a class="boxed" ng-show="!loggedin"ng-cloak ng-show="loggedin" ng-click="loginbtnClick();menuMobileHideClick()">Login</a></li>
-             <li><a class="boxed" ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">Owen Merry</a></li>
-             <li><a class="boxed" href="#user/@{{userid}}" ng-hide="loggedin" ng-click="signupbtnClick();menuMobileHideClick()">Sign Up</a></li>
+             <li><a href="#user/@{{userid}}" class="boxed"  ng-cloak ng-show="loggedin" ng-click="menuMobileHideClick()">Owen Merry</a></li>
+             <li><a class="boxed" ng-hide="loggedin" ng-click="signupbtnClick();menuMobileHideClick()">Sign Up</a></li>
              <li><a class="boxed" ng-hide="!loggedin" ng-click="logoutbtnClick();menuMobileHideClick()">Logout</a></li>
         </ul>
         </div>
