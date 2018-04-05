@@ -91,7 +91,7 @@
     .drop{
         display:none;position: fixed;top:0px;width:100vw;height:100vh;left:0px;z-index:20;border:solid 10px $color-secondary;
         border-right-width:15px;background-color:rgba(white,.6);
-    } 
+    }
     &.dragover{.drop{display:block;}}
     .close{position: absolute;top:20px;right:20px;z-index:10;img{width:20px;}}
     .delete{position: absolute;bottom:20px;right:20px;z-index:10;img{width:20px;}}
@@ -120,6 +120,8 @@
     //mobile
     @media(max-width: $col-xs) {
         .content{
+            width:100%;
+            padding:0px;
             .center{width:100%;padding:20px;}
             .form-control{
                 &:focus{transform:scale(1);}

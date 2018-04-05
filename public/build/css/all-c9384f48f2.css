@@ -4151,6 +4151,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .linkedit_all .content {
+    width: 100%;
+    padding: 0px;
+  }
   .linkedit_all .content .center {
     width: 100%;
     padding: 20px;
