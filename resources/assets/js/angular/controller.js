@@ -218,10 +218,10 @@ $scope.loginUpload = function(file){
 
 
     
-    //signup functions
-    $scope.signupbtnClick = function(){
-        $scope.signupstep='create';
-        $scope.signupshow=true;
+//signup functions
+$scope.signupbtnClick = function(){
+    $scope.signupstep='create';
+    $scope.signupshow=true;
 }
 $scope.signupbtnCloseClick = function(){
     $scope.signupstep='create';
@@ -310,8 +310,8 @@ $scope.signupCreateClick = function(){
             $rootScope.$broadcast('pageRefresh');
         });    
     };    
-    $scope.linkDeleteBtnClick = function(){
-        $http.delete("/api/link/delete/"+ $scope.linkedit.link.id).then(function (response) {
+    $scope.linkDeleteBtnClick = function(linkid){
+        $http.delete("/api/link/delete/"+ linkid).then(function (response) {
             console.log(response.data);
                 $scope.linkdelete = response.data;
                 $scope.linkeditshow=false;
@@ -345,14 +345,14 @@ $scope.signupCreateClick = function(){
 
 
 
-    //collection edit functions
-    $scope.collectionEditBtnClick = function(collectionid){
-        $scope.collectioneditshow=true;
-        $http.get("/api/collection/getcollection/"+ collectionid).then(function (response) {
-            console.log(response.data);
-                $scope.collectionedit = response.data;
-                $scope.collectioneditname = $scope.collectionedit.collection.name;
-        });
+//collection edit functions
+$scope.collectionEditBtnClick = function(collectionid){
+    $scope.collectioneditshow=true;
+    $http.get("/api/collection/getcollection/"+ collectionid).then(function (response) {
+        console.log(response.data);
+            $scope.collectionedit = response.data;
+            $scope.collectioneditname = $scope.collectionedit.collection.name;
+    });
 }
 $scope.collectionEditBtnCloseClick = function(){
     $scope.collectioneditshow=false;
@@ -377,6 +377,41 @@ $scope.collectionDeleteBtnClick = function(){
             //refresh data
             $rootScope.$broadcast('pageRefresh'); 
     });
+}
+
+
+//collection add functions
+$scope.collectionAddBtnClick = function(linkid){
+    $scope.collectionaddshow=true;
+    $scope.collectionaddlinkid=linkid;
+     $http.get("/api/collection/user/"+ $scope.userid ).then(function (response) {
+        console.log(response.data);
+        $scope.allcollections = response.data;
+        $scope.loading = false;
+    });
+}
+$scope.collectionAddBtnCloseClick = function(){
+    $scope.collectionaddshow=false;
+}
+$scope.collectionAddSaveClick = function(collectionid){
+    console.log('run edit save..');
+    $scope.collectionaddshow=false;
+    $http.get("/api/link/linktocollection/"+ $scope.collectionaddlinkid +"/"+ collectionid ).then(function (response) {
+        if(response.data=="added"){
+            //close
+            $scope.collectionaddshow=false;
+        }
+    }); 
+};    
+$scope.collectionAddRemoveBtnClick = function(){
+    // $http.delete("/api/collection/delete/"+ $scope.collectionedit.collection.id).then(function (response) {
+    //     console.log(response.data);
+    //         $scope.collectiondelete = response.data;
+    //         $scope.collectioneditshow=false;
+
+    //         //refresh data
+    //         $rootScope.$broadcast('pageRefresh'); 
+    // });
 }
 
 
@@ -468,7 +503,8 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
     $scope.createshow=false;
     $rootScope.portal="small";
     $rootScope.portalcolor="-blue";
-    $rootScope.pageopen="mylinks";    
+    $rootScope.pageopen="mylinks";  
+
     
     //onload
 
@@ -487,6 +523,10 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
                            };
         if(varmode=="hide"){$scope.createshow=false;};
     };
+
+    $scope.linkDropdownClick = function(linkid){
+        $scope.linkDropdownShow = linkid;
+    }
 
      $scope.addlink = function(){
         

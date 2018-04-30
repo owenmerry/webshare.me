@@ -64,6 +64,22 @@
 
 
 
+    <div class="collectionadd_all" ng-cloak ng-show="collectionaddshow">
+        <div class="content">
+            <div class="close" ng-click="collectionAddBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
+            <div class="center">
+            <h2>Add to collection</h2>
+            <div class="collections" ng-repeat="collection in allcollections.collections">
+            <div class="line">
+                <a ng-click="collectionAddSaveClick(collection.id)">@{{collection.name | strLimit: 37}}</a>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="linkedit_all" ng-cloak ng-show="linkeditshow" ngf-drop="" ng-model="filelink" 
     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
     accept="image/*,application/pdf" 

@@ -187,8 +187,7 @@ class linkController extends Controller
         
     }
     
-    
-    
+
     
     
     
@@ -308,6 +307,21 @@ class linkController extends Controller
 
     //return
     return $this->vars;
+        
+        
+    }
+
+
+    //Add Link to Collection
+    public function linktocollection(Request $request, $linkid, $collectionid)
+    {
+        
+    //get collection links
+    $collection = Collection::find($collectionid);
+    $collection->link()->attach($linkid);
+
+    //return
+    return "added";
         
         
     }
