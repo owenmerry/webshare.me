@@ -803,22 +803,35 @@ body {
 }
 
 .collectionedit_all {
-  background-color: white;
   position: fixed;
   top: 0px;
   width: 100%;
   height: 100%;
   z-index: 10;
+  overflow-x: auto;
 }
 
-.collectionedit_all.ng-hide-add {
-  -webkit-animation: 0.8s slideOutDown ease;
-  animation: 0.8s slideOutDown ease;
+.collectionedit_all .content-holder {
+  position: relative;
+  min-height: 100%;
+  padding: 40px;
 }
 
-.collectionedit_all.ng-hide-remove {
-  -webkit-animation: 0.8s slideInUp ease;
-  animation: 0.8s slideInUp ease;
+.collectionedit_all .drop {
+  display: none;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  z-index: 20;
+  border: solid 10px #2c5e92;
+  border-right-width: 15px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.collectionedit_all.dragover .drop {
+  display: block;
 }
 
 .collectionedit_all .close {
@@ -844,10 +857,13 @@ body {
 }
 
 .collectionedit_all .content {
-  width: 100%;
+  min-height: 600px;
+  padding: 30px;
+  background-color: white;
+  width: 800px;
   height: 100%;
-  position: absolute;
-  top: 0px;
+  position: relative;
+  margin: 0px auto;
 }
 
 .collectionedit_all .content h2 {
@@ -856,33 +872,26 @@ body {
 }
 
 .collectionedit_all .content .form-control {
-  padding: 40px 30px;
+  padding: 10px;
 }
 
 .collectionedit_all .content .form-control.textarea {
-  padding: 15px 30px 0px 30px;
+  padding: 10px;
 }
 
 .collectionedit_all .content .form-control:focus {
   border-color: #00cca3;
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
 }
 
 .collectionedit_all .content .textbox_holder {
   margin-bottom: 20px;
 }
 
-.collectionedit_all .content .center {
-  position: absolute;
-  width: 500px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 @media (max-width: 768px) {
+  .collectionedit_all .content {
+    width: 100%;
+    padding: 0px;
+  }
   .collectionedit_all .content .center {
     width: 100%;
     padding: 20px;
@@ -894,22 +903,35 @@ body {
 }
 
 .collectionadd_all {
-  background-color: white;
   position: fixed;
   top: 0px;
   width: 100%;
   height: 100%;
   z-index: 10;
+  overflow-x: auto;
 }
 
-.collectionadd_all.ng-hide-add {
-  -webkit-animation: 0.8s slideOutDown ease;
-  animation: 0.8s slideOutDown ease;
+.collectionadd_all .content-holder {
+  position: relative;
+  min-height: 100%;
+  padding: 40px;
 }
 
-.collectionadd_all.ng-hide-remove {
-  -webkit-animation: 0.8s slideInUp ease;
-  animation: 0.8s slideInUp ease;
+.collectionadd_all .drop {
+  display: none;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  z-index: 20;
+  border: solid 10px #2c5e92;
+  border-right-width: 15px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.collectionadd_all.dragover .drop {
+  display: block;
 }
 
 .collectionadd_all .close {
@@ -935,10 +957,13 @@ body {
 }
 
 .collectionadd_all .content {
-  width: 100%;
+  min-height: 600px;
+  padding: 30px;
+  background-color: white;
+  width: 800px;
   height: 100%;
-  position: absolute;
-  top: 0px;
+  position: relative;
+  margin: 0px auto;
 }
 
 .collectionadd_all .content h2 {
@@ -947,33 +972,26 @@ body {
 }
 
 .collectionadd_all .content .form-control {
-  padding: 40px 30px;
+  padding: 10px;
 }
 
 .collectionadd_all .content .form-control.textarea {
-  padding: 15px 30px 0px 30px;
+  padding: 10px;
 }
 
 .collectionadd_all .content .form-control:focus {
   border-color: #00cca3;
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
 }
 
 .collectionadd_all .content .textbox_holder {
   margin-bottom: 20px;
 }
 
-.collectionadd_all .content .center {
-  position: absolute;
-  width: 500px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 @media (max-width: 768px) {
+  .collectionadd_all .content {
+    width: 100%;
+    padding: 0px;
+  }
   .collectionadd_all .content .center {
     width: 100%;
     padding: 20px;

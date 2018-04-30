@@ -1317,6 +1317,7 @@ $scope.collectionDeleteBtnClick = function(){
 $scope.collectionAddBtnClick = function(linkid){
     $scope.collectionaddshow=true;
     $scope.collectionaddlinkid=linkid;
+    $rootScope.bodypopup="popup";
      $http.get("/api/collection/user/"+ $scope.userid ).then(function (response) {
         console.log(response.data);
         $scope.allcollections = response.data;
@@ -1325,17 +1326,16 @@ $scope.collectionAddBtnClick = function(linkid){
 }
 $scope.collectionAddBtnCloseClick = function(){
     $scope.collectionaddshow=false;
+    $rootScope.bodypopup="";
 }
 $scope.collectionAddSaveClick = function(collectionid){
-    console.log('run edit save..');
-    $scope.collectionaddshow=false;
     $http.get("/api/link/linktocollection/"+ $scope.collectionaddlinkid +"/"+ collectionid ).then(function (response) {
         if(response.data=="added"){
             //close
             $scope.collectionaddshow=false;
         }
-    }); 
-};    
+    });
+};
 $scope.collectionAddRemoveBtnClick = function(){
     // $http.delete("/api/collection/delete/"+ $scope.collectionedit.collection.id).then(function (response) {
     //     console.log(response.data);

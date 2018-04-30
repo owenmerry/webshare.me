@@ -46,6 +46,8 @@
     ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
     accept="image/*,application/pdf" 
     ngf-pattern="image/*,application/pdf">
+    <div class="content-holder">
+        <div class="overlay" ng-click="linkEditBtnCloseClick()"></div>
         <div class="content">
             <div class="close" ng-click="collectionEditBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
             <div class="delete"><a class="btn btn-primary" ng-click="collectionDeleteBtnClick()">Delete</div></a>
@@ -60,11 +62,14 @@
             </div>
             </div>
         </div>
+        </div>
     </div>
 
 
 
     <div class="collectionadd_all" ng-cloak ng-show="collectionaddshow">
+    <div class="content-holder">
+        <div class="overlay" ng-click="linkEditBtnCloseClick()"></div>
         <div class="content">
             <div class="close" ng-click="collectionAddBtnCloseClick()"><img src="/images/icons/close-black.svg" /></div>
             <div class="center">
@@ -75,6 +80,7 @@
             </div>
             </div>
             </div>
+        </div>
         </div>
     </div>
 
