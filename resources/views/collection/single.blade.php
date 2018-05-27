@@ -2,7 +2,7 @@
 
 
 
-    <div class="collectionsingle_page" >
+    <div class="collectionsingle_page" ng-click="linkDropdownClick(0);">
     
         
         <div class="container">
@@ -20,7 +20,7 @@
                      
                      <!--<a class="back btn" href="#/collection/user/@{{allcollectionlinks.user[0].id}}">Back</a>-->
                      <div class="create-link" ng-hide="!loggedin"><input type="text" id="collectionsingleall_create" class="form-control" placeholder="Paste website link here" ng-model="website" /><a class="btn" ng-click="addlink()">Add Link</a></div>
-                    
+                     <div class="search-link"><input type="text" id="linkall_search" class="form-control" placeholder="Search Collections" ng-model="search" ng-change="searchlinks()" /></div>
                  </div>             
                  
                  
@@ -44,16 +44,10 @@
                  
                 <div class="row">
                     <div class="col-md-4"  ng-repeat="link in allcollectionlinks.links">
-                <div class="link_all">
-                    <div ng-click="linkEditBtnClick(link.id)" ng-hide="!loggedin" class="edit">Edit</div>
-                <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});"></div>
-                    <div class="text">
-                    <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
-                    <h3>@{{link.site.name | strLimit: 20}}</h3>
-                    <h3 class="views">@{{link.visits}} views</h3>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>        
+       
+                    @include('reuse.link')
+
+
                     </div>
                 </div>
 

@@ -4,7 +4,7 @@
     
 
 
-    <div class="title"><h2>@{{user.user.name}}</h2></div>
+    <div class="title"><h2>@{{user.user.name}}this</h2></div>
                 
     <div class="controls">
         <div  ng-class="{'active':tabactive=='links'}"><a class="btn" href="#/user/@{{user.user.id}}/links">Recent Links</a></div>
@@ -21,26 +21,7 @@
 
     <div class="links" ng-show="!loading" >
         <div class="" ng-repeat="link in alllinks.links">
-            <div class="link_all">
-                <div ngf-drop="uploadlink(filelink,link.id)" ng-model="filelink" 
-                ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
-                accept="image/*,application/pdf"
-                ngf-pattern="image/*,application/pdf">
-                <div class="drop"></div>
-                <!--<div ng-click="linkEditBtnClick(link.id)" class="edit">Edit</div>-->
-                <div ng-if="link.privacy.name == 'Private'">
-                    <div class="privacy"><i class="fa fa-lock"></i></div>
-                </div>
-                <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});">
-                </div>
-                <div class="text">
-                <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 37}}</h2>
-                <h3>@{{link.site.name | strLimit: 20}}</h3>
-                <h3 class="views">@{{link.visits}} views</h3>
-                    <div class="clearfix"></div>
-                </div>
-                </div>
-            </div>
+            @include('reuse.link')
         </div>
     </div>
     <div class="noresults" ng-cloak ng-show="!alllinks.links.length"> No Links Found </div>   
@@ -53,24 +34,13 @@
 <!-- collections -->
 <div ng-if="tabactive=='collections'">
 
-<div class="col-md-4" ng-repeat="collection in allcollections.collections">
-            <div class="collection_all" ngf-drop="uploadcollection(filecollection,collection.id)" ng-model="filecollection" 
-    ngf-drag-over-class="dragover" ngf-multiple="true" ngf-allow-dir="true"
-    accept="image/*,application/pdf"
-    ngf-pattern="image/*,application/pdf">
-            <div class="drop"></div>
-            <!--<div ng-click="collectionEditBtnClick(collection.id)" ng-hide="!loggedin" class="edit">Edit</div>-->
-            <a href="#/collection/single/@{{collection.id}}"><div class="image" style="background-image:url(@{{collection.image}});" ></div></a>
-                <div class="text">
-                <a href="#/collection/single/@{{collection.id}}">
-                    <h2>@{{collection.name | strLimit: 37}}</h2>
-                </a>
-                    <div class="clearfix"></div>
-                </div>
+        <div class="collections" ng-show="!loading" >
+            <div ng-repeat="collection in allcollections.collections">
+                @include('reuse.collection')
             </div>
-                </div>
+        </div>
 
-                <div class="noresults" ng-cloak ng-show="!allcollections.collections.length"> No Collections Found </div>    
+        <div class="noresults" ng-cloak ng-show="!allcollections.collections.length"> No Collections Found </div>    
 
 
 </div>

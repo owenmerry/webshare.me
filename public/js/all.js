@@ -1263,6 +1263,9 @@ $scope.signupCreateClick = function(){
                 $rootScope.$broadcast('pageRefresh');
         });
     }
+    $scope.linkDropdownClick = function(linkid){
+        $scope.linkDropdownShow = linkid;
+    }
 
 
 
@@ -1432,7 +1435,7 @@ app.controller('homeController', function($scope, $http, $rootScope) {
 app.controller('linkallController', function($scope, $http, $rootScope, $interval,Upload) {
     
     //variables
-    //$scope.loading = true;
+    $scope.loading = true;
     $scope.createshow=false;
     $rootScope.portal="small";
     $rootScope.portalcolor="-blue";
@@ -1456,10 +1459,6 @@ app.controller('linkallController', function($scope, $http, $rootScope, $interva
                            };
         if(varmode=="hide"){$scope.createshow=false;};
     };
-
-    $scope.linkDropdownClick = function(linkid){
-        $scope.linkDropdownShow = linkid;
-    }
 
      $scope.addlink = function(){
         
@@ -1591,7 +1590,7 @@ app.controller('collectionallController', function($scope, $http, $interval, $ro
     $rootScope.portal="small";
     $rootScope.portalcolor="-green";
     $rootScope.pageopen="mycollections";
-   // $scope.loading=true;
+    $scope.loading=true;
     
     //get data
     $http.get("/api/collection/user/"+ $scope.collectionid ).then(function (response) {
@@ -1640,6 +1639,14 @@ app.controller('collectionallController', function($scope, $http, $interval, $ro
         });   
     }
 
+    //search
+    $scope.searchlinks = function(){
+        $http.post("/api/collection/mycollections",{search:$scope.search}).then(function (response) {
+            $scope.allcollections = response.data;
+            $scope.loading = false;
+        });     
+    }
+
 
     //remote refresh
     $scope.$on('collectionAllRefresh', function(event) {
@@ -1668,7 +1675,7 @@ app.controller('collectionsingleController', function($scope, $rootScope, $http,
     $rootScope.portal="small";
     $rootScope.portalcolor="-red";
     $rootScope.pageopen="mycollections";
-    //$scope.loading=true;
+    $scope.loading=true;
     
     //set up global variables
     $rootScope.$broadcast('collectionsingleEnter',{collectionid:$collectionid});

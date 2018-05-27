@@ -1108,7 +1108,6 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   background-color: white;
   color: black;
-  display: block;
   border-radius: 8px;
   padding: 5px 15px;
   z-index: 2;
@@ -1116,13 +1115,14 @@ body {
 }
 
 .link_all .dropdown {
+  display: none;
   position: absolute;
   top: 40px;
   right: 5px;
+  height: auto;
   text-align: right;
   background-color: white;
   color: black;
-  display: block;
   border-radius: 8px;
   padding: 5px 15px;
 }
@@ -1173,6 +1173,10 @@ body {
 }
 
 .link_all:hover .edit {
+  display: block;
+}
+
+.link_all:hover .dropdown {
   display: block;
 }
 

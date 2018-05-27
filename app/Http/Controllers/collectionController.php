@@ -71,11 +71,22 @@ class collectionController extends Controller
     {
     
     //variables
-    $user_id=Auth::user()->id;    
+    $user_id=Auth::user()->id;   
+    $search = $request['search']; 
         
     //get users collections     
-    $this->vars['collections'] = User::find($user_id)->collection()->orderBy('id','DESC')->get();
+    $collections = User::find($user_id)->collection()->orderBy('id','DESC')->get();
    
+    //filter with search
+    if($search){
+        $search = "%". $request['search'] ."%"; 
+        $links = $collections->where('url','LIKE',$search)
+        ->orwhere('title','LIKE',$search)
+        ->orwhere('description','LIKE',$search);
+    }
+
+    //add to vars
+    $this->vars['collections'] = $collections->get();  
         
     //return back()
     return $this->vars;

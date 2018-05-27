@@ -23,12 +23,13 @@
         background-color:rgba(white,.6);
     } 
     &.dragover{.drop{display:block;}}
+
     .edit{
             display:none;
             position:absolute;top:5px;right:5px;
             font-size:14px;color:white;background-color:rgba(black,.5);
 
-            background-color:rgba(white,1);color:black;display:block;
+            background-color:rgba(white,1);color:black;
 
             @extend %font-bold;
             border-radius:8px;padding:5px 15px;
@@ -36,10 +37,11 @@
             cursor:pointer;
         }
     .dropdown{
+        display:none;
         position:absolute;top:40px;right:5px;
-        
+        height:auto;
         text-align:right;
-        background-color:rgba(white,1);color:black;display:block;
+        background-color:rgba(white,1);color:black;
         border-radius:8px;padding:5px 15px;
     }
     .privacy{
@@ -63,6 +65,7 @@
     &:hover{
        // transform:scale(1.02);
         .edit{display: block;}
+        .dropdown{display: block;}
     }
 
 

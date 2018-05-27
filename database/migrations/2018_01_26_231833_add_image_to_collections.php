@@ -14,7 +14,7 @@ class AddImageToCollections extends Migration
     public function up()
     {
         Schema::table('collections', function (Blueprint $table) {
-            //
+            //add
             $table->string('image')->default("");
         });
     }
@@ -27,7 +27,7 @@ class AddImageToCollections extends Migration
     public function down()
     {
         Schema::table('collections', function (Blueprint $table) {
-            //
+            //remove
             $table->dropColumn('image');
         });
     }
