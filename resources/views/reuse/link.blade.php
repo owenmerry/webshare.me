@@ -4,7 +4,7 @@
     accept="image/*,application/pdf"
     ngf-pattern="image/*,application/pdf">
                 <div class="drop"></div>
-                <div ng-click="linkDropdownClick(link.id);$event.stopPropagation()" class="edit">...</div>
+                <div ng-hide="!isEditable" ng-click="linkDropdownClick(link.id);$event.stopPropagation()" class="edit">...</div>
                 <div ng-if="linkDropdownShow==link.id;" ng-click="linkDropdownClick(link.id);$event.stopPropagation()" class="dropdown">
                     <div class="line"><a ng-click="linkEditBtnClick(link.id);linkDropdownClick('');" >Edit</a></div>
                     <div class="line"><a ng-click="linkDeleteBtnClick(link.id);linkDropdownClick('');" >Delete</a></div>
@@ -16,7 +16,7 @@
                 <div class="image" ng-click="openlink(link.id,link.url)" style="background-image:url(@{{link.image}});">
                 </div>
                 <div class="text">
-                <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 30}}</h2>
+                <h2 ng-click="openlink(link.id,link.url)" >@{{link.title | strLimit: 30}} [@{{isEditable}}]</h2>
                 <h3>@{{link.site.name | strLimit: 20}}</h3>
                 <h3 class="views">@{{link.visits}} views</h3>
                     <div class="clearfix"></div>

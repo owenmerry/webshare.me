@@ -1908,7 +1908,8 @@ app.controller('userController', function($scope, $http, $rootScope, $interval,U
     //$scope.loading = true;
     $scope.tabactive = "links";    
     $scope.userid = $routeParams.ID;  
-    $scope.userpage = $routeParams.Type;  
+    $scope.userpage = $routeParams.Type; 
+    $scope.isEditable = false;  
     $rootScope.portal="small";
     $rootScope.portalcolor="-orange";
     $rootScope.pageopen="user";
@@ -1940,6 +1941,7 @@ app.controller('userController', function($scope, $http, $rootScope, $interval,U
     $http.get("/api/user/show/"+ $scope.userid ).then(function (response) {
         $scope.user = response.data;
         $scope.loading = false;
+        $scope.isEditable = $scope.user.isEditable;
     });
     
     //functions

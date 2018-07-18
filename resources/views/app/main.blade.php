@@ -76,7 +76,7 @@
             <h2>Add to collection</h2>
             <div class="collections" ng-repeat="collection in allcollections.collections">
             <div class="line">
-                <a ng-click="collectionAddSaveClick(collection.id)">@{{collection.name | strLimit: 37}}</a>
+                <a ng-click="collectionAddSaveClick(collection.collection_id)">@{{collection.name | strLimit: 37}} (@{{collection.link_count}})</a>
             </div>
             </div>
             </div>
