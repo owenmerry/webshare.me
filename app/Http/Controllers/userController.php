@@ -120,8 +120,11 @@ class userController extends Controller
         $this->vars['user'] = User::find($userid);   
         
         //iseditable
-        if($user_id==$userid){
-            $this->vars['isEditable'] = true;
+        if (Auth::check())
+        {
+            if($user_id==$userid){
+                $this->vars['isEditable'] = true;
+            }
         }
     
         return $this->vars;
