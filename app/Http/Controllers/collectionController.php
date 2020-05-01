@@ -98,16 +98,17 @@ class collectionController extends Controller
     
     //User Collection
     public function user(Request $request,$userid)
-    {
-    //varibles
-    $user_id=Auth::user()->id;
-        
+    { 
     //get users collections     
     $this->vars['collections'] = User::find($userid)->collection()->orderBy('collections.id','DESC')->withCount('link')->get();
    
     //iseditable
-    if($user_id==$userid){
-        $this->vars['isEditable'] = true;
+    if (Auth::check())
+    {
+        $user_id=Auth::user()->id;
+        if($user_id==$userid){
+            $this->vars['isEditable'] = true;
+        }
     }
         
     //return back()
