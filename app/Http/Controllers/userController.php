@@ -112,16 +112,14 @@ class userController extends Controller
     
     //get user details
     public function show(Request $request,$userid)
-    {
-        //varibles
-        $user_id=Auth::user()->id;
-        
+    {   
         //get user details        
         $this->vars['user'] = User::find($userid);   
         
         //iseditable
         if (Auth::check())
         {
+            $user_id=Auth::user()->id;
             if($user_id==$userid){
                 $this->vars['isEditable'] = true;
             }
