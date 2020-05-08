@@ -173,6 +173,7 @@ class userController extends Controller
     
     //variables
     $this->vars['loggedin'] = false;     
+    $this->vars['sessionID'] = session()->getId();     
         
     //check if logged in    
     if (Auth::check())
