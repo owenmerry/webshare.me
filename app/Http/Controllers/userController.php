@@ -107,7 +107,7 @@ class userController extends Controller
             $this->vars['user']['loggedin'] = false;
         }
 
-        return $this->var;
+        return $this->vars;
         
     }   
     
