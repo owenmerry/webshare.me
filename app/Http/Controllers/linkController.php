@@ -96,8 +96,11 @@ class linkController extends Controller
         }
         
         
-        //return back()
-        return "added";
+        //return data    
+        $this->vars['added'] = true;             
+            
+        //return
+        return $this->vars;
         
         //return $getwebdata;
         
@@ -179,10 +182,11 @@ class linkController extends Controller
         
      
             
+        //return data    
+        $this->vars['added'] = true;             
             
-        
-        
-        return "added";
+        //return
+        return $this->vars;
                 
         
     }
@@ -320,8 +324,11 @@ class linkController extends Controller
     $collection = Collection::find($collectionid);
     $collection->link()->attach($linkid);
 
+    //return data    
+    $this->vars['added'] = true;             
+        
     //return
-    return "added";
+    return $this->vars;
         
         
     }
@@ -343,8 +350,11 @@ class linkController extends Controller
     $link->save();   
         
         
+    //return data    
+    $this->vars['updated'] = true;             
+    
     //return
-    return "updated";
+    return $this->vars;
         
         
     }
@@ -360,8 +370,12 @@ class linkController extends Controller
     $links->save();   
         
         
+    //return data    
+    $this->vars['added'] = true;             
+    $this->vars['visits'] = $links->visits +1;             
+        
     //return
-    return "updated";
+    return $this->vars;
         
         
     }
@@ -472,8 +486,11 @@ class linkController extends Controller
         $link = Link::find($linkid); 
         $link->delete();   
             
+        //return data    
+        $this->vars['deleted'] = true;                      
+            
         //return
-        return "deleted";
+        return $this->vars;
             
             
         }
@@ -500,15 +517,21 @@ class linkController extends Controller
                 $link->save();   
                     
                     
-                //return
-                return "updated";
+                //return data    
+                $this->vars['added'] = true;    
 
             }
-            //return
-            return "not valid";
+
+            //return data    
+            $this->vars['added'] = false;   
         }
+        else {
+            //return data    
+            $this->vars['added'] = false;   
+        }                  
+            
         //return
-        return "none";
+        return $this->vars;
     }
     
     

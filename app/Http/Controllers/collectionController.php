@@ -36,8 +36,10 @@ class collectionController extends Controller
         $collection_create->user()->attach($user_id);
         
         
-        //return back()
-        return "added";
+        $this->vars['added'] = true;             
+        
+        //return
+        return $this->vars;
         
         
         
@@ -156,8 +158,11 @@ class collectionController extends Controller
     $collection->save();   
         
         
+    //return data
+    $this->vars['updated'] = true;             
+        
     //return
-    return "updated";
+    return $this->vars;
         
         
     }
@@ -172,9 +177,12 @@ class collectionController extends Controller
        //get collection and delete
        $collection = Collection::find($collectionid); 
        $collection->delete();   
-           
+        
+       //return data
+       $this->vars['deleted'] = true;             
+        
        //return
-       return "deleted";
+       return $this->vars;
               
        }
     
@@ -189,8 +197,11 @@ class collectionController extends Controller
        $collection = Collection::find($collectionid);
        $collection->link()->detach($linkid);
     
+       //return data
+       $this->vars['deleted'] = true;             
+        
        //return
-       return "deleted";    
+       return $this->vars;  
            
        }
     
@@ -214,15 +225,20 @@ class collectionController extends Controller
                 $link->save();   
                     
                     
-                //return
-                return "updated";
+                //return data
+                $this->vars['uploaded'] = true;             
 
             }
-            //return
-            return "not valid";
+            //return data
+            $this->vars['uploaded'] = false;
+        } else {
+              
+            //return data
+            $this->vars['uploaded'] = false;
         }
+
         //return
-        return "none";
+        return $this->vars;
     }
     
     

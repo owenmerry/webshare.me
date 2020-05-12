@@ -74,7 +74,7 @@ class userController extends Controller
             if ($request->file('photo')[0]->isValid()) {
                 Auth::loginUsingId(1, true);
                 $this->vars['user']['id'] = Auth::user()->id; 
-                $this->vars['user']['loggedin'] = 'ok'; 
+                $this->vars['user']['loggedin'] = true; 
         }}
 
         //check users image name
@@ -102,10 +102,12 @@ class userController extends Controller
         
         //LoginUser
         if(Auth::attempt($request->only(['email','password']),$remember)){
-            return "ok";  
+            $this->vars['user']['loggedin'] = true;
         }else{
-            return "error";
+            $this->vars['user']['loggedin'] = false;
         }
+
+        return $this->var;
         
     }   
     
