@@ -401,13 +401,15 @@ class linkController extends Controller
     //Links for logged in user
     public function mylinks(Request $request)
     {
-        
+
     //variables
+    if (Auth::check())
+    {
      $user_id=Auth::user()->id;
      $search = $request['search'];
         
     //get user links
-    $links = Link::where('user_id',$user_id)->with('site')->with('privacy')->orderBy('id','DESC'); 
+    $links = Link::where('user_id',$user_id)->with('site')->with('privacy'); 
         
 
     //filter with search
@@ -424,6 +426,7 @@ class linkController extends Controller
         
     //return
     return $this->vars;
+    }
 
 
         

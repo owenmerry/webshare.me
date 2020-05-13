@@ -77,7 +77,7 @@ class collectionController extends Controller
     $search = $request['search']; 
         
     //get users collections     
-    $collections = User::find($user_id)->collection()->orderBy('id','DESC')->get();
+    $collections = User::find($user_id)->collection()->orderBy('id','DESC');
    
     //filter with search
     if($search){

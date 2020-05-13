@@ -126,6 +126,7 @@ Route::get('/api/link/linktocollection/{link_id}/{collection_id}', ['as' => 'api
 Route::post('/api/collection/add', ['as' => 'api.collection.add', 'uses' => 'collectionController@create']);
 Route::get('/api/collection/all', ['as' => 'api.collection.all', 'uses' => 'collectionController@all']);
 Route::get('/api/collection/mycollections', ['as' => 'api.collection.mycollections', 'uses' => 'collectionController@mycollections']);
+Route::post('/api/collection/mycollections', ['as' => 'api.collection.mycollections.post', 'uses' => 'collectionController@mycollections']);
 Route::get('/api/collection/user/{user_id}', ['as' => 'api.collection.user', 'uses' => 'collectionController@user']);
 Route::get('/api/collection/getcollection/{collection_id}', ['as' => 'api.collection.getcollection', 'uses' => 'collectionController@getcollection']);
 Route::post('/api/collection/update', ['as' => 'api.collection.update', 'uses' => 'collectionController@update']);
