@@ -23,16 +23,18 @@ class linkController extends Controller
     public function create(Request $request)
     {
     
-      
         
         //variables
         $url=$request['website'];
-        //$url="http://www.webydo.com/";
         $user_id=Auth::user()->id;
-        //$user_id=1;
         $title="";
         $description="";
         $image="";
+
+
+        //test data
+        //$url="https://www.rte.ie/news/2020/0516/1138765-italy-coronavirus/";
+        //$user_id=3;
         
         //validate
         /*$this->validate($request, [
@@ -44,9 +46,9 @@ class linkController extends Controller
         //get website data
         $getwebdata = Website::getWebsiteData($url); 
         
-        $title=$getwebdata['title'];
-        $description=$getwebdata['description'];
-        $image=$getwebdata['image'];
+        $title = substr($getwebdata['showtitle'], 0, 240);
+        $description=substr($getwebdata['showdescription'], 0, 240);
+        $image=substr($getwebdata['showimage'], 0, 240);
         $domain=$getwebdata['domain'];
         
         
@@ -73,10 +75,23 @@ class linkController extends Controller
             'description' => $description,
             'image' => $image,
         ];
+        $input_check = 
+        array(
+            'url' => $url,
+            'user_id' => $user_id,
+        );
         
         //create
-        $link_create = Link::create($input); 
-        $link_info='Link added';
+        $link_check = Link::where(['url' => $url,'user_id' => $user_id, ])->first();
+        $exists = $link_check !== null;
+        if(!$exists){
+            $link_create = Link::create($input); 
+            $this->vars['status'] = 'created';
+        } else {
+            $link_create = $link_check;
+            $this->vars['status'] = 'existed';
+        }
+        $this->vars['link'] = $link_create;
         
         
         /*
@@ -106,8 +121,6 @@ class linkController extends Controller
         
         
     }
-    
-    
     
     
     
@@ -203,9 +216,10 @@ class linkController extends Controller
         
         
         // seperate list
-        $linklist_data  = "http://flatuicolors.com/";
+        //$linklist_data  = "http://flatuicolors.com/";
         //$linklist_data  = "https://www.templatemonster.com/wordpress-themes.php";
-        $linklist_data  = "https://themeforest.net/tags/monster";
+        //$linklist_data  = "https://themeforest.net/tags/monster";
+        $linklist_data  = $request['website'];
         $linklist_ary = explode(",", $linklist_data);
         
         
@@ -228,20 +242,29 @@ class linkController extends Controller
         
         //get website data
         $getwebdata = Website::getWebsiteData($url); 
+
+        return $getwebdata;
         
         //set variables
         //$title=substr($getwebdata['title'], 0, 250);
         $description=substr($getwebdata['description'], 0, 250);
         $image=$getwebdata['image'];
+        $images=$getwebdata['images'];
         $domain=$getwebdata['domain'];
         
             
         echo "<div>title:". $getwebdata['title'] ."</div>";
         //echo "<div>". $title ."</div>";
-        echo "<div>". $description ."</div>";
-        echo "<div>". $image ."</div>";
-        echo "<div>". $domain ."</div>";
-        echo "<div><img src='". $image ."' /></div>";
+        echo "<div>decription:". $description ."</div>";
+        echo "<div>domain:". $domain ."</div>";
+        echo "<div>image:<img width='100px' src='". $image ."' /></div>";
+
+        foreach ($images as $item) {
+            echo "<div>image:<img  width='100px' src='". $item ."' /></div>";
+        }
+        echo "<div>ImageRaw:". $image ."</div>";
+        echo "<div>ImagesRaw:". implode (", ", $images) ."</div>";
+        //echo "<div>WebsiteDataRaw:". print_r($getwebdata) ."</div>";
             
 
         }
