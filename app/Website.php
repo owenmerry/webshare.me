@@ -16,6 +16,9 @@ public static function file_get_contents_curl($url)
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_ENCODING, '');
 
+    curl_setopt($ch, CURLOPT_HTTPHEADER, Array("User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.15) Gecko/20080623 Firefox/2.0.0.15") ); 
+    curl_setopt($ch, CURLOPT_NOBODY, false);
+
     $data = curl_exec($ch);
     curl_close($ch);
 
@@ -180,6 +183,7 @@ for ($i = 0; $i < $image_list->length; $i++)
             'showdescription' => isBlank($ogdescription) ?? $metadescription,
             'showimage' => isBlank($ogimage) ?? $image,
             'domain'=>$website_domain,
+            'html'=> htmlspecialchars($html),
                 ];
             
     return $data;
