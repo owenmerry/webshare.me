@@ -245,27 +245,6 @@ class linkController extends Controller
         $getwebdata = Website::getWebsiteData($url); 
 
         return $getwebdata;
-        
-        //set variables
-        //$title=substr($getwebdata['title'], 0, 250);
-        $description=substr($getwebdata['description'], 0, 250);
-        $image=$getwebdata['image'];
-        $images=$getwebdata['images'];
-        $domain=$getwebdata['domain'];
-        
-            
-        echo "<div>title:". $getwebdata['title'] ."</div>";
-        //echo "<div>". $title ."</div>";
-        echo "<div>decription:". $description ."</div>";
-        echo "<div>domain:". $domain ."</div>";
-        echo "<div>image:<img width='100px' src='". $image ."' /></div>";
-
-        foreach ($images as $item) {
-            echo "<div>image:<img  width='100px' src='". $item ."' /></div>";
-        }
-        echo "<div>ImageRaw:". $image ."</div>";
-        echo "<div>ImagesRaw:". implode (", ", $images) ."</div>";
-        //echo "<div>WebsiteDataRaw:". print_r($getwebdata) ."</div>";
             
 
         }
@@ -405,6 +384,35 @@ class linkController extends Controller
         
         
     }
+
+        //Link Update
+        public function refresh(Request $request, $linkid)
+        {
+
+        //get website data
+        $link = Link::find($linkid);
+        $getwebdata = Website::getWebsiteData($link->url); 
+        
+        $title = substr($getwebdata['showtitle'], 0, 240);
+        $description=substr($getwebdata['showdescription'], 0, 240);
+        $image=substr($getwebdata['showimage'], 0, 240);
+        $domain=$getwebdata['domain'];
+            
+        //get link and update visit
+        $link->title = $title;   
+        $link->description = $description;   
+        $link->image = $image;  
+        $link->save();   
+            
+            
+        //return data    
+        $this->vars['updated'] = true;             
+        
+        //return
+        return $this->vars;
+            
+            
+        }
         
     
     //Links add a view

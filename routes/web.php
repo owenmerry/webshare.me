@@ -113,6 +113,7 @@ Route::get('/api/link/getdata', ['as' => 'api.link.getdata', 'uses' => 'linkCont
 Route::get('/api/link/all', ['as' => 'api.link.all', 'uses' => 'linkController@all']);
 Route::get('/api/link/getlink/{link_id}', ['as' => 'api.link.getlink', 'uses' => 'linkController@getlink']);
 Route::post('/api/link/update', ['as' => 'api.link.update', 'uses' => 'linkController@update']);
+Route::get('/api/link/refresh/{link_id}', ['as' => 'api.link.refresh', 'uses' => 'linkController@refresh']);
 Route::get('/api/link/mylinks', ['as' => 'api.link.mylinks', 'uses' => 'linkController@mylinks']);
 Route::post('/api/link/mylinks', ['as' => 'api.link.mylinks.post', 'uses' => 'linkController@mylinks']);
 Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection', 'uses' => 'linkController@collection']); 
