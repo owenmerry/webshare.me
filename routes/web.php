@@ -116,6 +116,7 @@ Route::post('/api/link/update', ['as' => 'api.link.update', 'uses' => 'linkContr
 Route::get('/api/link/mylinks', ['as' => 'api.link.mylinks', 'uses' => 'linkController@mylinks']);
 Route::post('/api/link/mylinks', ['as' => 'api.link.mylinks.post', 'uses' => 'linkController@mylinks']);
 Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection', 'uses' => 'linkController@collection']); 
+Route::get('/api/link/collectionbyhash/{collection_id}', ['as' => 'api.link.collectionbyhash', 'uses' => 'linkController@collectionbyhash']); 
 Route::get('/api/link/visit/{link_id}', ['as' => 'api.link.visit', 'uses' => 'linkController@visit']); 
 Route::get('/api/link/user/{user_id}', ['as' => 'api.link.user', 'uses' => 'linkController@user']); 
 Route::post('/api/link/search', ['as' => 'api.link.search', 'uses' => 'linkController@search']); 
@@ -129,6 +130,7 @@ Route::get('/api/collection/mycollections', ['as' => 'api.collection.mycollectio
 Route::post('/api/collection/mycollections', ['as' => 'api.collection.mycollections.post', 'uses' => 'collectionController@mycollections']);
 Route::get('/api/collection/user/{user_id}', ['as' => 'api.collection.user', 'uses' => 'collectionController@user']);
 Route::get('/api/collection/getcollection/{collection_id}', ['as' => 'api.collection.getcollection', 'uses' => 'collectionController@getcollection']);
+Route::get('/api/collection/getcollectionbyhash/{collection_id}', ['as' => 'api.collection.getcollectionbyhash', 'uses' => 'collectionController@getcollectionbyhash']);
 Route::post('/api/collection/update', ['as' => 'api.collection.update', 'uses' => 'collectionController@update']);
 Route::delete('/api/collection/delete/{collection_id}', ['as' => 'api.collection.delete', 'uses' => 'collectionController@delete']);
 Route::delete('/api/collection/delete/{collection_id}/{link_id}', ['as' => 'api.collection.deletelinkcollection', 'uses' => 'collectionController@deletelinkcollection']);
@@ -136,7 +138,7 @@ Route::post('/api/collection/upload', ['as' => 'api.collection.upload', 'uses' =
 //user
 Route::get('/api/user/show/{user_id}', ['as' => 'api.user.show', 'uses' => 'userController@show']);
 Route::post('/api/user/login', ['as' => 'api.user.login', 'uses' => 'userController@login']);
-Route::post('/api/user/loginupload', ['as' => 'api.user.loginupload', 'uses' => 'userController@loginupload']);
+//Route::post('/api/user/loginupload', ['as' => 'api.user.loginupload', 'uses' => 'userController@loginupload']);
 Route::post('/api/user/signup', ['as' => 'api.user.signup', 'uses' => 'userController@signup']);
 Route::get('/api/user/all', ['as' => 'api.user.all', 'uses' => 'userController@all']);
 Route::get('/api/user/loggedin', ['as' => 'api.user.loggedin', 'uses' => 'userController@loggedin']);

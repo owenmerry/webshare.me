@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Storage;
 use Auth;
 use App\Collection;
 use App\User;
+use App\HashUrl;
+
+use Hash;
+use Crypt;
 
 class collectionController extends Controller
 {
@@ -132,6 +136,25 @@ class collectionController extends Controller
     //get all
     $collections = Collection::find($collectionid);    
     $this->vars['collection'] = $collections;  
+
+   
+        
+    //return
+    return $this->vars;  
+        
+        
+    }
+
+
+    //View Single Collection by hash
+    public function getcollectionbyhash(Request $request, $collectionid)
+    {
+        //decode
+        $decodedId = HashUrl::decode($collectionid);
+
+        //get all
+        $collections = Collection::find($decodedId);    
+        $this->vars['collection'] = $collections;  
 
    
         

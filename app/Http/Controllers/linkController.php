@@ -11,6 +11,7 @@ use App\Link;
 use App\Website;
 use App\Site;
 use App\Collection;
+use App\HashUrl;
 
 class linkController extends Controller
 {
@@ -327,6 +328,29 @@ class linkController extends Controller
         
     //get collection data    
     $collection = Collection::find($collectionid);
+    $this->vars['collection'] = $collection;
+
+    //get user data    
+    $this->vars['user'] = $collection->user;
+
+    //return
+    return $this->vars;
+        
+        
+    }
+
+
+    //Collection Links
+    public function collectionbyhash(Request $request, $collectionid)
+    {
+    $decodedId = HashUrl::decode($collectionid);
+        
+    //get collection links
+    $links = Collection::find($decodedId)->link()->with('site')->orderBy('id','DESC')->get();
+    $this->vars['links'] = $links;
+        
+    //get collection data    
+    $collection = Collection::find($decodedId);
     $this->vars['collection'] = $collection;
 
     //get user data    
