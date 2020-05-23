@@ -117,7 +117,7 @@ Route::get('/api/link/refresh/{link_id}', ['as' => 'api.link.refresh', 'uses' =>
 Route::get('/api/link/mylinks', ['as' => 'api.link.mylinks', 'uses' => 'linkController@mylinks']);
 Route::post('/api/link/mylinks', ['as' => 'api.link.mylinks.post', 'uses' => 'linkController@mylinks']);
 Route::get('/api/link/collection/{collection_id}', ['as' => 'api.link.collection', 'uses' => 'linkController@collection']); 
-Route::get('/api/link/collectionbyhash/{collection_id}', ['as' => 'api.link.collectionbyhash', 'uses' => 'linkController@collectionbyhash']); 
+Route::post('/api/link/collectionbyhash', ['as' => 'api.link.collectionbyhash', 'uses' => 'linkController@collectionbyhash']); 
 Route::get('/api/link/visit/{link_id}', ['as' => 'api.link.visit', 'uses' => 'linkController@visit']); 
 Route::get('/api/link/user/{user_id}', ['as' => 'api.link.user', 'uses' => 'linkController@user']); 
 Route::post('/api/link/search', ['as' => 'api.link.search', 'uses' => 'linkController@search']); 

@@ -320,9 +320,9 @@ class linkController extends Controller
 
 
     //Collection Links
-    public function collectionbyhash(Request $request, $collectionid)
+    public function collectionbyhash(Request $request)
     {
-    $decodedId = HashUrl::decode($collectionid);
+    $decodedId = HashUrl::decode($request['collectionid']);
         
     //get collection links
     $links = Collection::find($decodedId)->link()->with('site')->orderBy('id','DESC')->get();
@@ -334,6 +334,15 @@ class linkController extends Controller
 
     //get user data    
     $this->vars['user'] = $collection->user;
+
+    //editable
+    if (Auth::check())
+    {
+        $user_id=Auth::user()->id;
+        if($user_id==$collection->user[0]->id){
+            $this->vars['isEditable'] = true;
+        }
+    }
 
     //return
     return $this->vars;
