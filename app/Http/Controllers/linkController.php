@@ -381,6 +381,7 @@ class linkController extends Controller
     $link->title = $request['title'];   
     $link->description = $request['description'];   
     $link->url = $request['url'];   
+    $link->image = $request['image'];   
     $link->privacy_id = $request['privacy'];   
     $link->save();   
         
