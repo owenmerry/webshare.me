@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use Google_Client;
 
 
 use App\User;
@@ -42,6 +43,36 @@ class userController extends Controller
     
     
     
+    //Login
+    public function loginGoogle(Request $request)
+    {
+        //varibles
+        $remember = true;
+        $token = $request['token'];
+        $CLIENT_ID = '996626440039-7ranq95afc7hdb3bfgir5g2da8i0mb4e.apps.googleusercontent.com';
+
+        // check token
+        $client = new Google_Client(['client_id' => $CLIENT_ID]);
+        $payload = $client->verifyIdToken($token);
+        if ($payload) {
+            $email = $payload['email'];
+            $user = User::where('name',$email)->first();
+            Auth::loginUsingId($user->id, $remember);
+            $this->vars['status'] = 'success';
+            $this->vars['user']['id'] = Auth::user()->id; 
+            $this->vars['user']['loggedin'] = true; 
+            $this->vars['data']['google'] = $payload; 
+        } else {
+            // Invalid ID token
+            $this->vars['status'] = 'error'; 
+            $this->vars['user']['loggedin'] = 'error'; 
+        }
+
+        //return data
+        return $this->vars;    
+    
+    }
+
     //Login
     public function login(Request $request)
     {
@@ -142,7 +173,7 @@ class userController extends Controller
         
         //get user details        
         $this->vars['users'] = User::where('name','LIKE',$search)->get();    
-    
+
         return $this->vars;
         
     }

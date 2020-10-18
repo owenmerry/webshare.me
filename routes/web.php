@@ -139,6 +139,8 @@ Route::post('/api/collection/upload', ['as' => 'api.collection.upload', 'uses' =
 //user
 Route::get('/api/user/show/{user_id}', ['as' => 'api.user.show', 'uses' => 'userController@show']);
 Route::post('/api/user/login', ['as' => 'api.user.login', 'uses' => 'userController@login']);
+Route::post('/api/user/login/google', ['as' => 'api.user.login.google', 'uses' => 'userController@loginGoogle']);
+Route::get('/api/user/login/google', ['as' => 'api.user.login.google', 'uses' => 'userController@loginGoogle']);
 //Route::post('/api/user/loginupload', ['as' => 'api.user.loginupload', 'uses' => 'userController@loginupload']);
 Route::post('/api/user/signup', ['as' => 'api.user.signup', 'uses' => 'userController@signup']);
 Route::get('/api/user/all', ['as' => 'api.user.all', 'uses' => 'userController@all']);

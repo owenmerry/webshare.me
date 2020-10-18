@@ -16,7 +16,7 @@ public static function file_get_contents_curl($url)
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_ENCODING, '');
 
-    curl_setopt($ch, CURLOPT_HTTPHEADER, Array("User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.15) Gecko/20080623 Firefox/2.0.0.15") ); 
+    curl_setopt($ch, CURLOPT_HTTPHEADER, Array("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36") ); 
     curl_setopt($ch, CURLOPT_NOBODY, false);
 
     $data = curl_exec($ch);
