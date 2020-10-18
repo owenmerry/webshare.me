@@ -47,6 +47,7 @@ class userController extends Controller
     public function loginGoogle(Request $request)
     {
         //varibles
+        $this->vars = [];
         $remember = true;
         $token = $request['token'];
         $CLIENT_ID = '996626440039-7ranq95afc7hdb3bfgir5g2da8i0mb4e.apps.googleusercontent.com';
@@ -56,12 +57,20 @@ class userController extends Controller
         $payload = $client->verifyIdToken($token);
         if ($payload) {
             $email = $payload['email'];
-            $user = User::where('name',$email)->first();
-            Auth::loginUsingId($user->id, $remember);
+            $user = User::where('email',$email)->first();
+            if($user){
+                Auth::loginUsingId($user['id'], $remember);
+            } else {
+                $user = User::create([
+                    'name'  => $payload['name'],  
+                    'email' => $payload['email'],  
+                    'password' => bcrypt($payload['jti'] . 'webshare-pass-safe'),  
+                    ]);
+                Auth::loginUsingId($user['id'], $remember);
+            }
             $this->vars['status'] = 'success';
             $this->vars['user']['id'] = Auth::user()->id; 
             $this->vars['user']['loggedin'] = true; 
-            $this->vars['data']['google'] = $payload; 
         } else {
             // Invalid ID token
             $this->vars['status'] = 'error'; 
