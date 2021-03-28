@@ -332,6 +332,10 @@ class linkController extends Controller
     $collection = Collection::find($decodedId);
     $this->vars['collection'] = $collection;
 
+    // get linked collections
+    $collections = Collection::where('parent_id', '=', $decodedId)->get();
+    $this->vars['collections'] = $collections;
+
     //get user data    
     $this->vars['user'] = $collection->user;
 

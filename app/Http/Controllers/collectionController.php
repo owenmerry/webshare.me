@@ -99,6 +99,27 @@ class collectionController extends Controller
 
         
     }
+
+    //View My Collections
+    public function mycollectionsByParentId(Request $request, $parentId)
+    {
+    
+    //variables
+    $user_id=Auth::user()->id;
+
+    //get users collections     
+    $collections = User::find($user_id)
+        ->collection()->where('parent_id', '=', $parentId)
+        ->orderBy('id','DESC');
+
+    //add to vars
+    $this->vars['collections'] = $collections->get();  
+        
+    //return back()
+    return $this->vars;
+
+        
+    }
     
     
     
@@ -152,15 +173,19 @@ class collectionController extends Controller
         //decode
         $decodedId = HashUrl::decode($collectionid);
 
-        //get all
-        $collections = Collection::find($decodedId);    
-        $this->vars['collection'] = $collections;  
+        //get all links
+        $links = Collection::find($decodedId);    
+        $this->vars['collection'] = $links;  
 
-   
-        
-    //return
-    return $this->vars;  
-        
+        // get collections
+        $user_id=Auth::user()->id; 
+        $collections = User::find($user_id)
+            ->collection()->where('parent_id', '=', $decodedId)
+            ->orderBy('id','DESC');
+        $this->vars['collections'] = $collections;
+
+        //return
+        return $this->vars;      
         
     }
 
@@ -286,11 +311,25 @@ class collectionController extends Controller
     //return back()
     return $this->vars;
         
-        
-        
-        
-        
     } 
+
+
+    //Collection move
+    public function move(Request $request, $collectionid, $parentid)
+    {
+    
+        //get collection and update parent id
+        $collection = Collection::find($collectionid);
+        $collection->parent_id = $parentid;     
+        $collection->save();   
+            
+        //return data
+        $this->vars['updated'] = true;             
+            
+        //return
+        return $this->vars;
+        
+    }
     
     
     
