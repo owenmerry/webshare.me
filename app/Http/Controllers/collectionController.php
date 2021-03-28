@@ -79,9 +79,17 @@ class collectionController extends Controller
     //variables
     $user_id=Auth::user()->id;   
     $search = $request['search']; 
+    $top = $request['top'] === 'true'; 
         
-    //get users collections     
-    $collections = User::find($user_id)->collection()->orderBy('id','DESC');
+    //get users collections 
+    if($top){
+        $collections = User::find($user_id)
+            ->collection()
+            ->whereNull('parent_id')
+            ->orderBy('id','DESC');
+    }else{
+        $collections = User::find($user_id)->collection()->orderBy('id','DESC');
+    } 
    
     //filter with search
     if($search){
