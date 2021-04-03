@@ -186,9 +186,15 @@ class Website
             'metakeywords' => $metakeywords,
             'image' => $image,
             'image_many' => $images,
-            'showtitle' => isBlank($ogtitle) ?? isBlank($title) ?? $h1,
-            'showdescription' => isBlank($ogdescription) ?? $metadescription,
-            'showimage' => isBlank($extraData['largestImage']) ?? isBlank($ogimage) ?? $image,
+            'showtitle' => isBlank($ogtitle)
+                ?? isBlank($title)
+                ?? $h1,
+            'showdescription' => isBlank($ogdescription)
+                ?? $metadescription,
+            'showimage' => isBlank($extraData['largestImage'])
+                ?? isBlank($ogimage)
+                ?? isBlank(isset($images[0]) ? $images[0] : '')
+                ?? $image,
             'domain' => $website_domain,
             'extraData' => $extraData,
             'html' => htmlspecialchars($html),
